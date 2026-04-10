@@ -3,7 +3,7 @@ Contributors: slbarriosdev
 Donate link: https://github.com/slbarriosdev/wc-shipment-tracker
 Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.1.0
 License: GPLv2 or later
