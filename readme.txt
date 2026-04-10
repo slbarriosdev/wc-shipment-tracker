@@ -1,7 +1,7 @@
-=== Trackora - WooCommerce Shipment Tracker ===
+=== Trackora - Shipment Tracker for WooCommerce ===
 Contributors: slbarriosdev
 Donate link: https://github.com/slbarriosdev/wc-shipment-tracker
-Tags: woocommerce tracking, shipment tracking, order tracking, shipping tracker, tracking number
+Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -9,7 +9,7 @@ Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add shipment tracking numbers to WooCommerce orders. Supports 60+ carriers worldwide. Tracking info shown in emails, My Account, and the order admin panel.
+Add tracking numbers to WooCommerce orders. Supports 60+ carriers worldwide. Shown in emails, My Account, and admin panel.
 
 == Description ==
 
