@@ -1,5 +1,6 @@
 === WC Shipment Tracker ===
 Contributors: slbarriosdev
+Donate link: https://github.com/slbarriosdev/wc-shipment-tracker
 Tags: woocommerce tracking, shipment tracking, order tracking, shipping tracker, tracking number
 Requires at least: 6.4
 Tested up to: 6.7
@@ -96,6 +97,12 @@ Extend the carrier list with the `wcst_get_providers` filter:
     $providers['My Region']['My Carrier'] = 'https://mycarrier.com/track?id=%1$s';
     return $providers;
 } );`
+
+= Source Code =
+
+The source code is publicly available on GitHub: [https://github.com/slbarriosdev/wc-shipment-tracker](https://github.com/slbarriosdev/wc-shipment-tracker)
+
+Bug reports and contributions are welcome.
 
 = External Services =
 
