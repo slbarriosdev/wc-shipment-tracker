@@ -1,0 +1,151 @@
+# Translation for WC Shipment Tracker
+# Language: German (Germany)
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German (Germany)\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+
+msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
+msgstr "WC Shipment Tracker erfordert, dass WooCommerce installiert und aktiv ist."
+
+msgid "Shipment Tracking"
+msgstr "Sendungsverfolgung"
+
+msgid "Add Tracking Number"
+msgstr "Sendungsnummer hinzufügen"
+
+msgid "Provider:"
+msgstr "Versanddienstleister:"
+
+msgid "Custom Provider"
+msgstr "Benutzerdefinierter Versanddienstleister"
+
+msgid "Provider Name:"
+msgstr "Name des Versanddienstleisters:"
+
+msgid "Tracking Number:"
+msgstr "Sendungsnummer:"
+
+msgid "Tracking Link:"
+msgstr "Tracking-Link:"
+
+msgid "Date Shipped:"
+msgstr "Versanddatum:"
+
+msgid "Preview:"
+msgstr "Vorschau:"
+
+msgid "Click here to track your shipment"
+msgstr "Hier klicken, um Ihre Sendung zu verfolgen"
+
+msgid "Save Tracking"
+msgstr "Tracking speichern"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Are you sure you want to delete this tracking number?"
+msgstr "Sind Sie sicher, dass Sie diese Sendungsnummer löschen möchten?"
+
+msgid "An error occurred. Please try again."
+msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+
+msgid "Please enter a tracking number."
+msgstr "Bitte geben Sie eine Sendungsnummer ein."
+
+msgid "Search provider…"
+msgstr "Versanddienstleister suchen…"
+
+msgid "Edit Tracking"
+msgstr "Tracking bearbeiten"
+
+msgid "Shipped on %s"
+msgstr "Versendet am %s"
+
+msgid "No shipping date"
+msgstr "Kein Versanddatum"
+
+msgid "Track"
+msgstr "Verfolgen"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Tracking number is required."
+msgstr "Die Sendungsnummer ist erforderlich."
+
+msgid "Could not update tracking item."
+msgstr "Das Tracking konnte nicht aktualisiert werden."
+
+msgid "Could not delete tracking item."
+msgstr "Das Tracking konnte nicht gelöscht werden."
+
+msgid "Sorry, you cannot list resources."
+msgstr "Sie haben keine Berechtigung, Ressourcen aufzulisten."
+
+msgid "Sorry, you are not allowed to create resources."
+msgstr "Sie haben keine Berechtigung, Ressourcen zu erstellen."
+
+msgid "Sorry, you cannot view this resource."
+msgstr "Sie haben keine Berechtigung, diese Ressource anzuzeigen."
+
+msgid "Sorry, you are not allowed to delete this resource."
+msgstr "Sie haben keine Berechtigung, diese Ressource zu löschen."
+
+msgid "Invalid order ID."
+msgstr "Ungültige Bestell-ID."
+
+msgid "Invalid tracking ID."
+msgstr "Ungültige Tracking-ID."
+
+msgid "Cannot create existing tracking item."
+msgstr "Ein bereits vorhandenes Tracking kann nicht erstellt werden."
+
+msgid "The tracking item cannot be deleted."
+msgstr "Das Tracking kann nicht gelöscht werden."
+
+msgid "Unique identifier for the tracking item."
+msgstr "Eindeutige Kennung des Trackings."
+
+msgid "Tracking provider name."
+msgstr "Name des Versanddienstleisters."
+
+msgid "Custom provider name."
+msgstr "Name des benutzerdefinierten Versanddienstleisters."
+
+msgid "Custom tracking URL."
+msgstr "Benutzerdefinierte Tracking-URL."
+
+msgid "Tracking number."
+msgstr "Sendungsnummer."
+
+msgid "Shipped date (Y-m-d)."
+msgstr "Versanddatum (J-M-T)."
+
+msgid "Tracking Information"
+msgstr "Tracking-Informationen"
+
+msgid "Provider"
+msgstr "Versanddienstleister"
+
+msgid "Tracking Number"
+msgstr "Sendungsnummer"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "TRACKING INFORMATION"
+msgstr "TRACKING-INFORMATIONEN"

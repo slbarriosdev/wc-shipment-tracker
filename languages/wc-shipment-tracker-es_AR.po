@@ -1,0 +1,151 @@
+# Translation for WC Shipment Tracker
+# Language: Spanish (Argentina)
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish (Argentina)\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+
+msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
+msgstr "WC Shipment Tracker requiere que WooCommerce esté instalado y activo."
+
+msgid "Shipment Tracking"
+msgstr "Seguimiento de envío"
+
+msgid "Add Tracking Number"
+msgstr "Agregar número de seguimiento"
+
+msgid "Provider:"
+msgstr "Correo/Courier:"
+
+msgid "Custom Provider"
+msgstr "Courier personalizado"
+
+msgid "Provider Name:"
+msgstr "Nombre del courier:"
+
+msgid "Tracking Number:"
+msgstr "Número de seguimiento:"
+
+msgid "Tracking Link:"
+msgstr "Enlace de seguimiento:"
+
+msgid "Date Shipped:"
+msgstr "Fecha de despacho:"
+
+msgid "Preview:"
+msgstr "Vista previa:"
+
+msgid "Click here to track your shipment"
+msgstr "Hacé clic acá para rastrear tu envío"
+
+msgid "Save Tracking"
+msgstr "Guardar seguimiento"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Are you sure you want to delete this tracking number?"
+msgstr "¿Estás seguro de que querés eliminar este número de seguimiento?"
+
+msgid "An error occurred. Please try again."
+msgstr "Ocurrió un error. Por favor, intentá de nuevo."
+
+msgid "Please enter a tracking number."
+msgstr "Por favor, ingresá un número de seguimiento."
+
+msgid "Search provider…"
+msgstr "Buscar courier…"
+
+msgid "Edit Tracking"
+msgstr "Editar seguimiento"
+
+msgid "Shipped on %s"
+msgstr "Despachado el %s"
+
+msgid "No shipping date"
+msgstr "Sin fecha de despacho"
+
+msgid "Track"
+msgstr "Rastrear"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Tracking number is required."
+msgstr "El número de seguimiento es obligatorio."
+
+msgid "Could not update tracking item."
+msgstr "No se pudo actualizar el seguimiento."
+
+msgid "Could not delete tracking item."
+msgstr "No se pudo eliminar el seguimiento."
+
+msgid "Sorry, you cannot list resources."
+msgstr "Lo sentimos, no tenés permiso para listar recursos."
+
+msgid "Sorry, you are not allowed to create resources."
+msgstr "Lo sentimos, no tenés permiso para crear recursos."
+
+msgid "Sorry, you cannot view this resource."
+msgstr "Lo sentimos, no tenés permiso para ver este recurso."
+
+msgid "Sorry, you are not allowed to delete this resource."
+msgstr "Lo sentimos, no tenés permiso para eliminar este recurso."
+
+msgid "Invalid order ID."
+msgstr "ID de pedido no válido."
+
+msgid "Invalid tracking ID."
+msgstr "ID de seguimiento no válido."
+
+msgid "Cannot create existing tracking item."
+msgstr "No se puede crear un seguimiento que ya existe."
+
+msgid "The tracking item cannot be deleted."
+msgstr "El seguimiento no se puede eliminar."
+
+msgid "Unique identifier for the tracking item."
+msgstr "Identificador único del seguimiento."
+
+msgid "Tracking provider name."
+msgstr "Nombre del courier."
+
+msgid "Custom provider name."
+msgstr "Nombre del courier personalizado."
+
+msgid "Custom tracking URL."
+msgstr "URL de seguimiento personalizada."
+
+msgid "Tracking number."
+msgstr "Número de seguimiento."
+
+msgid "Shipped date (Y-m-d)."
+msgstr "Fecha de despacho (A-m-d)."
+
+msgid "Tracking Information"
+msgstr "Información de seguimiento"
+
+msgid "Provider"
+msgstr "Courier"
+
+msgid "Tracking Number"
+msgstr "Número de seguimiento"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "TRACKING INFORMATION"
+msgstr "INFORMACIÓN DE SEGUIMIENTO"

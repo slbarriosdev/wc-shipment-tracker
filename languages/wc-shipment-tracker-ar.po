@@ -1,0 +1,151 @@
+# Translation for WC Shipment Tracker
+# Language: Arabic
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Generator: Manual\n"
+
+msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
+msgstr "يتطلب WC Shipment Tracker تثبيت WooCommerce وتفعيله."
+
+msgid "Shipment Tracking"
+msgstr "تتبع الشحنة"
+
+msgid "Add Tracking Number"
+msgstr "إضافة رقم التتبع"
+
+msgid "Provider:"
+msgstr "شركة الشحن:"
+
+msgid "Custom Provider"
+msgstr "شركة شحن مخصصة"
+
+msgid "Provider Name:"
+msgstr "اسم شركة الشحن:"
+
+msgid "Tracking Number:"
+msgstr "رقم التتبع:"
+
+msgid "Tracking Link:"
+msgstr "رابط التتبع:"
+
+msgid "Date Shipped:"
+msgstr "تاريخ الشحن:"
+
+msgid "Preview:"
+msgstr "معاينة:"
+
+msgid "Click here to track your shipment"
+msgstr "انقر هنا لتتبع شحنتك"
+
+msgid "Save Tracking"
+msgstr "حفظ التتبع"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Are you sure you want to delete this tracking number?"
+msgstr "هل أنت متأكد أنك تريد حذف رقم التتبع هذا؟"
+
+msgid "An error occurred. Please try again."
+msgstr "حدث خطأ. يرجى المحاولة مرة أخرى."
+
+msgid "Please enter a tracking number."
+msgstr "يرجى إدخال رقم التتبع."
+
+msgid "Search provider…"
+msgstr "البحث عن شركة شحن…"
+
+msgid "Edit Tracking"
+msgstr "تعديل التتبع"
+
+msgid "Shipped on %s"
+msgstr "تم الشحن في %s"
+
+msgid "No shipping date"
+msgstr "لا يوجد تاريخ شحن"
+
+msgid "Track"
+msgstr "تتبع"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Tracking number is required."
+msgstr "رقم التتبع مطلوب."
+
+msgid "Could not update tracking item."
+msgstr "تعذّر تحديث التتبع."
+
+msgid "Could not delete tracking item."
+msgstr "تعذّر حذف التتبع."
+
+msgid "Sorry, you cannot list resources."
+msgstr "عذراً، ليس لديك صلاحية لعرض الموارد."
+
+msgid "Sorry, you are not allowed to create resources."
+msgstr "عذراً، ليس لديك صلاحية لإنشاء الموارد."
+
+msgid "Sorry, you cannot view this resource."
+msgstr "عذراً، ليس لديك صلاحية لعرض هذا المورد."
+
+msgid "Sorry, you are not allowed to delete this resource."
+msgstr "عذراً، ليس لديك صلاحية لحذف هذا المورد."
+
+msgid "Invalid order ID."
+msgstr "معرّف الطلب غير صالح."
+
+msgid "Invalid tracking ID."
+msgstr "معرّف التتبع غير صالح."
+
+msgid "Cannot create existing tracking item."
+msgstr "لا يمكن إنشاء تتبع موجود بالفعل."
+
+msgid "The tracking item cannot be deleted."
+msgstr "لا يمكن حذف التتبع."
+
+msgid "Unique identifier for the tracking item."
+msgstr "المعرّف الفريد للتتبع."
+
+msgid "Tracking provider name."
+msgstr "اسم شركة الشحن."
+
+msgid "Custom provider name."
+msgstr "اسم شركة الشحن المخصصة."
+
+msgid "Custom tracking URL."
+msgstr "رابط التتبع المخصص."
+
+msgid "Tracking number."
+msgstr "رقم التتبع."
+
+msgid "Shipped date (Y-m-d)."
+msgstr "تاريخ الشحن (Y-m-d)."
+
+msgid "Tracking Information"
+msgstr "معلومات التتبع"
+
+msgid "Provider"
+msgstr "شركة الشحن"
+
+msgid "Tracking Number"
+msgstr "رقم التتبع"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "TRACKING INFORMATION"
+msgstr "معلومات التتبع"

@@ -1,0 +1,304 @@
+/* ============================================================
+   WC Shipment Tracker – Admin Styles
+   ============================================================ */
+
+/* ----- Tracking item card ----- */
+.wcst-tracking-item {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	margin-bottom: 8px;
+	overflow: hidden;
+}
+
+.wcst-tracking-item:last-child {
+	margin-bottom: 12px;
+}
+
+/* main row: logo | info | track btn */
+.wcst-item-main {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 10px 6px;
+}
+
+.wcst-item-logo {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wcst-item-logo img {
+	border-radius: 3px;
+	display: block;
+}
+
+.wcst-item-logo-placeholder {
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: #e0e0e0;
+	border-radius: 3px;
+}
+
+.wcst-item-info {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.wcst-item-info strong {
+	font-size: 12px;
+	color: #2c3338;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.wcst-item-number {
+	font-size: 11px;
+	color: #50575e;
+	word-break: break-all;
+}
+
+.wcst-item-track-btn {
+	flex-shrink: 0;
+	font-size: 11px;
+	font-weight: 600;
+	color: #2271b1;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.wcst-item-track-btn:hover {
+	color: #135e96;
+	text-decoration: underline;
+}
+
+/* footer row: date | delete */
+.wcst-item-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4px 10px 7px;
+	border-top: 1px solid #f0f0f0;
+	background: #fafafa;
+}
+
+.wcst-item-date {
+	font-size: 11px;
+	color: #8c8f94;
+}
+
+.wcst-item-actions {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.wcst-edit-item {
+	color: #2271b1;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+.wcst-edit-item:hover {
+	color: #135e96;
+	text-decoration: underline;
+}
+
+.wcst-delete-item {
+	color: #a00;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+.wcst-delete-item:hover {
+	color: #dc3232;
+	text-decoration: underline;
+}
+
+.wcst-form-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.wcst-form-actions .wcst-save-tracking,
+.wcst-form-actions .wcst-cancel-form {
+	flex: 1;
+	text-align: center;
+	margin: 0 !important;
+}
+
+/* ----- Add form ----- */
+#wcst-tracking-form {
+	border-top: 1px solid #e0e0e0;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+
+#wcst-tracking-form .form-field {
+	margin-bottom: 8px;
+}
+
+#wcst-tracking-form label {
+	display: block;
+	font-weight: 600;
+	font-size: 12px;
+	margin-bottom: 3px;
+	color: #2c3338;
+}
+
+#wcst-tracking-form input[type="text"],
+#wcst-tracking-form input[type="url"],
+#wcst-tracking-form select {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.wcst-toggle-form {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 4px !important;
+}
+
+.wcst-save-tracking {
+	width: 100%;
+	text-align: center;
+	margin-top: 4px !important;
+}
+
+/* ----- Provider logos ----- */
+.wcst-provider-icon {
+	vertical-align: middle;
+	margin-right: 5px;
+	border-radius: 2px;
+}
+
+/* ----- Provider SelectWoo (enhanced select) layout ----- */
+#wcst_tracking_provider + .select2-container {
+	width: 100% !important;
+}
+
+.select2-container--selectWoo .select2-dropdown {
+	z-index: 999999 !important;
+}
+
+/* ----- Copy button ----- */
+.wcst-item-number-row {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.wcst-copy-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: none;
+	padding: 2px;
+	cursor: pointer;
+	color: #8c8f94;
+	border-radius: 3px;
+	line-height: 1;
+	transition: color 0.15s, background 0.15s;
+}
+
+.wcst-copy-btn:hover {
+	color: #2271b1;
+	background: #f0f0f1;
+}
+
+.wcst-copy-btn .wcst-icon-check {
+	display: none;
+}
+
+.wcst-copy-btn--copied .wcst-icon-copy {
+	display: none;
+}
+
+.wcst-copy-btn--copied .wcst-icon-check {
+	display: block;
+	color: #4caf50;
+}
+
+/* ----- Field error ----- */
+.wcst-input-error {
+	border-color: #cc1818 !important;
+	box-shadow: 0 0 0 1px #cc1818 !important;
+}
+
+.wcst-field-error {
+	display: block;
+	color: #cc1818;
+	font-size: 11px;
+	margin-top: 3px;
+}
+
+/* ----- Preview link ----- */
+.wcst-preview-link {
+	font-size: 11px;
+	margin: 6px 0 0;
+	padding: 5px 8px;
+	background: #e8f5e9;
+	border-left: 3px solid #4caf50;
+	border-radius: 2px;
+}
+
+.wcst-preview-link a {
+	font-weight: 600;
+}
+
+/* ----- Spinner ----- */
+.wcst-spinner.spinner {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 6px;
+}
+
+/* ----- Orders list column ----- */
+.wcst-column-tracking a {
+	display: inline;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+}
+
+.wcst-column-tracking img {
+	display: inline;
+	vertical-align: middle;
+}
+
+.wcst-column-tracking .wcst-tracking-cell {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.wcst-column-tracking details summary {
+	cursor: pointer;
+	list-style: none;
+	font-size: 12px;
+}
+
+.wcst-column-tracking details ul {
+	margin: 4px 0 0 14px;
+	padding: 0;
+	list-style: disc;
+}
+
+.wcst-column-tracking details ul li {
+	font-size: 11px;
+}

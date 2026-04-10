@@ -1,0 +1,151 @@
+# Translation for WC Shipment Tracker
+# Language: Dutch (Netherlands)
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Dutch (Netherlands)\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+
+msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
+msgstr "WC Shipment Tracker vereist dat WooCommerce geïnstalleerd en actief is."
+
+msgid "Shipment Tracking"
+msgstr "Zending volgen"
+
+msgid "Add Tracking Number"
+msgstr "Trackingnummer toevoegen"
+
+msgid "Provider:"
+msgstr "Vervoerder:"
+
+msgid "Custom Provider"
+msgstr "Aangepaste vervoerder"
+
+msgid "Provider Name:"
+msgstr "Naam van de vervoerder:"
+
+msgid "Tracking Number:"
+msgstr "Trackingnummer:"
+
+msgid "Tracking Link:"
+msgstr "Trackinglink:"
+
+msgid "Date Shipped:"
+msgstr "Verzenddatum:"
+
+msgid "Preview:"
+msgstr "Voorbeeld:"
+
+msgid "Click here to track your shipment"
+msgstr "Klik hier om uw zending te volgen"
+
+msgid "Save Tracking"
+msgstr "Tracking opslaan"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Are you sure you want to delete this tracking number?"
+msgstr "Weet u zeker dat u dit trackingnummer wilt verwijderen?"
+
+msgid "An error occurred. Please try again."
+msgstr "Er is een fout opgetreden. Probeer het opnieuw."
+
+msgid "Please enter a tracking number."
+msgstr "Voer een trackingnummer in."
+
+msgid "Search provider…"
+msgstr "Vervoerder zoeken…"
+
+msgid "Edit Tracking"
+msgstr "Tracking bewerken"
+
+msgid "Shipped on %s"
+msgstr "Verzonden op %s"
+
+msgid "No shipping date"
+msgstr "Geen verzenddatum"
+
+msgid "Track"
+msgstr "Volgen"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Tracking number is required."
+msgstr "Het trackingnummer is verplicht."
+
+msgid "Could not update tracking item."
+msgstr "Tracking kon niet worden bijgewerkt."
+
+msgid "Could not delete tracking item."
+msgstr "Tracking kon niet worden verwijderd."
+
+msgid "Sorry, you cannot list resources."
+msgstr "U heeft geen toestemming om resources weer te geven."
+
+msgid "Sorry, you are not allowed to create resources."
+msgstr "U heeft geen toestemming om resources aan te maken."
+
+msgid "Sorry, you cannot view this resource."
+msgstr "U heeft geen toestemming om deze resource te bekijken."
+
+msgid "Sorry, you are not allowed to delete this resource."
+msgstr "U heeft geen toestemming om deze resource te verwijderen."
+
+msgid "Invalid order ID."
+msgstr "Ongeldig bestelling-ID."
+
+msgid "Invalid tracking ID."
+msgstr "Ongeldig tracking-ID."
+
+msgid "Cannot create existing tracking item."
+msgstr "Kan geen al bestaande tracking aanmaken."
+
+msgid "The tracking item cannot be deleted."
+msgstr "De tracking kan niet worden verwijderd."
+
+msgid "Unique identifier for the tracking item."
+msgstr "Unieke identificatie van de tracking."
+
+msgid "Tracking provider name."
+msgstr "Naam van de vervoerder."
+
+msgid "Custom provider name."
+msgstr "Naam van de aangepaste vervoerder."
+
+msgid "Custom tracking URL."
+msgstr "Aangepaste tracking-URL."
+
+msgid "Tracking number."
+msgstr "Trackingnummer."
+
+msgid "Shipped date (Y-m-d)."
+msgstr "Verzenddatum (J-m-d)."
+
+msgid "Tracking Information"
+msgstr "Trackinginformatie"
+
+msgid "Provider"
+msgstr "Vervoerder"
+
+msgid "Tracking Number"
+msgstr "Trackingnummer"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "TRACKING INFORMATION"
+msgstr "TRACKINGINFORMATIE"

@@ -1,0 +1,151 @@
+# Translation for WC Shipment Tracker
+# Language: Russian (Russia)
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian (Russia)\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Manual\n"
+
+msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
+msgstr "WC Shipment Tracker требует установки и активации WooCommerce."
+
+msgid "Shipment Tracking"
+msgstr "Отслеживание отправления"
+
+msgid "Add Tracking Number"
+msgstr "Добавить номер отслеживания"
+
+msgid "Provider:"
+msgstr "Перевозчик:"
+
+msgid "Custom Provider"
+msgstr "Пользовательский перевозчик"
+
+msgid "Provider Name:"
+msgstr "Название перевозчика:"
+
+msgid "Tracking Number:"
+msgstr "Номер отслеживания:"
+
+msgid "Tracking Link:"
+msgstr "Ссылка для отслеживания:"
+
+msgid "Date Shipped:"
+msgstr "Дата отправки:"
+
+msgid "Preview:"
+msgstr "Предпросмотр:"
+
+msgid "Click here to track your shipment"
+msgstr "Нажмите здесь, чтобы отследить посылку"
+
+msgid "Save Tracking"
+msgstr "Сохранить отслеживание"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Are you sure you want to delete this tracking number?"
+msgstr "Вы уверены, что хотите удалить этот номер отслеживания?"
+
+msgid "An error occurred. Please try again."
+msgstr "Произошла ошибка. Пожалуйста, попробуйте ещё раз."
+
+msgid "Please enter a tracking number."
+msgstr "Пожалуйста, введите номер отслеживания."
+
+msgid "Search provider…"
+msgstr "Поиск перевозчика…"
+
+msgid "Edit Tracking"
+msgstr "Редактировать отслеживание"
+
+msgid "Shipped on %s"
+msgstr "Отправлено %s"
+
+msgid "No shipping date"
+msgstr "Дата отправки не указана"
+
+msgid "Track"
+msgstr "Отследить"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Tracking number is required."
+msgstr "Номер отслеживания обязателен."
+
+msgid "Could not update tracking item."
+msgstr "Не удалось обновить отслеживание."
+
+msgid "Could not delete tracking item."
+msgstr "Не удалось удалить отслеживание."
+
+msgid "Sorry, you cannot list resources."
+msgstr "Извините, у вас нет прав для просмотра ресурсов."
+
+msgid "Sorry, you are not allowed to create resources."
+msgstr "Извините, у вас нет прав для создания ресурсов."
+
+msgid "Sorry, you cannot view this resource."
+msgstr "Извините, у вас нет прав для просмотра этого ресурса."
+
+msgid "Sorry, you are not allowed to delete this resource."
+msgstr "Извините, у вас нет прав для удаления этого ресурса."
+
+msgid "Invalid order ID."
+msgstr "Неверный идентификатор заказа."
+
+msgid "Invalid tracking ID."
+msgstr "Неверный идентификатор отслеживания."
+
+msgid "Cannot create existing tracking item."
+msgstr "Невозможно создать уже существующее отслеживание."
+
+msgid "The tracking item cannot be deleted."
+msgstr "Отслеживание не может быть удалено."
+
+msgid "Unique identifier for the tracking item."
+msgstr "Уникальный идентификатор отслеживания."
+
+msgid "Tracking provider name."
+msgstr "Название перевозчика."
+
+msgid "Custom provider name."
+msgstr "Название пользовательского перевозчика."
+
+msgid "Custom tracking URL."
+msgstr "Пользовательский URL отслеживания."
+
+msgid "Tracking number."
+msgstr "Номер отслеживания."
+
+msgid "Shipped date (Y-m-d)."
+msgstr "Дата отправки (Г-м-д)."
+
+msgid "Tracking Information"
+msgstr "Информация об отслеживании"
+
+msgid "Provider"
+msgstr "Перевозчик"
+
+msgid "Tracking Number"
+msgstr "Номер отслеживания"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "TRACKING INFORMATION"
+msgstr "ИНФОРМАЦИЯ ОБ ОТСЛЕЖИВАНИИ"
