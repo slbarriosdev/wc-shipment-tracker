@@ -1,4 +1,4 @@
-=== WC Shipment Tracker ===
+=== Trackora - WooCommerce Shipment Tracker ===
 Contributors: slbarriosdev
 Donate link: https://github.com/slbarriosdev/wc-shipment-tracker
 Tags: woocommerce tracking, shipment tracking, order tracking, shipping tracker, tracking number
