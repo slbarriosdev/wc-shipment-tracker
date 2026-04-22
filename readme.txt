@@ -126,7 +126,7 @@ No data is sent to carrier websites by the plugin itself on the server side; dat
 
 == Installation ==
 
-1. Upload the `wc-shipment-tracker` folder to the `/wp-content/plugins/` directory, or install directly from the WordPress plugin repository
+1. Upload the `trackora` folder to the `/wp-content/plugins/` directory, or install directly from the WordPress plugin repository
 2. Activate the plugin through the **Plugins** menu in WordPress
 3. Make sure WooCommerce is installed and active
 4. Open any WooCommerce order and find the **Shipment Tracking** meta box to add your first tracking number

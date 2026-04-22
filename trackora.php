@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Trackora - Shipment Tracker for WooCommerce
- * Plugin URI:  https://wordpress.org/plugins/wc-shipment-tracker/
+ * Plugin URI:  https://wordpress.org/plugins/trackora/
  * Description: Add tracking numbers to WooCommerce orders. Supports multiple shipping providers and custom tracking links. Tracking information appears in emails, the order view page and the customer account section.
  * Version:     1.1.0
  * Author:      slbarriosdev
