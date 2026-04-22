@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: wc-shipment-tracker.php:58
+#: trackora.php:58
 msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
 msgstr ""
 
