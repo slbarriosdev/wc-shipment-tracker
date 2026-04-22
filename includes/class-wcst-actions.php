@@ -564,6 +564,12 @@ class WCST_Actions {
 		}
 	}
 
+	public function frontend_scripts() {
+		if ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'orders' ) || $this->current_page_has_shortcode( 'wcst_tracking' ) ) {
+			wp_enqueue_script( 'wcst-copy-btn', WCST_URL . '/assets/js/copy-btn.js', array(), WCST_VERSION, true );
+		}
+	}
+
 	/**
 	 * Check if the current page's content contains a given shortcode.
 	 *
@@ -578,7 +584,7 @@ class WCST_Actions {
 	public function add_meta_box() {
 		add_meta_box(
 			'wcst-shipment-tracking',
-			__( 'Shipment Tracking', 'wc-shipment-tracker' ),
+			__( 'Shipment Tracking', 'trackora' ),
 			array( $this, 'render_meta_box' ),
 			$this->get_order_admin_screen(),
 			'side',
@@ -613,7 +619,7 @@ class WCST_Actions {
 
 		<p>
 			<button type="button" class="button wcst-toggle-form">
-				<?php esc_html_e( 'Add Tracking Number', 'wc-shipment-tracker' ); ?>
+				<?php esc_html_e( 'Add Tracking Number', 'trackora' ); ?>
 			</button>
 		</p>
 
@@ -626,9 +632,9 @@ class WCST_Actions {
 
 			<!-- Provider select -->
 			<p class="form-field">
-				<label for="wcst_tracking_provider"><?php esc_html_e( 'Provider:', 'wc-shipment-tracker' ); ?></label>
+				<label for="wcst_tracking_provider"><?php esc_html_e( 'Provider:', 'trackora' ); ?></label>
 				<select id="wcst_tracking_provider" name="wcst_tracking_provider" class="wcst-provider-select">
-					<option value=""><?php esc_html_e( 'Custom Provider', 'wc-shipment-tracker' ); ?></option>
+					<option value=""><?php esc_html_e( 'Custom Provider', 'trackora' ); ?></option>
 					<?php
 					$default = apply_filters( 'wcst_default_provider', '' );
 					foreach ( $providers as $group => $group_providers ) :
@@ -645,25 +651,25 @@ class WCST_Actions {
 
 			<!-- Custom provider name -->
 			<p class="form-field wcst-custom-fields">
-				<label for="wcst_custom_tracking_provider"><?php esc_html_e( 'Provider Name:', 'wc-shipment-tracker' ); ?></label>
+				<label for="wcst_custom_tracking_provider"><?php esc_html_e( 'Provider Name:', 'trackora' ); ?></label>
 				<input type="text" id="wcst_custom_tracking_provider" name="wcst_custom_tracking_provider" value="" />
 			</p>
 
 			<!-- Tracking number -->
 			<p class="form-field">
-				<label for="wcst_tracking_number"><?php esc_html_e( 'Tracking Number:', 'wc-shipment-tracker' ); ?></label>
+				<label for="wcst_tracking_number"><?php esc_html_e( 'Tracking Number:', 'trackora' ); ?></label>
 				<input type="text" id="wcst_tracking_number" name="wcst_tracking_number" value="" />
 			</p>
 
 			<!-- Tracking link (custom) -->
 			<p class="form-field wcst-custom-fields">
-				<label for="wcst_custom_tracking_link"><?php esc_html_e( 'Tracking Link:', 'wc-shipment-tracker' ); ?></label>
+				<label for="wcst_custom_tracking_link"><?php esc_html_e( 'Tracking Link:', 'trackora' ); ?></label>
 				<input type="url" id="wcst_custom_tracking_link" name="wcst_custom_tracking_link" value="" placeholder="https://" />
 			</p>
 
 			<!-- Date shipped -->
 			<p class="form-field">
-				<label for="wcst_date_shipped"><?php esc_html_e( 'Date Shipped:', 'wc-shipment-tracker' ); ?></label>
+				<label for="wcst_date_shipped"><?php esc_html_e( 'Date Shipped:', 'trackora' ); ?></label>
 				<input type="text" id="wcst_date_shipped" name="wcst_date_shipped"
 					value="<?php echo esc_attr( wp_date( 'Y-m-d', time() ) ); ?>"
 					placeholder="<?php echo esc_attr( wp_date( 'Y-m-d', time() ) ); ?>"
@@ -672,18 +678,18 @@ class WCST_Actions {
 
 			<!-- Preview -->
 			<p class="wcst-preview-link" style="display:none;">
-				<?php esc_html_e( 'Preview:', 'wc-shipment-tracker' ); ?>
-				<a href="#" target="_blank"><?php esc_html_e( 'Click here to track your shipment', 'wc-shipment-tracker' ); ?></a>
+				<?php esc_html_e( 'Preview:', 'trackora' ); ?>
+				<a href="#" target="_blank"><?php esc_html_e( 'Click here to track your shipment', 'trackora' ); ?></a>
 			</p>
 
 			<input type="hidden" id="wcst_editing_id" value="" />
 
 			<p class="wcst-form-actions">
 				<button type="button" class="button button-primary wcst-save-tracking">
-					<?php esc_html_e( 'Save Tracking', 'wc-shipment-tracker' ); ?>
+					<?php esc_html_e( 'Save Tracking', 'trackora' ); ?>
 				</button>
 				<button type="button" class="button wcst-cancel-form">
-					<?php esc_html_e( 'Cancel', 'wc-shipment-tracker' ); ?>
+					<?php esc_html_e( 'Cancel', 'trackora' ); ?>
 				</button>
 				<span class="wcst-spinner spinner" style="float:none; margin-top:0;"></span>
 			</p>
@@ -712,13 +718,13 @@ class WCST_Actions {
 				'deleteNonce'    => wp_create_nonce( 'wcst_delete_tracking' ),
 				'getNonce'       => wp_create_nonce( 'wcst_get_items' ),
 				'i18n'           => array(
-					'confirmDelete'          => __( 'Are you sure you want to delete this tracking number?', 'wc-shipment-tracker' ),
-					'error'                  => __( 'An error occurred. Please try again.', 'wc-shipment-tracker' ),
-					'trackingNumberRequired' => __( 'Please enter a tracking number.', 'wc-shipment-tracker' ),
-					'searchProvider'         => __( 'Search provider…', 'wc-shipment-tracker' ),
-					'editTitle'              => __( 'Edit Tracking', 'wc-shipment-tracker' ),
-					'addTitle'               => __( 'Add Tracking Number', 'wc-shipment-tracker' ),
-					'cancel'                 => __( 'Cancel', 'wc-shipment-tracker' ),
+					'confirmDelete'          => __( 'Are you sure you want to delete this tracking number?', 'trackora' ),
+					'error'                  => __( 'An error occurred. Please try again.', 'trackora' ),
+					'trackingNumberRequired' => __( 'Please enter a tracking number.', 'trackora' ),
+					'searchProvider'         => __( 'Search provider…', 'trackora' ),
+					'editTitle'              => __( 'Edit Tracking', 'trackora' ),
+					'addTitle'               => __( 'Add Tracking Number', 'trackora' ),
+					'cancel'                 => __( 'Cancel', 'trackora' ),
 				),
 			)
 		);
@@ -735,8 +741,8 @@ class WCST_Actions {
 
 		$date_text = ! empty( $formatted['formatted_date_shipped_i18n'] )
 			/* translators: %s = formatted date */
-			? sprintf( __( 'Shipped on %s', 'wc-shipment-tracker' ), $formatted['formatted_date_shipped_i18n'] )
-			: __( 'No shipping date', 'wc-shipment-tracker' );
+			? sprintf( __( 'Shipped on %s', 'trackora' ), $formatted['formatted_date_shipped_i18n'] )
+			: __( 'No shipping date', 'trackora' );
 
 		$favicon_url = '';
 		if ( ! empty( $formatted['formatted_tracking_link'] ) ) {
@@ -762,8 +768,8 @@ class WCST_Actions {
 						<button type="button"
 							class="wcst-copy-btn"
 							data-copy="<?php echo esc_attr( $item['tracking_number'] ); ?>"
-							title="<?php esc_attr_e( 'Copy tracking number', 'wc-shipment-tracker' ); ?>"
-							aria-label="<?php esc_attr_e( 'Copy tracking number', 'wc-shipment-tracker' ); ?>">
+							title="<?php esc_attr_e( 'Copy tracking number', 'trackora' ); ?>"
+							aria-label="<?php esc_attr_e( 'Copy tracking number', 'trackora' ); ?>">
 							<svg class="wcst-icon-copy" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 							<svg class="wcst-icon-check" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
 						</button>
@@ -771,7 +777,7 @@ class WCST_Actions {
 				</div>
 				<?php if ( $formatted['formatted_tracking_link'] ) : ?>
 					<a href="<?php echo esc_url( $formatted['formatted_tracking_link'] ); ?>" class="wcst-item-track-btn" target="_blank">
-						<?php esc_html_e( 'Track', 'wc-shipment-tracker' ); ?> &#8599;
+						<?php esc_html_e( 'Track', 'trackora' ); ?> &#8599;
 					</a>
 				<?php endif; ?>
 			</div>
@@ -787,13 +793,13 @@ class WCST_Actions {
 						data-custom-link="<?php echo esc_attr( $item['custom_tracking_link'] ); ?>"
 						data-tracking-number="<?php echo esc_attr( $item['tracking_number'] ); ?>"
 						data-date-shipped="<?php echo esc_attr( $formatted['formatted_date_shipped_ymd'] ); ?>">
-						<?php esc_html_e( 'Edit', 'wc-shipment-tracker' ); ?>
+						<?php esc_html_e( 'Edit', 'trackora' ); ?>
 					</a>
 					<a href="#"
 						class="wcst-delete-item"
 						data-tracking-id="<?php echo esc_attr( $item['tracking_id'] ); ?>"
 						data-order-id="<?php echo esc_attr( $order_id ); ?>">
-						<?php esc_html_e( 'Delete', 'wc-shipment-tracker' ); ?>
+						<?php esc_html_e( 'Delete', 'trackora' ); ?>
 					</a>
 				</span>
 			</div>
@@ -835,8 +841,12 @@ class WCST_Actions {
 	public function ajax_save_tracking() {
 		check_ajax_referer( 'wcst_create_tracking', 'security' );
 
+		if ( ! current_user_can( 'edit_shop_orders' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'trackora' ) ) );
+		}
+
 		if ( empty( $_POST['tracking_number'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Tracking number is required.', 'wc-shipment-tracker' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Tracking number is required.', 'trackora' ) ) );
 		}
 
 		$order_id = isset( $_POST['order_id'] ) ? absint( $_POST['order_id'] ) : 0;
@@ -861,8 +871,12 @@ class WCST_Actions {
 	public function ajax_update_tracking() {
 		check_ajax_referer( 'wcst_update_tracking', 'security' );
 
+		if ( ! current_user_can( 'edit_shop_orders' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'trackora' ) ) );
+		}
+
 		if ( empty( $_POST['tracking_number'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Tracking number is required.', 'wc-shipment-tracker' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Tracking number is required.', 'trackora' ) ) );
 		}
 
 		$order_id    = isset( $_POST['order_id'] )    ? absint( $_POST['order_id'] )                            : 0;
@@ -881,7 +895,7 @@ class WCST_Actions {
 		);
 
 		if ( ! $item ) {
-			wp_send_json_error( array( 'message' => __( 'Could not update tracking item.', 'wc-shipment-tracker' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Could not update tracking item.', 'trackora' ) ) );
 		}
 
 		ob_start();
@@ -894,6 +908,10 @@ class WCST_Actions {
 	public function ajax_delete_tracking() {
 		check_ajax_referer( 'wcst_delete_tracking', 'security' );
 
+		if ( ! current_user_can( 'edit_shop_orders' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'trackora' ) ) );
+		}
+
 		$order_id    = isset( $_POST['order_id'] )    ? absint( $_POST['order_id'] )                              : 0;
 		$tracking_id = isset( $_POST['tracking_id'] ) ? wc_clean( wp_unslash( $_POST['tracking_id'] ) ) : '';  // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 
@@ -902,12 +920,16 @@ class WCST_Actions {
 		if ( $deleted ) {
 			wp_send_json_success();
 		} else {
-			wp_send_json_error( array( 'message' => __( 'Could not delete tracking item.', 'wc-shipment-tracker' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Could not delete tracking item.', 'trackora' ) ) );
 		}
 	}
 
 	public function ajax_get_items() {
 		check_ajax_referer( 'wcst_get_items', 'security' );
+
+		if ( ! current_user_can( 'edit_shop_orders' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'trackora' ) ) );
+		}
 
 		$order_id = isset( $_POST['order_id'] ) ? absint( $_POST['order_id'] ) : 0;
 		$items    = $this->get_tracking_items( $order_id );
@@ -924,7 +946,7 @@ class WCST_Actions {
 	// =========================================================================
 
 	public function add_orders_list_column( $columns ) {
-		$columns['wcst_shipment_tracking'] = __( 'Shipment Tracking', 'wc-shipment-tracker' );
+		$columns['wcst_shipment_tracking'] = __( 'Shipment Tracking', 'trackora' );
 		return $columns;
 	}
 
@@ -1060,7 +1082,7 @@ class WCST_Actions {
 				$state = 'results';
 			} else {
 				$order = null;
-				$error = __( 'Invalid order or tracking link. Please check your email and try again.', 'wc-shipment-tracker' );
+				$error = __( 'Invalid order or tracking link. Please check your email and try again.', 'trackora' );
 				$state = 'error';
 			}
 		}
@@ -1068,7 +1090,7 @@ class WCST_Actions {
 		// — Lookup form submitted (order ID + billing email) —
 		if ( 'form' === $state && $post_id && $email ) {
 			if ( ! isset( $_POST['wcst_lookup_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcst_lookup_nonce'] ) ), 'wcst_tracking_lookup' ) ) {
-				$error = __( 'Security check failed. Please try again.', 'wc-shipment-tracker' );
+				$error = __( 'Security check failed. Please try again.', 'trackora' );
 				$state = 'error';
 			} else {
 				$candidate = wc_get_order( $post_id );
@@ -1079,7 +1101,7 @@ class WCST_Actions {
 					$order = $candidate;
 					$state = 'results';
 				} else {
-					$error = __( 'No order found with that order number and email address.', 'wc-shipment-tracker' );
+					$error = __( 'No order found with that order number and email address.', 'trackora' );
 					$state = 'error';
 				}
 			}

@@ -15,7 +15,7 @@ if ( empty( $tracking_items ) || ! is_array( $tracking_items ) ) {
 	return;
 }
 
-echo esc_html( apply_filters( 'wcst_email_tracking_title', __( 'TRACKING INFORMATION', 'wc-shipment-tracker' ) ) );
+echo esc_html( apply_filters( 'wcst_email_tracking_title', __( 'TRACKING INFORMATION', 'trackora' ) ) );
 echo "\n\n";
 
 foreach ( $tracking_items as $item ) {

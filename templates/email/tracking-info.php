@@ -18,14 +18,14 @@ if ( empty( $tracking_items ) || ! is_array( $tracking_items ) ) {
 $cell_style = 'text-align:left; font-family:"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif; color:#737373; border:1px solid #e4e4e4; padding:12px;';
 ?>
 
-<h2><?php echo esc_html( apply_filters( 'wcst_email_tracking_title', __( 'Tracking Information', 'wc-shipment-tracker' ) ) ); ?></h2>
+<h2><?php echo esc_html( apply_filters( 'wcst_email_tracking_title', __( 'Tracking Information', 'trackora' ) ) ); ?></h2>
 
 <table class="td" cellspacing="0" cellpadding="6" style="width:100%; margin-bottom:20px;" border="1">
 	<thead>
 		<tr>
-			<th style="<?php echo esc_attr( $cell_style ); ?>"><?php esc_html_e( 'Provider', 'wc-shipment-tracker' ); ?></th>
-			<th style="<?php echo esc_attr( $cell_style ); ?>"><?php esc_html_e( 'Tracking Number', 'wc-shipment-tracker' ); ?></th>
-			<th style="<?php echo esc_attr( $cell_style ); ?>"><?php esc_html_e( 'Date', 'wc-shipment-tracker' ); ?></th>
+			<th style="<?php echo esc_attr( $cell_style ); ?>"><?php esc_html_e( 'Provider', 'trackora' ); ?></th>
+			<th style="<?php echo esc_attr( $cell_style ); ?>"><?php esc_html_e( 'Tracking Number', 'trackora' ); ?></th>
+			<th style="<?php echo esc_attr( $cell_style ); ?>"><?php esc_html_e( 'Date', 'trackora' ); ?></th>
 			<th style="<?php echo esc_attr( $cell_style ); ?>">&nbsp;</th>
 		</tr>
 	</thead>
@@ -51,7 +51,7 @@ $cell_style = 'text-align:left; font-family:"Helvetica Neue",Helvetica,Roboto,Ar
 				<td style="<?php echo esc_attr( $cell_style ); ?> text-align:center;">
 					<?php if ( $item['formatted_tracking_link'] ) : ?>
 						<a href="<?php echo esc_url( $item['formatted_tracking_link'] ); ?>" target="_blank">
-							<?php esc_html_e( 'Track', 'wc-shipment-tracker' ); ?>
+							<?php esc_html_e( 'Track', 'trackora' ); ?>
 						</a>
 					<?php endif; ?>
 				</td>

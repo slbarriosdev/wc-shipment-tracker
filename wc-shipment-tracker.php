@@ -5,7 +5,7 @@
  * Description: Add tracking numbers to WooCommerce orders. Supports multiple shipping providers and custom tracking links. Tracking information appears in emails, the order view page and the customer account section.
  * Version:     1.1.0
  * Author:      slbarriosdev
- * Text Domain: wc-shipment-tracker
+ * Text Domain: trackora
  * Domain Path: /languages
  * Requires Plugins: woocommerce
  * Requires PHP: 7.4
@@ -57,7 +57,7 @@ function wcst_init() {
 
 function wcst_missing_wc_notice() {
 	echo '<div class="error"><p><strong>' .
-		esc_html__( 'WC Shipment Tracker requires WooCommerce to be installed and active.', 'wc-shipment-tracker' ) .
+		esc_html__( 'WC Shipment Tracker requires WooCommerce to be installed and active.', 'trackora' ) .
 		'</strong></p></div>';
 }
 

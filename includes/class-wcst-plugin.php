@@ -25,8 +25,9 @@ class WCST_Plugin {
 		// ---- Admin styles & scripts ----------------------------------------
 		add_action( 'admin_print_styles', array( $actions, 'admin_styles' ) );
 
-		// ---- Frontend styles -----------------------------------------------
+		// ---- Frontend styles & scripts ------------------------------------
 		add_action( 'wp_enqueue_scripts', array( $actions, 'frontend_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $actions, 'frontend_scripts' ) );
 
 		// ---- Shortcode -----------------------------------------------------
 		add_shortcode( 'wcst_tracking', array( $actions, 'shortcode_tracking' ) );
@@ -72,7 +73,7 @@ class WCST_Plugin {
 	}
 
 	public function load_textdomain() {
-		load_plugin_textdomain( 'wc-shipment-tracker', false, basename( WCST_DIR ) . '/languages/' );
+		load_plugin_textdomain( 'trackora', false, basename( WCST_DIR ) . '/languages/' );
 	}
 
 	public function register_rest_routes() {

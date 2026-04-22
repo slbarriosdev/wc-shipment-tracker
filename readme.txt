@@ -106,10 +106,23 @@ Bug reports and contributions are welcome.
 
 = External Services =
 
-This plugin makes requests to an external service to display carrier logos:
+This plugin connects to external services in two ways:
 
-* **Google Favicon Service** (`https://www.google.com/s2/favicons`) — used to fetch carrier icons in the admin orders list and provider selector. The carrier's domain name is sent to Google to retrieve the favicon. No personal data or order information is transmitted.
-  * [Google Privacy Policy](https://policies.google.com/privacy)
+**1. Carrier tracking links**
+
+When a shipment tracking number is added to an order, the plugin generates a tracking link pointing to the carrier's website (e.g. UPS, FedEx, DHL, Royal Mail, Correos, etc.). These links are displayed to the store admin in the orders list and to customers in their order confirmation email and My Account page.
+
+When a customer or admin clicks a tracking link, their browser navigates directly to the carrier's website. The tracking number — and in some cases the shipping postcode (e.g. DPD Local, PostNL, bpost) — is included in the URL as required by the carrier's tracking system.
+
+No data is sent to carrier websites by the plugin itself on the server side; data is only transmitted when the user actively clicks a tracking link. Each carrier operates its own terms of service and privacy policy; please refer to the relevant carrier's website for details.
+
+**2. Google Favicon Service**
+
+* **Service:** `https://www.google.com/s2/favicons`
+* **Purpose:** Used to fetch carrier logo icons displayed in the admin orders list and meta box.
+* **Data sent:** The carrier's domain name (e.g. `ups.com`). No personal data or order information is transmitted.
+* **When:** Only in the WordPress admin, when an order with tracking items is displayed.
+* [Google Privacy Policy](https://policies.google.com/privacy) | [Google Terms of Service](https://policies.google.com/terms)
 
 == Installation ==
 

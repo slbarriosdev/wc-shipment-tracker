@@ -99,28 +99,28 @@ class WCST_API extends WC_REST_Controller {
 
 	public function get_items_permissions_check( $request ) {
 		if ( ! wc_rest_check_post_permissions( $this->post_type, 'read' ) ) {
-			return new WP_Error( 'wcst_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'wc-shipment-tracker' ), array( 'status' => rest_authorization_required_code() ) );
+			return new WP_Error( 'wcst_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 		return true;
 	}
 
 	public function create_item_permissions_check( $request ) {
 		if ( ! wc_rest_check_post_permissions( $this->post_type, 'create' ) ) {
-			return new WP_Error( 'wcst_rest_cannot_create', __( 'Sorry, you are not allowed to create resources.', 'wc-shipment-tracker' ), array( 'status' => rest_authorization_required_code() ) );
+			return new WP_Error( 'wcst_rest_cannot_create', __( 'Sorry, you are not allowed to create resources.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 		return true;
 	}
 
 	public function get_item_permissions_check( $request ) {
 		if ( ! wc_rest_check_post_permissions( $this->post_type, 'read', (int) $request['order_id'] ) ) {
-			return new WP_Error( 'wcst_rest_cannot_view', __( 'Sorry, you cannot view this resource.', 'wc-shipment-tracker' ), array( 'status' => rest_authorization_required_code() ) );
+			return new WP_Error( 'wcst_rest_cannot_view', __( 'Sorry, you cannot view this resource.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 		return true;
 	}
 
 	public function delete_item_permissions_check( $request ) {
 		if ( ! wc_rest_check_post_permissions( $this->post_type, 'delete', (int) $request['order_id'] ) ) {
-			return new WP_Error( 'wcst_rest_cannot_delete', __( 'Sorry, you are not allowed to delete this resource.', 'wc-shipment-tracker' ), array( 'status' => rest_authorization_required_code() ) );
+			return new WP_Error( 'wcst_rest_cannot_delete', __( 'Sorry, you are not allowed to delete this resource.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 		return true;
 	}
@@ -132,7 +132,7 @@ class WCST_API extends WC_REST_Controller {
 	public function get_items( $request ) {
 		$order_id = (int) $request['order_id'];
 		if ( ! wc_get_order( $order_id ) ) {
-			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'wc-shipment-tracker' ), array( 'status' => 404 ) );
+			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'trackora' ), array( 'status' => 404 ) );
 		}
 
 		$actions = WCST_Actions::get_instance();
@@ -153,14 +153,14 @@ class WCST_API extends WC_REST_Controller {
 		$tracking_id = $request['id'];
 
 		if ( ! wc_get_order( $order_id ) ) {
-			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'wc-shipment-tracker' ), array( 'status' => 404 ) );
+			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'trackora' ), array( 'status' => 404 ) );
 		}
 
 		$actions = WCST_Actions::get_instance();
 		$item    = $actions->get_tracking_item( $order_id, $tracking_id, true );
 
 		if ( ! $item ) {
-			return new WP_Error( 'wcst_rest_invalid_tracking', __( 'Invalid tracking ID.', 'wc-shipment-tracker' ), array( 'status' => 404 ) );
+			return new WP_Error( 'wcst_rest_invalid_tracking', __( 'Invalid tracking ID.', 'trackora' ), array( 'status' => 404 ) );
 		}
 
 		$item['order_id'] = $order_id;
@@ -169,12 +169,12 @@ class WCST_API extends WC_REST_Controller {
 
 	public function create_item( $request ) {
 		if ( ! empty( $request['tracking_id'] ) ) {
-			return new WP_Error( 'wcst_rest_exists', __( 'Cannot create existing tracking item.', 'wc-shipment-tracker' ), array( 'status' => 400 ) );
+			return new WP_Error( 'wcst_rest_exists', __( 'Cannot create existing tracking item.', 'trackora' ), array( 'status' => 400 ) );
 		}
 
 		$order_id = (int) $request['order_id'];
 		if ( ! wc_get_order( $order_id ) ) {
-			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'wc-shipment-tracker' ), array( 'status' => 404 ) );
+			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'trackora' ), array( 'status' => 404 ) );
 		}
 
 		$actions = WCST_Actions::get_instance();
@@ -210,21 +210,21 @@ class WCST_API extends WC_REST_Controller {
 		$tracking_id = $request['id'];
 
 		if ( ! wc_get_order( $order_id ) ) {
-			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'wc-shipment-tracker' ), array( 'status' => 404 ) );
+			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'trackora' ), array( 'status' => 404 ) );
 		}
 
 		$actions = WCST_Actions::get_instance();
 		$item    = $actions->get_tracking_item( $order_id, $tracking_id, true );
 
 		if ( ! $item ) {
-			return new WP_Error( 'wcst_rest_invalid_tracking', __( 'Invalid tracking ID.', 'wc-shipment-tracker' ), array( 'status' => 404 ) );
+			return new WP_Error( 'wcst_rest_invalid_tracking', __( 'Invalid tracking ID.', 'trackora' ), array( 'status' => 404 ) );
 		}
 
 		$item['order_id'] = $order_id;
 		$response         = rest_ensure_response( $this->prepare_item_for_response( $item, $request ) );
 
 		if ( ! $actions->delete_tracking_item( $order_id, $tracking_id ) ) {
-			return new WP_Error( 'wcst_rest_cannot_delete', __( 'The tracking item cannot be deleted.', 'wc-shipment-tracker' ), array( 'status' => 500 ) );
+			return new WP_Error( 'wcst_rest_cannot_delete', __( 'The tracking item cannot be deleted.', 'trackora' ), array( 'status' => 500 ) );
 		}
 
 		return $response;
@@ -278,34 +278,34 @@ class WCST_API extends WC_REST_Controller {
 			'type'       => 'object',
 			'properties' => array(
 				'tracking_id'              => array(
-					'description' => __( 'Unique identifier for the tracking item.', 'wc-shipment-tracker' ),
+					'description' => __( 'Unique identifier for the tracking item.', 'trackora' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 					'readonly'    => true,
 				),
 				'tracking_provider'        => array(
-					'description' => __( 'Tracking provider name.', 'wc-shipment-tracker' ),
+					'description' => __( 'Tracking provider name.', 'trackora' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
 				'custom_tracking_provider' => array(
-					'description' => __( 'Custom provider name.', 'wc-shipment-tracker' ),
+					'description' => __( 'Custom provider name.', 'trackora' ),
 					'type'        => 'string',
 					'context'     => array( 'edit' ),
 				),
 				'custom_tracking_link'     => array(
-					'description' => __( 'Custom tracking URL.', 'wc-shipment-tracker' ),
+					'description' => __( 'Custom tracking URL.', 'trackora' ),
 					'type'        => 'string',
 					'format'      => 'uri',
 					'context'     => array( 'edit' ),
 				),
 				'tracking_number'          => array(
-					'description' => __( 'Tracking number.', 'wc-shipment-tracker' ),
+					'description' => __( 'Tracking number.', 'trackora' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
 				'date_shipped'             => array(
-					'description' => __( 'Shipped date (Y-m-d).', 'wc-shipment-tracker' ),
+					'description' => __( 'Shipped date (Y-m-d).', 'trackora' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
