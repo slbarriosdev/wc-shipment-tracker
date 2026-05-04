@@ -5,7 +5,7 @@ Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -390,8 +390,12 @@ Each carrier operates its own website under its own terms of service and privacy
 
 == Changelog ==
 
+= 1.1.1 =
+* Fix: Removed external Google favicon calls — carrier icons are no longer loaded from google.com/s2/favicons
+* Fix: All built-in carrier tracking URLs are now documented in the readme with Terms of Service and Privacy Policy links
+* Fix: REST API permission callbacks now validate against the specific order_id being accessed or modified
+
 = 1.1.0 =
-* Improved: Carrier favicon now displays inline with the tracking number in the orders list column (no wrapping)
 * Improved: Orders list tracking column layout uses flexbox for consistent alignment
 
 = 1.0.9 =
@@ -404,6 +408,9 @@ Each carrier operates its own website under its own terms of service and privacy
 * Developer helper functions: wcst_add_tracking(), wcst_delete_tracking()
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Compliance fixes for WordPress.org guidelines: removes external Google favicon requests and completes carrier documentation. Safe to update.
 
 = 1.1.0 =
 Visual improvement to the orders list tracking column. No database changes. Safe to update.

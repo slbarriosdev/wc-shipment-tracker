@@ -3,7 +3,7 @@
  * Plugin Name: Trackora - Shipment Tracker for WooCommerce
  * Plugin URI:  https://wordpress.org/plugins/trackora/
  * Description: Add tracking numbers to WooCommerce orders. Supports multiple shipping providers and custom tracking links. Tracking information appears in emails, the order view page and the customer account section.
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      slbarriosdev
  * Text Domain: trackora
  * Domain Path: /languages
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WCST_VERSION', '1.1.0' );
+define( 'WCST_VERSION', '1.1.1' );
 define( 'WCST_FILE',    __FILE__ );
 define( 'WCST_DIR',     __DIR__ );
 define( 'WCST_URL',     untrailingslashit( plugin_dir_url( __FILE__ ) ) );
