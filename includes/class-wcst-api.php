@@ -98,14 +98,14 @@ class WCST_API extends WC_REST_Controller {
 	// -------------------------------------------------------------------------
 
 	public function get_items_permissions_check( $request ) {
-		if ( ! wc_rest_check_post_permissions( $this->post_type, 'read' ) ) {
+		if ( ! wc_rest_check_post_permissions( $this->post_type, 'read', (int) $request['order_id'] ) ) {
 			return new WP_Error( 'wcst_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 		return true;
 	}
 
 	public function create_item_permissions_check( $request ) {
-		if ( ! wc_rest_check_post_permissions( $this->post_type, 'create' ) ) {
+		if ( ! wc_rest_check_post_permissions( $this->post_type, 'create', (int) $request['order_id'] ) ) {
 			return new WP_Error( 'wcst_rest_cannot_create', __( 'Sorry, you are not allowed to create resources.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 		return true;

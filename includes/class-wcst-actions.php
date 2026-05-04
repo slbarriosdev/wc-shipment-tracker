@@ -744,22 +744,11 @@ class WCST_Actions {
 			? sprintf( __( 'Shipped on %s', 'trackora' ), $formatted['formatted_date_shipped_i18n'] )
 			: __( 'No shipping date', 'trackora' );
 
-		$favicon_url = '';
-		if ( ! empty( $formatted['formatted_tracking_link'] ) ) {
-			$parsed = wp_parse_url( $formatted['formatted_tracking_link'] );
-			if ( ! empty( $parsed['host'] ) ) {
-				$favicon_url = 'https://www.google.com/s2/favicons?domain=' . rawurlencode( $parsed['host'] ) . '&sz=32';
-			}
-		}
 		?>
 		<div class="wcst-tracking-item" id="wcst-item-<?php echo esc_attr( $item['tracking_id'] ); ?>">
 			<div class="wcst-item-main">
 				<div class="wcst-item-logo">
-					<?php if ( $favicon_url ) : ?>
-						<img src="<?php echo esc_url( $favicon_url ); ?>" width="20" height="20" alt="" />
-					<?php else : ?>
-						<span class="wcst-item-logo-placeholder"></span>
-					<?php endif; ?>
+					<span class="wcst-item-logo-placeholder"></span>
 				</div>
 				<div class="wcst-item-info">
 					<strong><?php echo esc_html( $formatted['formatted_tracking_provider'] ); ?></strong>
@@ -980,34 +969,26 @@ class WCST_Actions {
 		if ( 0 === $count ) {
 			echo '&ndash;';
 		} elseif ( 1 === $count ) {
-			$f           = $this->get_formatted_tracking_item( $order_id, $items[0] );
-			$parsed      = wp_parse_url( $f['formatted_tracking_link'] );
-			$favicon_url = ! empty( $parsed['host'] ) ? 'https://www.google.com/s2/favicons?domain=' . rawurlencode( $parsed['host'] ) . '&sz=32' : '';
+			$f = $this->get_formatted_tracking_item( $order_id, $items[0] );
 			printf(
-				'<span class="wcst-tracking-cell">%s<a href="%s" target="_blank">%s</a></span>',
-				$favicon_url ? '<img src="' . esc_url( $favicon_url ) . '" width="16" height="16" alt="" />' : '',
+				'<span class="wcst-tracking-cell"><a href="%s" target="_blank">%s</a></span>',
 				esc_url( $f['formatted_tracking_link'] ),
 				esc_html( $items[0]['tracking_number'] )
 			);
 		} else {
 			echo '<details>';
 			foreach ( $items as $idx => $item ) {
-				$f           = $this->get_formatted_tracking_item( $order_id, $item );
-				$parsed      = wp_parse_url( $f['formatted_tracking_link'] );
-				$favicon_url = ! empty( $parsed['host'] ) ? 'https://www.google.com/s2/favicons?domain=' . rawurlencode( $parsed['host'] ) . '&sz=32' : '';
-				$favicon_img = $favicon_url ? '<img src="' . esc_url( $favicon_url ) . '" width="16" height="16" alt="" />' : '';
+				$f = $this->get_formatted_tracking_item( $order_id, $item );
 				if ( 0 === $idx ) {
 					printf(
-						'<summary><span class="wcst-tracking-cell">%s<a href="%s" target="_blank">%s</a></span> (+%d more…)</summary><ul>',
-						$favicon_img,
+						'<summary><span class="wcst-tracking-cell"><a href="%s" target="_blank">%s</a></span> (+%d more…)</summary><ul>',
 						esc_url( $f['formatted_tracking_link'] ),
 						esc_html( $item['tracking_number'] ),
 						$count - 1
 					);
 				} else {
 					printf(
-						'<li><span class="wcst-tracking-cell">%s<a href="%s" target="_blank">%s</a></span></li>',
-						$favicon_img,
+						'<li><span class="wcst-tracking-cell"><a href="%s" target="_blank">%s</a></span></li>',
 						esc_url( $f['formatted_tracking_link'] ),
 						esc_html( $item['tracking_number'] )
 					);

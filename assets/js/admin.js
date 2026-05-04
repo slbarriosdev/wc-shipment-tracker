@@ -23,30 +23,8 @@
 		// ----------------------------------------------------------------
 		// Searchable provider select via SelectWoo (WC enhanced select)
 		// ----------------------------------------------------------------
-		getProviderFaviconUrl: function ( optionId ) {
-			var encoded = wcstAdmin.providers[ optionId ];
-			if ( ! encoded ) {
-				return null;
-			}
-			try {
-				var hostname = new URL( decodeURIComponent( encoded ) ).hostname;
-				return 'https://www.google.com/s2/favicons?domain=' + hostname + '&sz=16';
-			} catch ( e ) {
-				return null;
-			}
-		},
-
 		providerTemplate: function ( option ) {
-			if ( ! option.id ) {
-				return option.text;
-			}
-			var faviconUrl = WCSTAdmin.getProviderFaviconUrl( option.id );
-			if ( ! faviconUrl ) {
-				return option.text;
-			}
-			return $( '<span>' )
-				.append( $( '<img>', { src: faviconUrl, width: 16, height: 16, 'class': 'wcst-provider-icon' } ) )
-				.append( ' ' + option.text );
+			return option.text;
 		},
 
 		initProviderSelect: function () {
