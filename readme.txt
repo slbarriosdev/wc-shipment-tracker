@@ -2,7 +2,7 @@
 Contributors: slbarriosdev
 Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.2.1
 License: GPLv2 or later
