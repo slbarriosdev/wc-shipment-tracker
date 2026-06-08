@@ -79,7 +79,7 @@ class WCST_API extends WC_REST_Controller {
 			)
 		);
 
-		// --- Providers list (public) ----------------------------------------
+		// --- Providers list (intentionally public — read-only carrier catalogue) ---
 		register_rest_route(
 			$this->namespace,
 			'/providers',
@@ -87,6 +87,7 @@ class WCST_API extends WC_REST_Controller {
 				array(
 					'methods'             => WP_REST_Server::READABLE,
 					'callback'            => array( $this, 'get_providers' ),
+					// Public endpoint: the carrier list contains no sensitive data.
 					'permission_callback' => '__return_true',
 				),
 			)

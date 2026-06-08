@@ -1,0 +1,279 @@
+Hello,
+Yes, you have documented the URLs but they don't work.
+List of issues found
+
+
+## The URL(s) declared in your plugin seems to be invalid or does not work.
+
+From your plugin:
+
+Terms/Privacy URL: https://www.aramex.com/us/en/legal/terms-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.aramex.com/us/en/legal/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/global-en/home/our-divisions/express/legal/terms-and-conditions.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/global-en/home/our-divisions/express/legal/privacy-notice.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.correoargentino.com.ar/terminos-y-condiciones - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.correoargentino.com.ar/politica-de-privacidad - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/ar-es/home/nuestras-divisiones/express/legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/ar-es/home/nuestras-divisiones/express/legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.urbanoargentina.com.ar/politica-de-privacidad - readme.txt - Could not resolve host: www.urbanoargentina.com.ar
+Terms/Privacy URL: https://www.aramex.com/au/en/legal/terms-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.aramex.com/au/en/legal/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.post.at/en/footer/legal-information/terms-and-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.post.at/en/footer/legal-information/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/at-de/home/rechtliche-hinweise/agb.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/at-de/home/rechtliche-hinweise/datenschutz.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.bpost.be/en/terms-and-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.bpost.be/en/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.correios.com.br/acesso-a-informacao/institucional/termos-de-uso - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.correios.com.br/acesso-a-informacao/institucional/politica-de-privacidade - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.canadapost-postescanada.ca/cpc/en/our-company/about-canada-post/corporate-responsibility/terms-of-use.page - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.canadapost-postescanada.ca/cpc/en/our-company/about-canada-post/corporate-responsibility/privacy-policy.page - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.purolator.com/en/terms-and-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.purolator.com/en/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.chilexpress.cl/terminos-y-condiciones - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.chilexpress.cl/politica-de-privacidad - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/cl-es/home/nuestras-divisiones/express/legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/cl-es/home/nuestras-divisiones/express/legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.ems.com.cn/help/privacy.html - readme.txt - This URL replies us with a 405 HTTP code, meaning that it does not work or is not public.
+Terms/Privacy URL: https://www.sf-express.com/us/en/service_support/service_agreement/privacy_policy.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.4px.com/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.yanwen.com/en/privacy.html - readme.txt - SSL certificate problem: certificate has expired
+Terms/Privacy URL: https://www.deprisa.com/politica-de-privacidad/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.tcc.com.co/politica-de-privacidad - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/co-es/home/nuestras-divisiones/express/legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/co-es/home/nuestras-divisiones/express/legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.interrapidisimo.com/politica-de-privacidad/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.servientrega.com.ec/politica-de-privacidad - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.laarcourier.com/privacidad - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.correos.gob.ec/politica-de-privacidad/ - readme.txt - Could not resolve host: www.correos.gob.ec
+Terms/Privacy URL: https://www.dhl.com/ec-es/home/nuestras-divisiones/express/legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/ec-es/home/nuestras-divisiones/express/legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.de/de/privatkunden/hilfe/datenschutz.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://dpd.ie/terms-and-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.anpost.com/terms-and-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/it-it/home/divisioni/express/informazioni-legali/termini-e-condizioni.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/it-it/home/divisioni/express/informazioni-legali/informativa-sulla-privacy.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.post.japanpost.jp/legal/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.jtexpress.my/privacy-policy - readme.txt - This URL replies us with a 405 HTTP code, meaning that it does not work or is not public.
+Terms/Privacy URL: https://www.dhl.com/my-en/home/our-divisions/express/legal/terms-and-conditions.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/my-en/home/our-divisions/express/legal/privacy-notice.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.estafeta.com/aviso-legal - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/mx-es/home/nuestras-divisiones/express/legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/mx-es/home/nuestras-divisiones/express/legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.postnl.nl/privacy/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.com/nl/nl/juridische-informatie/gebruiksvoorwaarden/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.com/nl/nl/juridische-informatie/privacybeleid/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.nzpost.co.nz/about-nz-post/terms-and-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.nzpost.co.nz/about-nz-post/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.courierpost.co.nz/help/terms-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.courierpost.co.nz/help/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/ng-en/home/our-divisions/express/legal/terms-and-conditions.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/ng-en/home/our-divisions/express/legal/privacy-notice.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.serpost.com.pe/aviso-de-privacidad - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.olvacourier.com/politica-de-privacidad - readme.txt - This URL replies us with a 500 HTTP code, meaning that it does not work or is not public.
+Terms/Privacy URL: https://www.dhl.com/pe-es/home/nuestras-divisiones/express/legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/pe-es/home/nuestras-divisiones/express/legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.gremcorp.com.pe/shalomweb/politica-de-privacidad - readme.txt - Could not resolve host: www.gremcorp.com.pe
+Terms/Privacy URL: https://www.ctt.pt/ctt/termos-e-condicoes - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.ctt.pt/ctt/politica-de-privacidade - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://gls-group.com/PT/pt/informacao-legal - readme.txt - Maximum (3) redirects followed
+Terms/Privacy URL: https://gls-group.com/PT/pt/politica-de-privacidade - readme.txt - Maximum (3) redirects followed
+Terms/Privacy URL: https://www.dhl.com/pt-pt/home/as-nossas-divisoes/express/informacao-legal/termos-e-condicoes.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/pt-pt/home/as-nossas-divisoes/express/informacao-legal/aviso-de-privacidade.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.fancourier.ro/termeni-conditii/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.com/ro/ro/informatii-legale/termeni-si-conditii/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.com/ro/ro/informatii-legale/politica-de-confidentialitate/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.singpost.com/terms-of-use - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.postoffice.co.za/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://epx.pperfect.com/privacy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.cjlogistics.com/ko/privacy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.lotteglogis.com/home/about/privacy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://gls-group.com/ES/es/informacion-legal - readme.txt - Maximum (3) redirects followed
+Terms/Privacy URL: https://gls-group.com/ES/es/politica-de-privacidad - readme.txt - Maximum (3) redirects followed
+Terms/Privacy URL: https://www.nacex.es/condiciones-legales-de-uso-de-la-web.do - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.nacex.es/politica-de-privacidad.do - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/es-es/home/divisiones/express/informacion-legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/es-es/home/divisiones/express/informacion-legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.com/es/es/informacion-legal/condiciones-de-uso/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.com/es/es/informacion-legal/politica-de-privacidad/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.asm-spain.com/politica-de-privacidad/ - readme.txt - Could not resolve host: www.asm-spain.com
+Terms/Privacy URL: https://www.correosexpress.com/web/correosexpress/condiciones-de-uso - readme.txt - This URL replies us with a 503 HTTP code, meaning that it does not work or is not public.
+Terms/Privacy URL: https://www.correosexpress.com/web/correosexpress/politica-de-privacidad - readme.txt - This URL replies us with a 503 HTTP code, meaning that it does not work or is not public.
+Terms/Privacy URL: https://www.zeleris.com/en/privacy-policy/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.tnt.com/express/es_es/site/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.tnt.com/express/es_es/site/politica-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.postnord.com/en/terms-and-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.postnord.com/en/privacy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dbschenker.com/global-en/meta/legal-notice - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dbschenker.com/global-en/meta/privacy-policy - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://th.kerryexpress.com/en/privacy-policy/ - readme.txt - Could not resolve host: th.kerryexpress.com
+Terms/Privacy URL: https://www.flashexpress.co.th/privacy-policy/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.ptt.gov.tr/gizlilik-politikasi - readme.txt - SSL certificate problem: unable to get local issuer certificate
+Terms/Privacy URL: https://www.yurticikargo.com/tr/hakkimizda/gizlilik-politikasi - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.mngkargo.com.tr/gizlilik-politikasi - readme.txt - Operation timed out after 8038 milliseconds with 0 bytes received
+Terms/Privacy URL: https://www.dhl.com/gb-en/home/our-divisions/express/legal/terms-and-conditions.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/gb-en/home/our-divisions/express/legal/privacy-notice.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.co.uk/content/legal_info/terms_conditions.jsp - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpd.co.uk/content/legal_info/privacy_policy.jsp - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpdlocal.co.uk/terms-and-conditions/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dpdlocal.co.uk/privacy-policy/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.parcelforce.com/terms-conditions - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.parcelforce.com/privacy-cookies - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/gb-en/home/our-divisions/parcel/legal/terms-and-conditions.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/gb-en/home/our-divisions/parcel/legal/privacy-notice.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.fedex.com/en-us/privacy-policy.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.usps.com/terms-of-use.htm - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.usps.com/privacypolicy.htm - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/us-en/home/our-divisions/ecommerce/legal/terms-and-conditions.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/us-en/home/our-divisions/ecommerce/legal/privacy-notice.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.goglobalpost.com/terms/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.goglobalpost.com/privacy/ - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.ontrac.com/termsconditions.asp - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.ontrac.com/privacy.asp - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.mrw.com.ve/aviso-de-privacidad/ - readme.txt - Could not resolve host: www.mrw.com.ve
+Terms/Privacy URL: https://www.zoom.com.ve/aviso-de-privacidad/ - readme.txt - Could not resolve host: www.zoom.com.ve
+Terms/Privacy URL: https://www.dhl.com/ve-es/home/nuestras-divisiones/express/legal/terminos-y-condiciones.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+Terms/Privacy URL: https://www.dhl.com/ve-es/home/nuestras-divisiones/express/legal/aviso-de-privacidad.html - readme.txt - This URL replies us with a 404 HTTP code, meaning that it does not exists or it is not a public URL.
+
+## Undocumented use of a 3rd Party / external service
+
+Plugins are permitted to require the use of third party/external services as long as they are clearly documented.
+
+When your plugin reach out to external services, you must disclose it. This is true even if you are the one providing that service.
+
+You are required to document it in a clear and plain language, so users are aware of: what data is sent, why, where and under which conditions.
+
+To do this, you must update your readme file to clearly explain that your plugin relies on third party/external services, and include at least the following information for each third party/external service that this plugin uses:
+What the service is and what it is used for.
+What data is sent and when.
+Provide links to the service's terms of service and privacy policy.
+Remember, this is for your own legal protection. Use of services must be upfront and well documented. This allows users to ensure that any legal issues with data transmissions are covered.
+
+Example:
+== External services ==
+
+This plugin connects to an API to obtain weather information, it's needed to show the weather information and forecasts in the included widget.
+
+It sends the user's location every time the widget is loaded (If the location isn't available and/or the user hasn't given their consent, it displays a configurable default location).
+This service is provided by "PRT Weather INC": terms of use, privacy policy.
+
+🔗 Please verify that the terms and privacy links exist and they have the proper content. We will check those links in the next review.
+
+Example(s) from your plugin:
+# Domain(s) not mentioned in the readme file.
+includes/class-wcst-actions.php:43 'FedEx Sameday' => 'https://www.fedexsameday.com/fdx_dotracking_ua.aspx?tracknum=%1$s',
+includes/class-wcst-actions.php:132 'DB Schenker'         => 'http://privpakportal.schenker.nu/TrackAndTrace/packagesearch.aspx?packageId=%1$s',
+includes/class-wcst-actions.php:93 'An Post' => 'https://track.anpost.ie/TrackingResults.aspx?rtt=1&items=%1$s',
+
+# Domain(s) mentioned in the readme file. Links to service terms and/or privacy policy not found.
+includes/class-wcst-actions.php:73 'PPL.cz'      => 'https://www.ppl.cz/main2.aspx?cls=Package&idSearch=%1$s',
+
+
+
+## Check permission_callback in REST API Route
+
+When using register_rest_route() or wp_register_ability() to define custom REST API endpoints, it is crucial to include a proper permission_callback .
+
+🔒 This callback function ensures that only authorized users can access or modify data through your endpoint.
+
+Code example, checking that the user can change options:
+register_rest_route( 'trackora/v1', '/my-endpoint', array(
+    'methods' => 'GET',
+    'callback' => 'trackora_callback_function',
+    'permission_callback' => function() {
+        return current_user_can( 'manage_options' );
+    }
+) );
+
+Please check the register_rest_route() documentation and the current_user_can() documentation.
+
+✅ When a permission_callback is NOT Required:
+
+There are valid use cases for public endpoints, such as publicly available data (e.g., posts, public metadata) or endpoints designed for unauthenticated access (e.g., fetching public stats or information).
+
+In these cases, you should use __return_true as the permission_callback to indicate that the endpoint is intentionally public.
+
+🔒 When a permission_callback IS Required:
+
+For endpoints that involve sensitive data or actions (e.g., getting not public data, creating, updating, or deleting content).
+
+In these cases, you should always implement proper permission checks.
+
+Possible cases found on this plugin's code:
+includes/class-wcst-api.php:83 register_rest_route($this->namespace, '/providers', array(array('methods' => WP_REST_Server::READABLE, 'callback' => array($this, 'get_providers'), 'permission_callback' => '__return_true')));
+
+
+
+## Unclosed ob_start()
+
+Using ob_start() without explicitly closing the buffer within the same logical flow (e.g., using ob_get_clean() , ob_end_flush() , or similar) can lead to unpredictable behaviour.
+
+While output buffering is a valid technique, you should not leave a buffer 'open'.
+
+WordPress is a shared environment in which the core, plugins and themes run in a coordinated sequence that isn't always predictable, particularly due to the way hooks work. If another component opens or closes a buffer that doesn't align with yours, the buffer stack can become misaligned, resulting in unexpected behaviour.
+
+If you need to modify the entire response output, you can do so in a standardised way since WordPress 6.9 using the template enhancement output buffer.
+
+Please ensure that every instance of ob_start() you create is paired with a corresponding closing function (like ob_get_clean() ) within the same function scope, and that nothing (including hooks and your code logic) can intercept or bypass that closing logic.
+
+Example(s) from your plugin:
+includes/class-wcst-actions.php:926 ob_start();
+
+
+
+## Nonces and User Permissions Needed for Security
+
+Please add a nonce check to your input calls ($_POST, $_GET, $REQUEST) to prevent unauthorized access.
+
+If you use wp_ajax_ to trigger submission checks, remember they also need a nonce check.
+
+👮 Checking permissions: Keep in mind, a nonce check alone is not bulletproof security. Do not rely on nonces for authorization purposes. When needed, use it together with current_user_can() in order to prevent users without the right permissions from accessing things they shouldn't.
+
+Also make sure that the nonce logic is correct by making sure it cannot be bypassed. Checking the nonce with current_user_can() is great, but mixing it with other checks can make the condition more complex and, without realising it, bypassable, remember that anything can be sent through an input, don't trust any input.
+
+Keep performance in mind. Don't check for post submission outside of functions. Doing so means that the check will run on every single load of the plugin, which means that every single person who views any page on a site using your plugin will be checking for a submission. This will make your code slow and unwieldy for users on any high traffic site, leading to instability and eventually crashes.
+
+The following links may assist you in development:
+
+https://developer.wordpress.org/plugins/security/nonces/
+https://developer.wordpress.org/plugins/javascript/ajax/#nonce
+https://developer.wordpress.org/plugins/settings/settings-api/
+
+From your plugin:
+templates/shortcode/tracking.php:1 No nonce check found validating input origin on lines 1-132
+# ↳ Line 132: value="<?php echo isset( $_POST['wcst_order_id'] ) ? absint( $_POST['wcst_order_id'] ) : ''; ?>" />
+# ↳ Line 143: value="<?php echo isset( $_POST['wcst_email'] ) ? esc_attr( sanitize_email( wp_unslash( $_POST['wcst_email'] ) ) ) : ''; ?>" />
+includes/class-wcst-actions.php:1047 WCST_Actions::shortcode_tracking() [classMethod] No nonce check found validating input origin on lines 1047-1061
+# ↳ Line 1049: $order_id  = isset( $_GET['order_id'] ) ? absint( $_GET['order_id'] ) : 0;
+includes/class-wcst-actions.php:808 WCST_Actions::save_meta_box() [classMethod] No nonce check found validating input origin on lines 808-815
+# ↳ Line 815: 'tracking_provider'        => isset( $_POST['wcst_tracking_provider'] )        ? sanitize_text_field( wp_unslash( $_POST['wcst_tracking_provider'] ) )        : '',
+# ↳ Line 816: 'custom_tracking_provider' => isset( $_POST['wcst_custom_tracking_provider'] ) ? sanitize_text_field( wp_unslash( $_POST['wcst_custom_tracking_provider'] ) ) : '',
+# ↳ Line 817: 'custom_tracking_link'     => isset( $_POST['wcst_custom_tracking_link'] )     ? sanitize_text_field( wp_unslash( $_POST['wcst_custom_tracking_link'] ) )     : '',
+# ↳ Line 818: 'tracking_number'          => isset( $_POST['wcst_tracking_number'] )          ? sanitize_text_field( wp_unslash( $_POST['wcst_tracking_number'] ) )          : '',
+# ↳ Line 819: 'date_shipped'             => isset( $_POST['wcst_date_shipped'] )             ? sanitize_text_field( wp_unslash( $_POST['wcst_date_shipped'] ) )             : '',
+
+
+
+👉 Continue with the review process.
+
+Read this email thoroughly.
+
+Take the time to thoroughly review and understand the issues identified. Examine the provided examples, consult the relevant documentation, and conduct any additional research necessary. The goal of our review process is to help you clearly understand the reported issues so you can resolve them effectively and prevent similar problems in future updates to your plugin.
+Note that there may be false positives - we are humans and make mistakes, we apologize if there is anything we have gotten wrong. If you have doubts you can ask us for clarification, when asking us please be clear, concise, direct and include an example.
+
+📋 Complete your checklist.
+
+✔️ I fixed all the issues in my plugin based on the feedback I received and my own review, as I know that the Plugins Team may not share all cases of the same issue. I am familiar with tools such as Plugin Check, PHPCS + WPCS, and similar utilities to help me identify problems in my code.
+✔️ I tested my updated plugin on a clean WordPress installation with WP_DEBUG set to true.
+⚠️ Do not skip this step. Testing is essential to make sure your fixes actually work and that you haven’t introduced new issues.
+
+✔️ I acknowledge that this review will be rejected if I overlook the issues or fail to test my code.
+✔️ I went to "Add your plugin" and uploaded the updated version. I can continue updating the code there throughout the review process — the team will always check the latest version.
+✔️ I replied to this email. I was concise and shared any clarifications or important context that the team needed to know.
+I didn't list all the changes, as the team will review the entire plugin again and that is not necessary at all.
+
+ℹ️ To help speed up the review process, we kindly ask that you carefully verify and address all reported issues before resubmitting your code.
+
+While we try to make our reviews as exhaustive as possible we, like you, are humans and may have missed things. We appreciate your patience and understanding.
+
+Review ID: R trackora/slbarriosdev/21Apr26/T4 11May26/4.0 (P0TDX301001HGN)

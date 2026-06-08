@@ -611,6 +611,8 @@ class WCST_Actions {
 			}
 		}
 		?>
+		<?php wp_nonce_field( 'wcst_save_meta_box_' . $order_id, 'wcst_save_nonce' ); ?>
+
 		<div id="wcst-tracking-items">
 			<?php foreach ( $tracking_items as $item ) : ?>
 				<?php $this->render_tracking_item_html( $order_id, $item ); ?>
@@ -806,8 +808,17 @@ class WCST_Actions {
 	 * @param int $post_id
 	 */
 	public function save_meta_box( $post_id ) {
-		// Nonce already checked by WooCommerce before firing this hook.
-		// phpcs:disable WordPress.Security.NonceVerification.Missing
+		if (
+			! isset( $_POST['wcst_save_nonce'] ) ||
+			! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcst_save_nonce'] ) ), 'wcst_save_meta_box_' . $post_id )
+		) {
+			return;
+		}
+
+		if ( ! current_user_can( 'edit_shop_orders' ) ) {
+			return;
+		}
+
 		if ( ! empty( $_POST['wcst_tracking_number'] ) ) {
 			$this->add_tracking_item(
 				$post_id,
@@ -820,7 +831,6 @@ class WCST_Actions {
 				)
 			);
 		}
-		// phpcs:enable WordPress.Security.NonceVerification.Missing
 	}
 
 	// =========================================================================
@@ -927,7 +937,8 @@ class WCST_Actions {
 		foreach ( $items as $item ) {
 			$this->render_tracking_item_html( $order_id, $item );
 		}
-		wp_send_json_success( array( 'html' => ob_get_clean() ) );
+		$html = ob_get_clean();
+		wp_send_json_success( array( 'html' => $html ) );
 	}
 
 	// =========================================================================
@@ -1048,13 +1059,13 @@ class WCST_Actions {
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended
 		$order_id  = isset( $_GET['order_id'] ) ? absint( $_GET['order_id'] ) : 0;
 		$order_key = isset( $_GET['key'] )      ? sanitize_text_field( wp_unslash( $_GET['key'] ) ) : '';
-		$email     = isset( $_POST['wcst_email'] ) ? sanitize_email( wp_unslash( $_POST['wcst_email'] ) ) : '';
-		$post_id   = isset( $_POST['wcst_order_id'] ) ? absint( $_POST['wcst_order_id'] ) : 0;
 		// phpcs:enable
 
-		$order  = null;
-		$error  = '';
-		$state  = 'form'; // 'form' | 'results' | 'no_tracking' | 'error'
+		$order         = null;
+		$error         = '';
+		$state         = 'form'; // 'form' | 'results' | 'no_tracking' | 'error'
+		$form_order_id = 0;
+		$form_email    = '';
 
 		// — Direct link via order_key (from email) —
 		if ( $order_id && $order_key ) {
@@ -1069,21 +1080,29 @@ class WCST_Actions {
 		}
 
 		// — Lookup form submitted (order ID + billing email) —
-		if ( 'form' === $state && $post_id && $email ) {
-			if ( ! isset( $_POST['wcst_lookup_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcst_lookup_nonce'] ) ), 'wcst_tracking_lookup' ) ) {
+		if ( 'form' === $state && isset( $_POST['wcst_order_id'] ) ) {
+			if (
+				! isset( $_POST['wcst_lookup_nonce'] ) ||
+				! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcst_lookup_nonce'] ) ), 'wcst_tracking_lookup' )
+			) {
 				$error = __( 'Security check failed. Please try again.', 'trackora' );
 				$state = 'error';
 			} else {
-				$candidate = wc_get_order( $post_id );
-				if (
-					$candidate instanceof WC_Order &&
-					strtolower( $candidate->get_billing_email() ) === strtolower( $email )
-				) {
-					$order = $candidate;
-					$state = 'results';
-				} else {
-					$error = __( 'No order found with that order number and email address.', 'trackora' );
-					$state = 'error';
+				$form_order_id = absint( $_POST['wcst_order_id'] );
+				$form_email    = isset( $_POST['wcst_email'] ) ? sanitize_email( wp_unslash( $_POST['wcst_email'] ) ) : '';
+
+				if ( $form_order_id && $form_email ) {
+					$candidate = wc_get_order( $form_order_id );
+					if (
+						$candidate instanceof WC_Order &&
+						strtolower( $candidate->get_billing_email() ) === strtolower( $form_email )
+					) {
+						$order = $candidate;
+						$state = 'results';
+					} else {
+						$error = __( 'No order found with that order number and email address.', 'trackora' );
+						$state = 'error';
+					}
 				}
 			}
 		}
@@ -1103,6 +1122,8 @@ class WCST_Actions {
 				'order'          => $order,
 				'tracking_items' => ( 'results' === $state ) ? $this->get_tracking_items( $order->get_id(), true ) : array(),
 				'error'          => $error,
+				'form_order_id'  => $form_order_id,
+				'form_email'     => $form_email,
 			),
 			'wc-shipment-tracker/',
 			WCST_DIR . '/templates/'

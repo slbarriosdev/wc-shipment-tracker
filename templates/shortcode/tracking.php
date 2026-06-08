@@ -129,7 +129,7 @@ defined( 'ABSPATH' ) || exit;
 						required
 						min="1"
 						placeholder="<?php esc_attr_e( 'e.g. 1234', 'trackora' ); ?>"
-						value="<?php echo isset( $_POST['wcst_order_id'] ) ? absint( $_POST['wcst_order_id'] ) : ''; ?>" />
+						value="<?php echo $form_order_id ? esc_attr( $form_order_id ) : ''; ?>" />
 				</p>
 
 				<p class="form-row">
@@ -140,7 +140,7 @@ defined( 'ABSPATH' ) || exit;
 						class="input-text"
 						required
 						placeholder="<?php esc_attr_e( 'you@example.com', 'trackora' ); ?>"
-						value="<?php echo isset( $_POST['wcst_email'] ) ? esc_attr( sanitize_email( wp_unslash( $_POST['wcst_email'] ) ) ) : ''; ?>" />
+						value="<?php echo $form_email ? esc_attr( $form_email ) : ''; ?>" />
 				</p>
 
 				<p class="form-row">
