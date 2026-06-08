@@ -1,11 +1,10 @@
 === Trackora - Shipment Tracker for WooCommerce ===
 Contributors: slbarriosdev
-Donate link: https://github.com/slbarriosdev/wc-shipment-tracker
 Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -390,6 +389,14 @@ Each carrier operates its own website under its own terms of service and privacy
 
 == Changelog ==
 
+= 1.2.1 =
+* Fix: Use esc_url_raw() instead of sanitize_text_field() for custom tracking URL fields (meta box, AJAX handlers, REST API)
+* Fix: 3 carrier tracking URLs changed from HTTP to HTTPS (Correios Brazil, SAPO South Africa, DB Schenker Sweden)
+* Fix: load_plugin_textdomain() moved to init hook (was incorrectly using after_setup_theme)
+* Fix: Admin notice updated to use current notice notice-error CSS classes
+* Fix: Added uninstall.php with WP_UNINSTALL_PLUGIN guard (tracking data intentionally preserved)
+* Fix: Removed donate link pointing to source code repository
+
 = 1.2.0 =
 * Fix: Updated all broken carrier Terms of Service and Privacy Policy URLs in the External services section
 * Fix: Added explicit documentation for FedEx Sameday (fedexsameday.com), DB Schenker Privpak portal (privpakportal.schenker.nu), and An Post tracking portal (track.anpost.ie)
@@ -416,6 +423,9 @@ Each carrier operates its own website under its own terms of service and privacy
 * Developer helper functions: wcst_add_tracking(), wcst_delete_tracking()
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Compliance and security fixes: correct URL sanitization, HTTPS carrier links, textdomain hook fix. Safe to update.
 
 = 1.2.0 =
 Security and compliance fixes for WordPress.org guidelines: nonce verification added, carrier documentation URLs updated. Safe to update.

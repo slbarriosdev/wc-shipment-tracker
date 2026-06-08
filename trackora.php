@@ -3,7 +3,7 @@
  * Plugin Name: Trackora - Shipment Tracker for WooCommerce
  * Plugin URI:  https://wordpress.org/plugins/trackora/
  * Description: Add tracking numbers to WooCommerce orders. Supports multiple shipping providers and custom tracking links. Tracking information appears in emails, the order view page and the customer account section.
- * Version:     1.2.0
+ * Version:     1.2.1
  * Author:      slbarriosdev
  * Text Domain: trackora
  * Domain Path: /languages
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WCST_VERSION', '1.2.0' );
+define( 'WCST_VERSION', '1.2.1' );
 define( 'WCST_FILE',    __FILE__ );
 define( 'WCST_DIR',     __DIR__ );
 define( 'WCST_URL',     untrailingslashit( plugin_dir_url( __FILE__ ) ) );
@@ -56,7 +56,7 @@ function wcst_init() {
 }
 
 function wcst_missing_wc_notice() {
-	echo '<div class="error"><p><strong>' .
+	echo '<div class="notice notice-error"><p><strong>' .
 		esc_html__( 'WC Shipment Tracker requires WooCommerce to be installed and active.', 'trackora' ) .
 		'</strong></p></div>';
 }
@@ -97,7 +97,7 @@ function wcst_add_tracking( $order_id, $tracking_number, $provider, $date_shippe
 		? array(
 			'tracking_provider'        => '',
 			'custom_tracking_provider' => $provider,
-			'custom_tracking_link'     => $custom_url ? $custom_url : '',
+			'custom_tracking_link'     => $custom_url ? esc_url_raw( $custom_url ) : '',
 			'tracking_number'          => $tracking_number,
 			'date_shipped'             => gmdate( 'Y-m-d', $date_shipped ),
 		)

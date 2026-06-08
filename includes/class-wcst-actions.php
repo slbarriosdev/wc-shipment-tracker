@@ -60,7 +60,7 @@ class WCST_Actions {
 					'DPD.at'  => 'https://tracking.dpd.de/parcelstatus?locale=de_AT&query=%1$s',
 				),
 				'Brazil'         => array(
-					'Correios' => 'http://websro.correios.com.br/sro_bin/txect01$.QueryList?P_LINGUA=001&P_TIPO=001&P_COD_UNI=%1$s',
+					'Correios' => 'https://websro.correios.com.br/sro_bin/txect01$.QueryList?P_LINGUA=001&P_TIPO=001&P_COD_UNI=%1$s',
 				),
 				'Belgium'        => array(
 					'bpost' => 'https://track.bpost.be/btr/web/#/search?itemCode=%1$s&postalCode=%2$s',
@@ -120,7 +120,7 @@ class WCST_Actions {
 					'Urgent Cargus' => 'https://app.urgentcargus.ro/Private/Tracking.aspx?CodBara=%1$s',
 				),
 				'South Africa'   => array(
-					'SAPO'    => 'http://sms.postoffice.co.za/TrackingParcels/Parcel.aspx?id=%1$s',
+					'SAPO'    => 'https://www.postoffice.co.za/TrackingParcels/Parcel.aspx?id=%1$s',
 					'Fastway' => 'https://fastway.co.za/our-services/track-your-parcel?l=%1$s',
 					'EPX'     => 'https://epx.pperfect.com/?w=%1$s',
 				),
@@ -129,7 +129,7 @@ class WCST_Actions {
 					'DHL.se'              => 'https://www.dhl.com/se-sv/home/tracking.html?submit=1&tracking-id=%1$s',
 					'Bring.se'            => 'https://tracking.bring.se/tracking/%1$s',
 					'UPS.se'              => 'https://www.ups.com/track?loc=sv_SE&tracknum=%1$s&requester=WT/',
-					'DB Schenker'         => 'http://privpakportal.schenker.nu/TrackAndTrace/packagesearch.aspx?packageId=%1$s',
+					'DB Schenker'         => 'https://privpakportal.schenker.nu/TrackAndTrace/packagesearch.aspx?packageId=%1$s',
 				),
 				'United Kingdom' => array(
 					'DHL'                       => 'https://www.dhl.com/content/g0/en/express/tracking.shtml?brand=DHL&AWB=%1$s',
@@ -331,7 +331,7 @@ class WCST_Actions {
 		$item = array(
 			'tracking_provider'        => wc_clean( isset( $args['tracking_provider'] )        ? $args['tracking_provider']        : '' ),
 			'custom_tracking_provider' => wc_clean( isset( $args['custom_tracking_provider'] ) ? $args['custom_tracking_provider'] : '' ),
-			'custom_tracking_link'     => wc_clean( isset( $args['custom_tracking_link'] )     ? $args['custom_tracking_link']     : '' ),
+			'custom_tracking_link'     => esc_url_raw( isset( $args['custom_tracking_link'] )     ? $args['custom_tracking_link']     : '' ),
 			'tracking_number'          => wc_clean( isset( $args['tracking_number'] )          ? $args['tracking_number']          : '' ),
 			'date_shipped'             => isset( $args['date_shipped'] ) ? (int) wc_clean( strtotime( $args['date_shipped'] ) ) : 0,
 		);
@@ -413,7 +413,7 @@ class WCST_Actions {
 			if ( $item['tracking_id'] === $tracking_id ) {
 				$items[ $key ]['tracking_provider']        = wc_clean( isset( $args['tracking_provider'] )        ? $args['tracking_provider']        : '' );
 				$items[ $key ]['custom_tracking_provider'] = wc_clean( isset( $args['custom_tracking_provider'] ) ? $args['custom_tracking_provider'] : '' );
-				$items[ $key ]['custom_tracking_link']     = wc_clean( isset( $args['custom_tracking_link'] )     ? $args['custom_tracking_link']     : '' );
+				$items[ $key ]['custom_tracking_link']     = esc_url_raw( isset( $args['custom_tracking_link'] )     ? $args['custom_tracking_link']     : '' );
 				$items[ $key ]['tracking_number']          = wc_clean( isset( $args['tracking_number'] )          ? $args['tracking_number']          : '' );
 
 				if ( ! empty( $args['date_shipped'] ) ) {
@@ -825,7 +825,7 @@ class WCST_Actions {
 				array(
 					'tracking_provider'        => isset( $_POST['wcst_tracking_provider'] )        ? sanitize_text_field( wp_unslash( $_POST['wcst_tracking_provider'] ) )        : '',
 					'custom_tracking_provider' => isset( $_POST['wcst_custom_tracking_provider'] ) ? sanitize_text_field( wp_unslash( $_POST['wcst_custom_tracking_provider'] ) ) : '',
-					'custom_tracking_link'     => isset( $_POST['wcst_custom_tracking_link'] )     ? sanitize_text_field( wp_unslash( $_POST['wcst_custom_tracking_link'] ) )     : '',
+					'custom_tracking_link'     => isset( $_POST['wcst_custom_tracking_link'] )     ? esc_url_raw( wp_unslash( $_POST['wcst_custom_tracking_link'] ) )     : '',
 					'tracking_number'          => isset( $_POST['wcst_tracking_number'] )          ? sanitize_text_field( wp_unslash( $_POST['wcst_tracking_number'] ) )          : '',
 					'date_shipped'             => isset( $_POST['wcst_date_shipped'] )             ? sanitize_text_field( wp_unslash( $_POST['wcst_date_shipped'] ) )             : '',
 				)
@@ -854,7 +854,7 @@ class WCST_Actions {
 			array(
 				'tracking_provider'        => isset( $_POST['tracking_provider'] )        ? sanitize_text_field( wp_unslash( $_POST['tracking_provider'] ) )        : '',
 				'custom_tracking_provider' => isset( $_POST['custom_tracking_provider'] ) ? sanitize_text_field( wp_unslash( $_POST['custom_tracking_provider'] ) ) : '',
-				'custom_tracking_link'     => isset( $_POST['custom_tracking_link'] )     ? sanitize_text_field( wp_unslash( $_POST['custom_tracking_link'] ) )     : '',
+				'custom_tracking_link'     => isset( $_POST['custom_tracking_link'] )     ? esc_url_raw( wp_unslash( $_POST['custom_tracking_link'] ) )     : '',
 				'tracking_number'          => isset( $_POST['tracking_number'] )          ? sanitize_text_field( wp_unslash( $_POST['tracking_number'] ) )          : '',
 				'date_shipped'             => isset( $_POST['date_shipped'] )             ? sanitize_text_field( wp_unslash( $_POST['date_shipped'] ) )             : '',
 			)
@@ -878,8 +878,8 @@ class WCST_Actions {
 			wp_send_json_error( array( 'message' => __( 'Tracking number is required.', 'trackora' ) ) );
 		}
 
-		$order_id    = isset( $_POST['order_id'] )    ? absint( $_POST['order_id'] )                            : 0;
-		$tracking_id = isset( $_POST['tracking_id'] ) ? wc_clean( wp_unslash( $_POST['tracking_id'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$order_id    = isset( $_POST['order_id'] )    ? absint( $_POST['order_id'] )                                       : 0;
+		$tracking_id = isset( $_POST['tracking_id'] ) ? sanitize_text_field( wp_unslash( $_POST['tracking_id'] ) ) : '';
 
 		$item = $this->update_tracking_item(
 			$order_id,
@@ -887,7 +887,7 @@ class WCST_Actions {
 			array(
 				'tracking_provider'        => isset( $_POST['tracking_provider'] )        ? sanitize_text_field( wp_unslash( $_POST['tracking_provider'] ) )        : '',
 				'custom_tracking_provider' => isset( $_POST['custom_tracking_provider'] ) ? sanitize_text_field( wp_unslash( $_POST['custom_tracking_provider'] ) ) : '',
-				'custom_tracking_link'     => isset( $_POST['custom_tracking_link'] )     ? sanitize_text_field( wp_unslash( $_POST['custom_tracking_link'] ) )     : '',
+				'custom_tracking_link'     => isset( $_POST['custom_tracking_link'] )     ? esc_url_raw( wp_unslash( $_POST['custom_tracking_link'] ) )             : '',
 				'tracking_number'          => isset( $_POST['tracking_number'] )          ? sanitize_text_field( wp_unslash( $_POST['tracking_number'] ) )          : '',
 				'date_shipped'             => isset( $_POST['date_shipped'] )             ? sanitize_text_field( wp_unslash( $_POST['date_shipped'] ) )             : '',
 			)
@@ -911,8 +911,8 @@ class WCST_Actions {
 			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'trackora' ) ) );
 		}
 
-		$order_id    = isset( $_POST['order_id'] )    ? absint( $_POST['order_id'] )                              : 0;
-		$tracking_id = isset( $_POST['tracking_id'] ) ? wc_clean( wp_unslash( $_POST['tracking_id'] ) ) : '';  // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$order_id    = isset( $_POST['order_id'] )    ? absint( $_POST['order_id'] )                                       : 0;
+		$tracking_id = isset( $_POST['tracking_id'] ) ? sanitize_text_field( wp_unslash( $_POST['tracking_id'] ) ) : '';
 
 		$deleted = $this->delete_tracking_item( $order_id, $tracking_id );
 

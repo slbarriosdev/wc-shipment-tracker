@@ -184,7 +184,7 @@ class WCST_API extends WC_REST_Controller {
 			array(
 				'tracking_provider'        => wc_clean( sanitize_title( $request['tracking_provider'] ) ),
 				'custom_tracking_provider' => wc_clean( $request['custom_tracking_provider'] ),
-				'custom_tracking_link'     => wc_clean( $request['custom_tracking_link'] ),
+				'custom_tracking_link'     => esc_url_raw( (string) $request['custom_tracking_link'] ),
 				'tracking_number'          => wc_clean( $request['tracking_number'] ),
 				'date_shipped'             => wc_clean( $request['date_shipped'] ),
 			)
