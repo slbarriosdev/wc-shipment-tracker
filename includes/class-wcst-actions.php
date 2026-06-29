@@ -153,7 +153,7 @@ class WCST_Actions {
 					'DHL Spain'       => 'https://www.dhl.com/es-es/home/tracking.html?tracking-id=%1$s',
 					'UPS Spain'       => 'https://www.ups.com/track?loc=es_ES&tracknum=%1$s',
 					'DPD Spain'       => 'https://tracking.dpd.de/parcelstatus?locale=es_ES&query=%1$s',
-					'ASM'             => 'https://www.asm-spain.com/herramientas/seguimiento/?expedicion=%1$s',
+					'ASM'             => 'https://mygls.gls-spain.es/parcel-tracking',
 					'Correos Express' => 'https://www.correosexpress.com/web/correosexpress/home?numerosEnvio=%1$s',
 					'Zeleris'         => 'https://www.zeleris.com/en/tracking/?lang=es&track=%1$s',
 					'TNT Spain'       => 'https://www.tnt.com/express/es_es/site/shipping-tools/tracking.html?searchType=con&cons=%1$s',
@@ -184,7 +184,7 @@ class WCST_Actions {
 					'Andreani'           => 'https://www.andreani.com/#!/rastreo?tracking=%1$s',
 					'DHL Argentina'      => 'https://www.dhl.com/ar-es/home/rastreo.html?tracking-id=%1$s',
 					'FedEx Argentina'    => 'https://www.fedex.com/es-ar/tracking.html?tracknumbers=%1$s',
-					'Urbano'             => 'https://www.urbanoargentina.com.ar/tracking?numero=%1$s',
+					'Urbano'             => 'https://www.urbano.com.ar/segui-tu-envio',
 				),
 				'Chile'          => array(
 					'Correos Chile'  => 'https://www.correos.cl/SitePages/rastreo/rastreo.aspx?envio=%1$s',
@@ -197,17 +197,17 @@ class WCST_Actions {
 					'Serpost'        => 'https://www.serpost.com.pe/trackingW/tracking?nroenvio=%1$s',
 					'Olva Courier'   => 'https://www.olvacourier.com/rastreo?codigo=%1$s',
 					'DHL Peru'       => 'https://www.dhl.com/pe-es/home/rastreo.html?tracking-id=%1$s',
-					'Shalom'         => 'https://www.gremcorp.com.pe/shalomweb/seguimiento?tracking=%1$s',
+					'Shalom'         => 'https://rastrea.shalom.pe/',
 				),
 				'Ecuador'        => array(
 					'Servientrega EC'    => 'https://www.servientrega.com.ec/wps/portal/Servientrega/rastreo?tracking=%1$s',
 					'Laar Courier'       => 'https://www.laarcourier.com/rastreo?guia=%1$s',
-					'Correos Ecuador'    => 'https://www.correos.gob.ec/rastreo-de-envios/?tracking=%1$s',
+					'Correos Ecuador'    => 'https://sipostal.serviciopostal.gob.ec/Navegacion/Tracking',
 					'DHL Ecuador'        => 'https://www.dhl.com/ec-es/home/rastreo.html?tracking-id=%1$s',
 				),
 				'Venezuela'      => array(
-					'MRW Venezuela'  => 'https://www.mrw.com.ve/seguimiento/?numero=%1$s',
-					'Zoom'           => 'https://www.zoom.com.ve/rastreo/?guia=%1$s',
+					'MRW Venezuela'  => 'https://mrwve.com/',
+					'Zoom'           => 'https://zoom.red/tracking-de-envios-personas/',
 					'DHL Venezuela'  => 'https://www.dhl.com/ve-es/home/rastreo.html?tracking-id=%1$s',
 				),
 				'Portugal'       => array(
@@ -217,13 +217,13 @@ class WCST_Actions {
 					'DHL Portugal'   => 'https://www.dhl.com/pt-pt/home/rastreio.html?tracking-id=%1$s',
 				),
 				'China'          => array(
-					'China Post'     => 'https://yjcx.ems.com.cn/qps/english/yjcx?mailno=%1$s',
+					'China Post'     => 'https://www.ems.com.cn/english.html',
 					'YTO Express'    => 'https://www.ytoexpress.com/track?no=%1$s',
 					'ZTO Express'    => 'https://www.zto.com/GuestService/Trace?billcode=%1$s',
 					'SF Express'     => 'https://www.sf-express.com/cn/en/dynamic_function/waybill/#search/bill-number/%1$s',
 					'Cainiao'        => 'https://global.cainiao.com/detail.htm?mailNo=%1$s',
 					'4PX'            => 'https://track.4px.com/#/result/0/%1$s',
-					'Yanwen'         => 'https://track.yanwen.com/track?tracking_no=%1$s',
+					'Yanwen'         => 'https://www.yanwenexpress.com/tracking.html',
 					'Yunexpress'     => 'https://www.yuntrack.com/track?id=%1$s',
 				),
 				'Japan'          => array(
@@ -249,7 +249,7 @@ class WCST_Actions {
 				),
 				'Thailand'       => array(
 					'Thailand Post'  => 'https://track.thailandpost.co.th/?trackNumber=%1$s',
-					'Kerry Express'  => 'https://th.kerryexpress.com/en/track/?track=%1$s',
+					'Kerry Express'  => 'https://th.kex-express.com/en/track/?track=%1$s',
 					'Flash Express'  => 'https://www.flashexpress.co.th/tracking/?se=%1$s',
 					'J&T Express TH' => 'https://www.jtexpress.co.th/trajectoryQuery?billCode=%1$s',
 				),
@@ -1180,8 +1180,7 @@ class WCST_Actions {
 	}
 
 	public function exclude_tracking_from_renewal_query( $query ) {
-		global $wpdb;
-		$query .= $wpdb->prepare( " AND meta_key NOT IN ( %s )", '_wc_shipment_tracking_items' );
+		$query .= " AND meta_key NOT IN ( '_wc_shipment_tracking_items' )";
 		return $query;
 	}
 }

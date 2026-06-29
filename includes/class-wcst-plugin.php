@@ -68,12 +68,6 @@ class WCST_Plugin {
 		// ---- REST API -------------------------------------------------------
 		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
 
-		// ---- Textdomain -----------------------------------------------------
-		add_action( 'init', array( $this, 'load_textdomain' ) );
-	}
-
-	public function load_textdomain() {
-		load_plugin_textdomain( 'trackora', false, basename( WCST_DIR ) . '/languages/' );
 	}
 
 	public function register_rest_routes() {

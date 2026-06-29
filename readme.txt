@@ -4,7 +4,7 @@ Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Add tracking numbers to WooCommerce orders. Supports 60+ carriers worldwide. Sho
 
 == Description ==
 
-**WC Shipment Tracker** is the easiest way to add shipment tracking to your WooCommerce store. Let your customers follow their packages in real time — directly from their order confirmation email or their My Account page — without contacting you.
+**Trackora** is the easiest way to add shipment tracking to your WooCommerce store. Let your customers follow their packages in real time — directly from their order confirmation email or their My Account page — without contacting you.
 
 Stop answering "Where is my order?" emails. Give customers a one-click tracking link the moment their order ships.
 
@@ -70,7 +70,7 @@ Don't see your carrier? Add it as a custom provider with a custom tracking URL �
 
 = REST API =
 
-WC Shipment Tracker exposes a full REST API:
+Trackora exposes a full REST API:
 
 * `GET /wc-shipment-tracker/v1/orders/{order_id}/trackings` — list tracking items
 * `POST /wc-shipment-tracker/v1/orders/{order_id}/trackings` — add a tracking item
@@ -115,7 +115,7 @@ Bug reports and contributions are welcome.
 
 = Does this plugin require WooCommerce? =
 
-Yes. WC Shipment Tracker requires WooCommerce to be installed and active.
+Yes. Trackora requires WooCommerce to be installed and active.
 
 = Can I add more than one tracking number per order? =
 
@@ -131,7 +131,7 @@ Yes. Tracking information is automatically injected into WooCommerce order email
 
 = Is this plugin compatible with WooCommerce HPOS (High-Performance Order Storage)? =
 
-Yes. WC Shipment Tracker is fully compatible with HPOS (custom order tables), as well as the legacy CPT-based order storage.
+Yes. Trackora is fully compatible with HPOS (custom order tables), as well as the legacy CPT-based order storage.
 
 = Can I add tracking numbers via the REST API or programmatically? =
 
@@ -147,7 +147,7 @@ Tracking info appears in two places for customers: the WooCommerce transactional
 
 = Is the plugin compatible with the WooCommerce blocks checkout? =
 
-Yes. WC Shipment Tracker declares compatibility with WooCommerce cart and checkout blocks.
+Yes. Trackora declares compatibility with WooCommerce cart and checkout blocks.
 
 == Screenshots ==
 
@@ -178,7 +178,7 @@ Each carrier operates its own website under its own terms of service and privacy
 
 = Australia =
 * **Australia Post** — [Terms of service](https://auspost.com.au/terms-conditions) | [Privacy policy](https://auspost.com.au/privacy)
-* **Fastway Couriers** — [Terms of service](https://www.fastway.com.au/tools/track/terms-and-conditions) | [Privacy policy](https://www.fastway.com.au/privacy-policy)
+* **Fastway Couriers** — [Terms of service](https://www.aramex.com.au/terms-and-conditions/conditions-of-carriage/domestic-conditions-of-carriage/) | [Privacy policy](https://www.aramex.com.au/terms-and-conditions/privacy-policy/)
 * **Aramex Australia** — [Terms of service](https://www.aramex.com/us/en/terms-of-use) | [Privacy policy](https://www.aramex.com/us/en/legal-details/privacy-policy)
 
 = Austria =
@@ -197,20 +197,20 @@ Each carrier operates its own website under its own terms of service and privacy
 * **Purolator** — [Terms of service](https://www.purolator.com/en/terms-and-conditions-service) | [Privacy policy](https://www.purolator.com/en/legal/privacy.page)
 
 = Chile =
-* **Correos Chile** — [Terms of service](https://www.correos.cl/web/guest/terminos-y-condiciones) | [Privacy policy](https://www.correos.cl/web/guest/politica-de-privacidad)
+* **Correos Chile** — [Terms of service](https://www.correos.cl/condiciones-de-servicio) | [Privacy policy](https://www.correos.cl/politicas-de-privacidad)
 * **Chilexpress** — [Terms of service](https://www.chilexpress.cl/termino-condiciones-politica-privacidad) | [Privacy policy](https://www.chilexpress.cl/politica-de-privacidad-terminos-de-uso-sitios)
 * **Starken** — [Privacy policy](https://www.starken.cl/politica-de-privacidad)
 * **DHL Chile** — [Terms of service](https://www.dhl.com/cl-es/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
-* **Blue Express** — [Privacy policy](https://www.blue.cl/politica-de-privacidad/)
+* **Blue Express** — [Privacy policy](https://www.blue.cl/nosotros/politica-privacidad)
 
 = China =
-* **China Post / EMS** — [Privacy policy](https://www.ems.com.cn/help/privacy.html)
+* **China Post / EMS** — Privacy policy currently unavailable (provider website blocks automated access)
 * **YTO Express** — [Privacy policy](https://www.ytoexpress.com/privacy)
 * **ZTO Express** — [Privacy policy](https://www.zto.com/privacypolicy)
 * **SF Express** — [Privacy policy](https://www.sf-express.com/chn/en/privacy)
 * **Cainiao** — [Privacy policy](https://privacy.alibabagroup.com/en/global)
-* **4PX** — [Privacy policy](https://www.4px.com/privacy)
-* **Yanwen** — [Privacy policy](https://www.yanwen.com/en/privacy.html)
+* **4PX** — [Privacy policy](https://www.4px.com/view/privacy.html)
+* **Yanwen** — [Privacy policy](https://customer-portal.yanwenexpress.com/agreement/Yanwen_privacy_policy)
 * **Yunexpress** — [Privacy policy](https://www.yuntrack.com/privacy)
 
 = Colombia =
@@ -264,7 +264,7 @@ Each carrier operates its own website under its own terms of service and privacy
 
 = Malaysia =
 * **Pos Malaysia** — [Terms of service](https://www.pos.com.my/footer-links/terms-and-conditions) | [Privacy policy](https://www.pos.com.my/footer-links/privacy-policy)
-* **J&T Express MY** — [Privacy policy](https://www.jtexpress.my/privacy-policy)
+* **J&T Express MY** — [Privacy policy](https://www.jtexpress.my/legal/privacy-policy)
 * **Ninja Van MY** — [Privacy policy](https://www.ninjavan.co/en-my/privacy-policy)
 * **DHL Malaysia** — [Terms of service](https://www.dhl.com/my-en/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
 
@@ -323,7 +323,7 @@ Each carrier operates its own website under its own terms of service and privacy
 = South Africa =
 * **SAPO / South African Post Office** — [Privacy policy](https://www.postoffice.co.za/Legal/disclaimer.html)
 * **Fastway SA** — [Privacy policy](https://fastway.co.za/privacy-policy)
-* **EPX** — [Privacy policy](https://epx.pperfect.com/)
+* **EPX** — [Terms of service](https://epx.co.za/terms-conditions.php) | [Privacy policy](https://epx.co.za/privacy-policy.php)
 
 = South Korea =
 * **Korea Post** — [Privacy policy](https://www.koreapost.go.kr/privacy.do)
@@ -338,9 +338,9 @@ Each carrier operates its own website under its own terms of service and privacy
 * **Nacex** — [Terms of service](https://www.nacex.es/irCondiciones.do?seccion=condiciones) | [Privacy policy](https://www.nacex.es/irPolitica.do)
 * **DHL Spain** — [Terms of service](https://www.dhl.com/es-es/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
 * **UPS Spain** — [Terms of service](https://www.ups.com/es/es/support/shipping-support/legal-terms-conditions.page) | [Privacy policy](https://www.ups.com/es/es/support/shipping-support/legal-terms-conditions/privacy-notice.page)
-* **DPD Spain** — [Terms of service](https://www.dpd.com/es/es/condiciones-generales/) | [Privacy policy](https://www.dpd.com/es/es/proteccion-de-datos/)
+* **DPD Spain** — [Terms of service](https://www.geopost.com/en/legal-and-copyright-notice-disclaimer-dispute-settlement) | [Privacy policy](https://www.geopost.com/en/data-privacy-policy)
 * **ASM** — [Terms of service](https://gls-group.com/ES/es/aviso-legal/) | [Privacy policy](https://gls-group.com/ES/es/proteccion-de-datos/)
-* **Correos Express** — [Terms of service](https://correosexpress.com/web/correosexpress/condiciones-legales) | [Privacy policy](https://www.correosexpress.com/web/correosexpress/politica-privacidad/)
+* **Correos Express** — [Terms of service](https://www.correosexpress.es/es/atencion-al-cliente/tyc-transporte) | [Privacy policy](https://www.correosexpress.es/es/legales/privacidad-web-com)
 * **Zeleris** — [Privacy policy](https://www.zeleris.com/politica-de-privacidad/)
 * **TNT Spain** — [Terms of service](https://www.tnt.com/express/es_es/site/terminos-condiciones.html) | [Privacy policy](https://www.tnt.com/express/es_es/site/politica-privacidad.html)
 
@@ -353,15 +353,15 @@ Each carrier operates its own website under its own terms of service and privacy
 
 = Thailand =
 * **Thailand Post** — [Terms of service](https://www.thailandpost.co.th/en/terms-and-conditions) | [Privacy policy](https://www.thailandpost.co.th/en/privacy-policy)
-* **Kerry Express** — [Terms of service](https://th.kerryexpress.com/en/terms-of-use) | [Privacy policy](https://th.kerryexpress.com/en/privacy-policy/)
+* **Kerry Express (KEX)** — [Terms of service](https://th.kex-express.com/en/terms-of-use) | [Privacy policy](https://th.kex-express.com/en/privacy-notice)
 * **Flash Express** — [Privacy policy](https://www.flashexpress.co.th/fle/our-service/service-agreement/fex-privacy-policy)
 * **J&T Express TH** — [Privacy policy](https://www.jtexpress.co.th/privacy-policy)
 
 = Turkey =
-* **PTT** — [Privacy policy](https://www.ptt.gov.tr/gizlilik-politikasi)
+* **PTT** — [Privacy policy](https://www.ptt.gov.tr/gizlilik)
 * **Aras Cargo** — [Terms of service](https://www.araskargo.com.tr/kullanim-kosullari) | [Privacy policy](https://www.araskargo.com.tr/gizlilik-politikasi)
 * **Yurtici Kargo** — [Privacy policy](https://www.yurticikargo.com/en/privacy-and-security)
-* **MNG Kargo** — [Privacy policy](https://www.mngkargo.com.tr/kisisel-verilerin-korunmasi-ve-islenmesi)
+* **MNG Kargo** — [Privacy policy](https://www.mngkargo.com.tr/genel-aydinlatma-metni)
 
 = United Kingdom =
 * **DHL UK** — [Terms of service](https://www.dhl.com/gb-en/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
@@ -379,15 +379,26 @@ Each carrier operates its own website under its own terms of service and privacy
 * **FedEx / FedEx Sameday** (tracking portal: fedexsameday.com for Sameday deliveries) — [Terms of service](https://www.fedex.com/en-us/terms-of-use.html) | [Privacy policy](https://www.fedex.com/en-us/trust-center/privacy.html)
 * **USPS** — [Terms of service](https://about.usps.com/termsofuse.htm) | [Privacy policy](https://about.usps.com/who/legal/privacy-policy/full-privacy-policy.htm)
 * **DHL US / DHL eCommerce** — [Terms of service](https://www.dhl.com/us-en/home/ecommerce/business-help-center/terms-and-conditions.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
-* **GlobalPost** — [Terms of service](https://www.goglobalpost.com/conditions/) | [Privacy policy](https://www.goglobalpost.com/privacy/)
+* **GlobalPost** — [Terms of service](https://www.goglobalpost.com/conditions/) | [Privacy policy](https://auctane.com/legal/privacy-policy/)
 * **OnTrac** — [Terms of service](https://www.ontrac.com/terms-conditions/) | [Privacy policy](https://www.ontrac.com/privacy/)
 
 = Venezuela =
 * **MRW Venezuela** — [Privacy policy](https://mrwve.com/politica-de-privacidad)
-* **Zoom** — Privacy policy currently unavailable (provider website unreachable at time of writing)
+* **Zoom** — [Terms of service](https://zoom.red/aviso-legal/) | [Privacy policy](https://zoom.red/privacidad-web/)
 * **DHL Venezuela** — [Terms of service](https://www.dhl.com/ve-es/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
 
 == Changelog ==
+
+= 1.2.3 =
+* Fix: Updated 10 broken or outdated carrier URLs in External services section (Blue Express Chile, Yanwen, J&T Express MY, Correos Express, Kerry Express Thailand, PTT Turkey, MNG Kargo Turkey, Fastway Couriers AU now on Aramex AU, EPX SA now points to actual privacy page; China Post/EMS marked unavailable as provider blocks automated access)
+* Fix: Removed load_plugin_textdomain() call — not needed for plugins hosted on WordPress.org (WordPress 4.6+)
+* Fix: Removed unnecessary wpdb::prepare() wrapping of hardcoded constant in subscriptions renewal query
+* Fix: Replaced 9 dead carrier tracking-link domains with current working tracking pages (Kerry Express now KEX th.kex-express.com, Yanwen, ASM now GLS Spain, Correos Ecuador, Shalom, MRW Venezuela, Urbano, Zoom now zoom.red, China Post/EMS)
+* Fix: Restored Zoom (Venezuela) Terms and Privacy links now that the provider's new site (zoom.red) is reachable
+
+= 1.2.2 =
+* Fix: Updated 5 broken carrier URLs in External services section (4PX, DPD Spain ×2, Correos Express, GlobalPost)
+* Fix: REST API POST permission_callback now checks 'edit' capability instead of 'create' when adding tracking to an existing order
 
 = 1.2.1 =
 * Fix: Use esc_url_raw() instead of sanitize_text_field() for custom tracking URL fields (meta box, AJAX handlers, REST API)
@@ -423,6 +434,12 @@ Each carrier operates its own website under its own terms of service and privacy
 * Developer helper functions: wcst_add_tracking(), wcst_delete_tracking()
 
 == Upgrade Notice ==
+
+= 1.2.3 =
+Compliance fixes: updated broken carrier URLs and removed unnecessary load_plugin_textdomain() call. Safe to update.
+
+= 1.2.2 =
+Compliance fixes: updated broken carrier URLs and corrected REST API permission check. Safe to update.
 
 = 1.2.1 =
 Compliance and security fixes: correct URL sanitization, HTTPS carrier links, textdomain hook fix. Safe to update.
