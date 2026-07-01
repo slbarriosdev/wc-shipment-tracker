@@ -151,10 +151,10 @@ Yes. Trackora declares compatibility with WooCommerce cart and checkout blocks.
 
 == Screenshots ==
 
-1. Shipment Tracking meta box on the order edit screen — add, edit, and delete tracking items inline
-2. Tracking info displayed in the order confirmation email
-3. Tracking info on the customer My Account order detail page
-4. Tracking column in the WooCommerce orders list
+1. The Shipment Tracking meta box: add a carrier, tracking number, tracking link, and ship date directly from the order edit screen
+2. The Shipment Tracking meta box shown in context on the WooCommerce order edit screen
+3. A saved tracking number on the order edit screen, with one-click Track, Edit, and Delete actions
+4. Tracking information automatically added to the WooCommerce order confirmation email, before the order details
 
 == External services ==
 
