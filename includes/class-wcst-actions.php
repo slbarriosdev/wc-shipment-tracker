@@ -1095,8 +1095,8 @@ class WCST_Actions {
 		$order         = null;
 		$error         = '';
 		$state         = 'form'; // 'form' | 'results' | 'no_tracking' | 'error'
-		$form_order_id = 0;
-		$form_email    = '';
+		$form_order_number = '';
+		$form_email        = '';
 
 		// — Direct link via order_key (from email) —
 		if ( $order_id && $order_key ) {
@@ -1119,14 +1119,17 @@ class WCST_Actions {
 				$error = __( 'Security check failed. Please try again.', 'trackora' );
 				$state = 'error';
 			} else {
-				$form_order_id = absint( $_POST['wcst_order_id'] );
-				$form_email    = isset( $_POST['wcst_email'] ) ? sanitize_email( wp_unslash( $_POST['wcst_email'] ) ) : '';
+				$form_order_number = sanitize_text_field( wp_unslash( $_POST['wcst_order_id'] ) );
+				$form_email        = isset( $_POST['wcst_email'] ) ? sanitize_email( wp_unslash( $_POST['wcst_email'] ) ) : '';
 
-				if ( $form_order_id && $form_email ) {
-					$candidate = wc_get_order( $form_order_id );
+				if ( '' !== $form_order_number && $form_email ) {
+					$candidate       = $this->get_order_by_number( $form_order_number );
+					$candidate_email = $candidate instanceof WC_Order ? strtolower( trim( $candidate->get_billing_email() ) ) : '';
+
 					if (
 						$candidate instanceof WC_Order &&
-						strtolower( $candidate->get_billing_email() ) === strtolower( $form_email )
+						'' !== $candidate_email &&
+						$candidate_email === strtolower( trim( $form_email ) )
 					) {
 						$order = $candidate;
 						$state = 'results';
@@ -1153,13 +1156,122 @@ class WCST_Actions {
 				'order'          => $order,
 				'tracking_items' => ( 'results' === $state ) ? $this->get_tracking_items( $order->get_id(), true ) : array(),
 				'error'          => $error,
-				'form_order_id'  => $form_order_id,
+				'form_order_id'  => $form_order_number,
 				'form_email'     => $form_email,
 			),
 			'wc-shipment-tracker/',
 			WCST_DIR . '/templates/'
 		);
 		return ob_get_clean();
+	}
+
+	/**
+	 * Resolve an order from the customer-facing order number.
+	 *
+	 * On a default WooCommerce store the order number equals the internal
+	 * order ID, but sequential-order-number plugins show a different number
+	 * (stored in order meta). This looks the order up by the visible number
+	 * so the public tracking form works regardless of the numbering scheme.
+	 *
+	 * @param string $number The order number entered by the customer.
+	 * @return WC_Order|null
+	 */
+	private function get_order_by_number( $number ) {
+		$number = trim( (string) $number );
+		if ( '' === $number ) {
+			return null;
+		}
+
+		// 1) Default WooCommerce: the visible order number is the internal ID.
+		$direct = wc_get_order( absint( $number ) );
+		if ( $direct instanceof WC_Order && (string) $direct->get_order_number() === $number ) {
+			return $direct;
+		}
+
+		// 2) Fast path: known meta keys used by common numbering plugins.
+		$meta_keys = apply_filters(
+			'wcst_order_number_meta_keys',
+			array(
+				'_order_number',
+				'_order_number_formatted',
+				'_alg_wc_full_custom_order_number',
+				'_alg_wc_custom_order_number',
+			)
+		);
+
+		foreach ( $meta_keys as $meta_key ) {
+			$ids = wc_get_orders(
+				array(
+					'limit'      => 5,
+					'return'     => 'ids',
+					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+					'meta_query' => array(
+						array(
+							'key'   => $meta_key,
+							'value' => $number,
+						),
+					),
+				)
+			);
+
+			$match = $this->match_order_number( $ids, $number );
+			if ( $match ) {
+				return $match;
+			}
+		}
+
+		// 3) Generic fallback: find any order meta whose value is this number,
+		//    then confirm the visible order number actually matches. This works
+		//    regardless of which plugin/meta key stores the number.
+		$match = $this->match_order_number( $this->find_order_ids_by_meta_value( $number ), $number );
+		if ( $match ) {
+			return $match;
+		}
+
+		return null;
+	}
+
+	/**
+	 * Return the first order whose visible number equals $number.
+	 *
+	 * @param int[]  $ids    Candidate order IDs.
+	 * @param string $number Expected visible order number.
+	 * @return WC_Order|null
+	 */
+	private function match_order_number( $ids, $number ) {
+		foreach ( (array) $ids as $id ) {
+			$order = wc_get_order( $id );
+			if ( $order instanceof WC_Order && (string) $order->get_order_number() === (string) $number ) {
+				return $order;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Look up order IDs that have any meta value equal to the given value.
+	 *
+	 * Supports both the legacy post meta table and the HPOS orders meta table.
+	 *
+	 * @param string $value Meta value to search for.
+	 * @return int[] Order IDs (may be empty).
+	 */
+	private function find_order_ids_by_meta_value( $value ) {
+		global $wpdb;
+
+		if (
+			class_exists( '\Automattic\WooCommerce\Utilities\OrderUtil' ) &&
+			\Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled()
+		) {
+			$table = $wpdb->prefix . 'wc_orders_meta';
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+			$rows = $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT order_id FROM {$table} WHERE meta_value = %s LIMIT 20", $value ) );
+		} else {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+			$rows = $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT post_id FROM {$wpdb->postmeta} WHERE meta_value = %s LIMIT 20", $value ) );
+		}
+
+		return $rows ? array_map( 'absint', $rows ) : array();
 	}
 
 	// =========================================================================

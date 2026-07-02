@@ -4,7 +4,7 @@ Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -389,6 +389,12 @@ Each carrier operates its own website under its own terms of service and privacy
 
 == Changelog ==
 
+= 1.2.6 =
+* Fix: Public tracking lookup ([wcst_tracking] shortcode) now resolves orders by their visible order number, so it works on stores using sequential or custom order numbers (previously only the internal order ID matched)
+* Improvement: Billing email check in the tracking lookup is now trimmed and case-insensitive, and rejects orders with no billing email
+* Improvement: Order number field in the lookup form accepts custom formats (prefixes/dashes), not only plain digits
+* Improvement: Added the "Track another order" link to the "no tracking yet" screen, so customers can look up a different order without going back
+
 = 1.2.5 =
 * Improvement: Added a copy-to-clipboard button next to tracking numbers in the WooCommerce Orders list column
 * Improvement: The "Add Tracking Number" button now hides while the tracking form is open and returns after saving or cancelling
@@ -440,6 +446,9 @@ Each carrier operates its own website under its own terms of service and privacy
 * Developer helper functions: wcst_add_tracking(), wcst_delete_tracking()
 
 == Upgrade Notice ==
+
+= 1.2.6 =
+Fixes the public tracking form for stores using sequential or custom order numbers, plus a more robust billing email check. Recommended update.
 
 = 1.2.5 =
 UI improvements: copy button in the orders list tracking column, cleaner Add Tracking form flow, and removal of the empty logo placeholder. Safe to update.

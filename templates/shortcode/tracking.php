@@ -30,6 +30,12 @@ defined( 'ABSPATH' ) || exit;
 			<p><?php esc_html_e( 'Your order has no tracking information yet. Please check back later.', 'trackora' ); ?></p>
 		</div>
 
+		<p class="wcst-lookup-again">
+			<a href="<?php echo esc_url( get_permalink() ); ?>">
+				&larr; <?php esc_html_e( 'Track another order', 'trackora' ); ?>
+			</a>
+		</p>
+
 	<?php endif; ?>
 
 	<?php if ( 'results' === $state && ! empty( $tracking_items ) ) : ?>
@@ -122,12 +128,12 @@ defined( 'ABSPATH' ) || exit;
 
 				<p class="form-row">
 					<label for="wcst_order_id"><?php esc_html_e( 'Order Number', 'trackora' ); ?> <span class="required">*</span></label>
-					<input type="number"
+					<input type="text"
 						id="wcst_order_id"
 						name="wcst_order_id"
 						class="input-text"
 						required
-						min="1"
+						inputmode="numeric"
 						placeholder="<?php esc_attr_e( 'e.g. 1234', 'trackora' ); ?>"
 						value="<?php echo $form_order_id ? esc_attr( $form_order_id ) : ''; ?>" />
 				</p>
