@@ -4,7 +4,7 @@ Tags: woocommerce, tracking, shipment, shipping, order-tracking
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.2.3
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -389,6 +389,12 @@ Each carrier operates its own website under its own terms of service and privacy
 
 == Changelog ==
 
+= 1.2.5 =
+* Improvement: Added a copy-to-clipboard button next to tracking numbers in the WooCommerce Orders list column
+* Improvement: The "Add Tracking Number" button now hides while the tracking form is open and returns after saving or cancelling
+* Fix: Removed the unused carrier logo placeholder (empty grey box) from tracking items in the order meta box
+* Fix: Removed the top border and extra spacing above the Add Tracking form in the order meta box
+
 = 1.2.3 =
 * Fix: Updated 10 broken or outdated carrier URLs in External services section (Blue Express Chile, Yanwen, J&T Express MY, Correos Express, Kerry Express Thailand, PTT Turkey, MNG Kargo Turkey, Fastway Couriers AU now on Aramex AU, EPX SA now points to actual privacy page; China Post/EMS marked unavailable as provider blocks automated access)
 * Fix: Removed load_plugin_textdomain() call — not needed for plugins hosted on WordPress.org (WordPress 4.6+)
@@ -434,6 +440,9 @@ Each carrier operates its own website under its own terms of service and privacy
 * Developer helper functions: wcst_add_tracking(), wcst_delete_tracking()
 
 == Upgrade Notice ==
+
+= 1.2.5 =
+UI improvements: copy button in the orders list tracking column, cleaner Add Tracking form flow, and removal of the empty logo placeholder. Safe to update.
 
 = 1.2.3 =
 Compliance fixes: updated broken carrier URLs and removed unnecessary load_plugin_textdomain() call. Safe to update.

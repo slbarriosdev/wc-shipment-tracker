@@ -48,19 +48,31 @@
 		bindToggleForm: function () {
 			$( document ).on( 'click', '.wcst-toggle-form', function ( e ) {
 				e.preventDefault();
-				var $form = $( '#wcst-tracking-form' );
+				// The "Add" button is hidden while the form is open, so a click
+				// here always means "open the form".
 				WCSTAdmin.resetForm();
-				$form.toggle();
-				if ( $form.is( ':visible' ) ) {
-					$( '#wcst_tracking_number' ).focus();
-				}
+				WCSTAdmin.showForm();
+				$( '#wcst_tracking_number' ).focus();
 			} );
 
 			$( document ).on( 'click', '.wcst-cancel-form', function ( e ) {
 				e.preventDefault();
 				WCSTAdmin.resetForm();
-				$( '#wcst-tracking-form' ).hide();
+				WCSTAdmin.hideForm();
 			} );
+		},
+
+		// ----------------------------------------------------------------
+		// Show / hide the tracking form (and toggle the "Add" button with it)
+		// ----------------------------------------------------------------
+		showForm: function () {
+			$( '.wcst-add-row' ).hide();
+			$( '#wcst-tracking-form' ).show();
+		},
+
+		hideForm: function () {
+			$( '#wcst-tracking-form' ).hide();
+			$( '.wcst-add-row' ).show();
 		},
 
 		// ----------------------------------------------------------------
@@ -91,7 +103,7 @@
 				$( '#wcst_tracking_provider' ).val( provider ).trigger( 'change' );
 
 				WCSTAdmin.updatePreview();
-				$( '#wcst-tracking-form' ).show();
+				WCSTAdmin.showForm();
 				$( '#wcst_tracking_number' ).focus();
 			} );
 		},
@@ -369,7 +381,7 @@
 								$( '#wcst-tracking-items' ).append( response.data.html );
 							}
 							WCSTAdmin.resetForm();
-							$( '#wcst-tracking-form' ).hide();
+							WCSTAdmin.hideForm();
 						} else {
 							alert( ( response.data && response.data.message ) ? response.data.message : wcstAdmin.i18n.error );
 						}

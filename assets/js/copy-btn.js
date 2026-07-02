@@ -15,7 +15,10 @@
 	}
 
 	document.querySelectorAll( '.wcst-copy-btn' ).forEach( function ( btn ) {
-		btn.addEventListener( 'click', function () {
+		btn.addEventListener( 'click', function ( e ) {
+			// Prevent a copy button placed inside a <summary> from toggling <details>.
+			e.stopPropagation();
+			e.preventDefault();
 			var text = btn.dataset.copy;
 			if ( ! text ) { return; }
 			wcstCopy( String( text ) ).then( function () {

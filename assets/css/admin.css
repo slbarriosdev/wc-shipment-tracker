@@ -23,28 +23,6 @@
 	padding: 8px 10px 6px;
 }
 
-.wcst-item-logo {
-	flex-shrink: 0;
-	width: 20px;
-	height: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.wcst-item-logo img {
-	border-radius: 3px;
-	display: block;
-}
-
-.wcst-item-logo-placeholder {
-	display: block;
-	width: 20px;
-	height: 20px;
-	background: #e0e0e0;
-	border-radius: 3px;
-}
-
 .wcst-item-info {
 	flex: 1;
 	min-width: 0;
@@ -138,12 +116,6 @@
 }
 
 /* ----- Add form ----- */
-#wcst-tracking-form {
-	border-top: 1px solid #e0e0e0;
-	margin-top: 10px;
-	padding-top: 10px;
-}
-
 #wcst-tracking-form .form-field {
 	margin-bottom: 8px;
 }
@@ -285,6 +257,10 @@
 	gap: 4px;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+.wcst-column-tracking .wcst-tracking-cell .wcst-copy-btn {
+	flex-shrink: 0;
 }
 
 .wcst-column-tracking details summary {

@@ -619,7 +619,7 @@ class WCST_Actions {
 			<?php endforeach; ?>
 		</div>
 
-		<p>
+		<p class="wcst-add-row">
 			<button type="button" class="button wcst-toggle-form">
 				<?php esc_html_e( 'Add Tracking Number', 'trackora' ); ?>
 			</button>
@@ -749,9 +749,6 @@ class WCST_Actions {
 		?>
 		<div class="wcst-tracking-item" id="wcst-item-<?php echo esc_attr( $item['tracking_id'] ); ?>">
 			<div class="wcst-item-main">
-				<div class="wcst-item-logo">
-					<span class="wcst-item-logo-placeholder"></span>
-				</div>
 				<div class="wcst-item-info">
 					<strong><?php echo esc_html( $formatted['formatted_tracking_provider'] ); ?></strong>
 					<span class="wcst-item-number-row">
@@ -953,14 +950,16 @@ class WCST_Actions {
 	/** Legacy CPT screen */
 	public function render_orders_list_column_legacy( $column_name, $post_id ) {
 		if ( 'wcst_shipment_tracking' === $column_name ) {
-			echo wp_kses_post( $this->get_column_html( $post_id ) );
+			// Output is escaped inside get_column_html().
+			$this->get_column_html( $post_id );
 		}
 	}
 
 	/** HPOS screen */
 	public function render_orders_list_column_hpos( $column_name, $order ) {
 		if ( 'wcst_shipment_tracking' === $column_name ) {
-			echo wp_kses_post( $this->get_column_html( $order->get_id() ) );
+			// Output is escaped inside get_column_html().
+			$this->get_column_html( $order->get_id() );
 		}
 	}
 
@@ -974,42 +973,74 @@ class WCST_Actions {
 		$items = array_reverse( $this->get_tracking_items( $order_id ) );
 		$count = count( $items );
 
-		ob_start();
 		echo '<div class="wcst-column-tracking">';
 
 		if ( 0 === $count ) {
 			echo '&ndash;';
 		} elseif ( 1 === $count ) {
+			// Copy button needs its script; only enqueue when there is a tracking number.
+			wp_enqueue_script( 'wcst-copy-btn', WCST_URL . '/assets/js/copy-btn.js', array(), WCST_VERSION, true );
+
 			$f = $this->get_formatted_tracking_item( $order_id, $items[0] );
+			echo '<span class="wcst-tracking-cell">';
 			printf(
-				'<span class="wcst-tracking-cell"><a href="%s" target="_blank">%s</a></span>',
+				'<a href="%s" target="_blank">%s</a>',
 				esc_url( $f['formatted_tracking_link'] ),
 				esc_html( $items[0]['tracking_number'] )
 			);
+			$this->render_copy_button( $items[0]['tracking_number'] );
+			echo '</span>';
 		} else {
+			wp_enqueue_script( 'wcst-copy-btn', WCST_URL . '/assets/js/copy-btn.js', array(), WCST_VERSION, true );
+
 			echo '<details>';
 			foreach ( $items as $idx => $item ) {
 				$f = $this->get_formatted_tracking_item( $order_id, $item );
 				if ( 0 === $idx ) {
+					echo '<summary><span class="wcst-tracking-cell">';
 					printf(
-						'<summary><span class="wcst-tracking-cell"><a href="%s" target="_blank">%s</a></span> (+%d more…)</summary><ul>',
-						esc_url( $f['formatted_tracking_link'] ),
-						esc_html( $item['tracking_number'] ),
-						$count - 1
-					);
-				} else {
-					printf(
-						'<li><span class="wcst-tracking-cell"><a href="%s" target="_blank">%s</a></span></li>',
+						'<a href="%s" target="_blank">%s</a>',
 						esc_url( $f['formatted_tracking_link'] ),
 						esc_html( $item['tracking_number'] )
 					);
+					$this->render_copy_button( $item['tracking_number'] );
+					printf( '</span> (+%d more…)</summary><ul>', (int) ( $count - 1 ) );
+				} else {
+					echo '<li><span class="wcst-tracking-cell">';
+					printf(
+						'<a href="%s" target="_blank">%s</a>',
+						esc_url( $f['formatted_tracking_link'] ),
+						esc_html( $item['tracking_number'] )
+					);
+					$this->render_copy_button( $item['tracking_number'] );
+					echo '</span></li>';
 				}
 			}
 			echo '</ul></details>';
 		}
 
 		echo '</div>';
-		return ob_get_clean();
+	}
+
+	/**
+	 * Render the copy-to-clipboard button used next to a tracking number.
+	 *
+	 * The only dynamic value is the tracking number (escaped with esc_attr);
+	 * the SVG markup is static, so it is echoed directly (wp_kses_post would
+	 * strip the <button>/<svg> tags).
+	 *
+	 * @param string $tracking_number
+	 */
+	private function render_copy_button( $tracking_number ) {
+		printf(
+			'<button type="button" class="wcst-copy-btn" data-copy="%s" title="%s" aria-label="%s">',
+			esc_attr( $tracking_number ),
+			esc_attr__( 'Copy tracking number', 'trackora' ),
+			esc_attr__( 'Copy tracking number', 'trackora' )
+		);
+		echo '<svg class="wcst-icon-copy" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+		echo '<svg class="wcst-icon-check" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+		echo '</button>';
 	}
 
 	// =========================================================================
