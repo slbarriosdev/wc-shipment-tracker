@@ -1,6 +1,6 @@
 === Trackora - Shipment Tracker for WooCommerce ===
 Contributors: slbarriosdev
-Tags: woocommerce, tracking, shipment, shipping, order-tracking
+Tags: shipment tracking, order tracking, woocommerce, tracking number, shipping
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -8,31 +8,54 @@ Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add tracking numbers to WooCommerce orders. Supports 60+ carriers worldwide. Shown in emails, My Account, and admin panel.
+WooCommerce shipment tracking. Add tracking numbers & carrier links to orders, emails, My Account and a Track Your Order page. 60+ carriers.
 
 == Description ==
 
-**Trackora** is the easiest way to add shipment tracking to your WooCommerce store. Let your customers follow their packages in real time — directly from their order confirmation email or their My Account page — without contacting you.
+**Trackora** is a free, lightweight **shipment tracking plugin for WooCommerce**. Add a tracking number to any order and Trackora shows a one-click **order tracking** link everywhere your customer looks: the order confirmation email, the My Account order page, and a public **Track Your Order** page you create with a shortcode.
 
-Stop answering "Where is my order?" emails. Give customers a one-click tracking link the moment their order ships.
+Stop answering "Where is my order?" emails. The moment you save a tracking number, the tracking link travels with the order automatically — no settings to configure, no account, no API keys.
 
-= Key Features =
+= Why Trackora? =
 
-* **Add multiple tracking numbers per order** — perfect for split shipments
-* **60+ pre-built shipping carriers** across 20+ countries (UPS, FedEx, USPS, DHL, Royal Mail, Australia Post, Correos, and many more)
-* **Custom carrier support** — use any carrier not on the list by entering a custom tracking URL
-* **Tracking info in order emails** — automatically added before the order table in WooCommerce transactional emails
-* **My Account integration** — customers see their tracking link on the order detail page
-* **Admin orders list column** — see tracking numbers at a glance in the WooCommerce orders list
-* **Inline meta box** — add, edit, and delete tracking items directly from the order edit screen without leaving the page
-* **REST API** — full CRUD API (`wc-shipment-tracker/v1`) compatible with WooCommerce API namespaces `wc/v1` and `wc/v2`
-* **Shortcode** — display tracking info anywhere with `[wcst_tracking]`
-* **WooCommerce HPOS compatible** — fully supports High-Performance Order Storage (custom order tables)
-* **WooCommerce Blocks compatible**
-* **WooCommerce Subscriptions compatible** — prevents tracking numbers from being copied to renewal orders
-* **Developer-friendly** — helper functions (`wcst_add_tracking()`, `wcst_delete_tracking()`) and filter hooks for full customization
+* **100% free** — every feature included. No premium tier, no locked settings, no upsells
+* **No account or API keys** — install, activate, and add your first tracking number in under a minute
+* **Privacy-first** — zero server-side calls to external services; tracking links only open when someone clicks them
+* **Lightweight** — no bloat, no background processes
 
-= Supported Carriers =
+= Add a tracking number in seconds =
+
+Open any WooCommerce order, pick the carrier, paste the tracking number and ship date — all from one **Shipment Tracking** meta box, without leaving the order screen.
+
+![Add a tracking number to a WooCommerce order: carrier, tracking number, link and ship date](https://i0.wp.com/ps.w.org/trackora/assets/screenshot-1.jpg?rev=3593019&w=900)
+
+= Everything in one place =
+
+Saved shipments show one-click **Track, Edit and Delete** actions right on the order. Add several tracking numbers per order for split shipments and partial fulfillment.
+
+![A saved shipment with one-click Track, Edit and Delete actions](https://i0.wp.com/ps.w.org/trackora/assets/screenshot-3.jpg?rev=3593019&w=900)
+
+= Tracking that reaches your customer =
+
+The tracking number, carrier and a **Track** button are added automatically to the WooCommerce order email and to the order page in My Account the moment you save them.
+
+![Shipment tracking added to the WooCommerce order confirmation email](https://i0.wp.com/ps.w.org/trackora/assets/screenshot-4.jpg?rev=3593019&w=900)
+
+= A self-service Track Your Order page =
+
+Add the `[wcst_tracking]` shortcode to any page and customers look up their shipment with their **order number and billing email** — no login required. Works with sequential and custom order-number formats. Fewer support tickets, happier customers.
+
+= Key features =
+
+* Add **multiple tracking numbers per order** for split shipments
+* **60+ pre-built carriers across 20+ countries** — UPS, FedEx, USPS, DHL, Royal Mail, Australia Post, Correos, Estafeta, Servientrega, and many more
+* **Custom carrier support** — use any carrier with a custom tracking URL, no coding
+* **Tracking column** in the WooCommerce orders list, with copy-to-clipboard
+* **REST API** — full CRUD (`wc-shipment-tracker/v1`), compatible with the `wc/v1` and `wc/v2` namespaces
+* **WooCommerce HPOS, Blocks and Subscriptions compatible** (renewal orders never inherit a tracking number)
+* **Developer-friendly** — helper functions and filter hooks for full customization
+
+= Supported carriers =
 
 **United States:** UPS, FedEx, USPS, DHL US, DHL eCommerce, FedEx Sameday, GlobalPost, OnTrac
 **United Kingdom:** Royal Mail, DHL, DPD, DPD Local, EVRi, ParcelForce, TNT Express, DHL Parcel UK, City Link
@@ -61,100 +84,78 @@ Stop answering "Where is my order?" emails. Give customers a one-click tracking 
 
 Don't see your carrier? Add it as a custom provider with a custom tracking URL — no coding needed.
 
-= Use Cases =
+= For developers =
 
-* eCommerce stores shipping domestically or internationally
-* Dropshipping businesses needing to pass through supplier tracking numbers
-* Stores using multiple carriers for different product types
-* Developers automating order fulfillment via the REST API or PHP helper functions
-
-= REST API =
-
-Trackora exposes a full REST API:
+Trackora exposes a full REST API for shipment tracking automation:
 
 * `GET /wc-shipment-tracker/v1/orders/{order_id}/trackings` — list tracking items
 * `POST /wc-shipment-tracker/v1/orders/{order_id}/trackings` — add a tracking item
-* `GET /wc-shipment-tracker/v1/orders/{order_id}/trackings/{id}` — get a single item
 * `DELETE /wc-shipment-tracker/v1/orders/{order_id}/trackings/{id}` — delete a tracking item
 * `GET /wc-shipment-tracker/v1/providers` — list all available carriers
 
-Compatible with the `wc/v1` and `wc/v2` namespaces for backward compatibility with third-party integrations.
-
-= For Developers =
-
-Add tracking programmatically:
+Or add tracking programmatically and extend the carrier list with a filter:
 
 `wcst_add_tracking( $order_id, '1Z9999999', 'UPS' );`
-
-Delete tracking programmatically:
-
-`wcst_delete_tracking( $order_id, '1Z9999999' );`
-
-Extend the carrier list with the `wcst_get_providers` filter:
 
 `add_filter( 'wcst_get_providers', function( $providers ) {
     $providers['My Region']['My Carrier'] = 'https://mycarrier.com/track?id=%1$s';
     return $providers;
 } );`
 
-= Source Code =
-
-The source code is publicly available on GitHub: [https://github.com/slbarriosdev/wc-shipment-tracker](https://github.com/slbarriosdev/wc-shipment-tracker)
-
-Bug reports and contributions are welcome.
-
+Source code on GitHub: [https://github.com/slbarriosdev/wc-shipment-tracker](https://github.com/slbarriosdev/wc-shipment-tracker) — bug reports and contributions welcome.
 
 == Installation ==
 
-1. Upload the `trackora` folder to the `/wp-content/plugins/` directory, or install directly from the WordPress plugin repository
+1. Upload the `trackora` folder to `/wp-content/plugins/`, or install directly from the WordPress plugin repository
 2. Activate the plugin through the **Plugins** menu in WordPress
 3. Make sure WooCommerce is installed and active
-4. Open any WooCommerce order and find the **Shipment Tracking** meta box to add your first tracking number
+4. Open any WooCommerce order and use the **Shipment Tracking** meta box to add your first tracking number
+5. (Optional) Add the `[wcst_tracking]` shortcode to any page to create a public Track Your Order page
 
 == Frequently Asked Questions ==
+
+= How do I add a tracking number to a WooCommerce order? =
+
+Open the order, find the **Shipment Tracking** meta box, select the carrier, enter the tracking number and ship date, and click Save. The tracking link is instantly added to the customer's order email, their My Account page, and the tracking lookup page.
+
+= Is Trackora free? =
+
+Yes — completely free. All features (unlimited tracking numbers, 60+ carriers, emails, My Account, tracking page, REST API) are included. There is no premium version and no locked functionality.
 
 = Does this plugin require WooCommerce? =
 
 Yes. Trackora requires WooCommerce to be installed and active.
 
+= Does Trackora include a "Track Your Order" page? =
+
+Yes. Add the `[wcst_tracking]` shortcode to any page and customers can look up their shipment by entering their order number and billing email — no login required.
+
 = Can I add more than one tracking number per order? =
 
-Yes. You can add as many tracking numbers as needed to a single order — useful for split shipments or orders shipped with multiple carriers.
+Yes, as many as you need — useful for split shipments or orders shipped with multiple carriers.
 
 = My carrier is not in the list. Can I still use it? =
 
-Yes. Select "Custom Provider" when adding a tracking item and enter your carrier name along with the tracking URL. Use `%1$s` as a placeholder for the tracking number in the URL.
+Yes. Select "Custom Provider" when adding a tracking item and enter your carrier name and tracking URL, using `%1$s` as a placeholder for the tracking number.
 
-= Does tracking info appear in customer emails? =
+= Does the plugin send my store data to external services? =
 
-Yes. Tracking information is automatically injected into WooCommerce order emails (before the order table) as soon as a tracking number is saved to the order.
+No. Trackora makes zero server-side requests to third parties. Tracking links are simply URLs that open the carrier's website when a user clicks them.
 
-= Is this plugin compatible with WooCommerce HPOS (High-Performance Order Storage)? =
+= Is this plugin compatible with WooCommerce HPOS, Blocks and Subscriptions? =
 
-Yes. Trackora is fully compatible with HPOS (custom order tables), as well as the legacy CPT-based order storage.
+Yes. Trackora is fully compatible with High-Performance Order Storage (and legacy order storage), declares compatibility with the block-based cart and checkout, and prevents tracking numbers from being copied to subscription renewal orders.
 
 = Can I add tracking numbers via the REST API or programmatically? =
 
-Yes. The plugin provides a full REST API and two PHP helper functions — `wcst_add_tracking()` and `wcst_delete_tracking()` — for programmatic use from themes, plugins, or automation scripts.
-
-= Is it compatible with WooCommerce Subscriptions? =
-
-Yes. The plugin detects WooCommerce Subscriptions and automatically prevents tracking numbers from being copied to renewal orders.
-
-= Where does tracking info appear for customers? =
-
-Tracking info appears in two places for customers: the WooCommerce transactional email they receive when the order is shipped, and the order detail page in their My Account section.
-
-= Is the plugin compatible with the WooCommerce blocks checkout? =
-
-Yes. Trackora declares compatibility with WooCommerce cart and checkout blocks.
+Yes. The plugin provides a full REST API plus the PHP helpers `wcst_add_tracking()` and `wcst_delete_tracking()` for use from themes, plugins, or automation scripts.
 
 == Screenshots ==
 
-1. The Shipment Tracking meta box: add a carrier, tracking number, tracking link, and ship date directly from the order edit screen
-2. The Shipment Tracking meta box shown in context on the WooCommerce order edit screen
-3. A saved tracking number on the order edit screen, with one-click Track, Edit, and Delete actions
-4. Tracking information automatically added to the WooCommerce order confirmation email, before the order details
+1. Add a tracking number to a WooCommerce order: carrier, tracking number, tracking link, and ship date — all from the Shipment Tracking meta box
+2. The Shipment Tracking meta box in context on the WooCommerce order edit screen
+3. A saved shipment with one-click Track, Edit, and Delete actions on the order edit screen
+4. Shipment tracking information automatically added to the WooCommerce order confirmation email, before the order details
 
 == External services ==
 
@@ -216,7 +217,7 @@ Each carrier operates its own website under its own terms of service and privacy
 = Colombia =
 * **Servientrega** — [Terms of service](https://www.servientrega.com/wps/portal/Colombia/inicio/terminos-y-condiciones) | [Privacy policy](https://www.servientrega.com/wps/portal/Colombia/inicio/politica-de-privacidad)
 * **Coordinadora** — [Privacy policy](https://www.coordinadora.com/politica-de-privacidad)
-* **Deprisa** — [Privacy policy](https://www.deprisa.com/AvisoPrivacidad)
+* **Deprisa** (operated by Avianca) — [Privacy policy](https://www.avianca.com/co/es/politica-privacidad)
 * **TCC** — [Terms of service](https://tcc.com.co/terminos-y-condiciones/) | [Privacy policy](https://tcc.com.co/corporativo/terminos-y-condiciones/politica-de-proteccion-de-datos/)
 * **DHL Colombia** — [Terms of service](https://www.dhl.com/co-es/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
 * **J&T Express CO** — [Privacy policy](https://www.jtexpress.co/privacy)
@@ -224,12 +225,12 @@ Each carrier operates its own website under its own terms of service and privacy
 
 = Czech Republic =
 * **PPL.cz** — [Terms of service](https://www.ppl.cz/en/documents/terms-and-conditions) | [Privacy policy](https://www.ppl.cz/en/privacy-policy)
-* **Česká pošta** — [Terms of service](https://www.ceskaposta.cz/ke-stazeni/informace-o-zpracovani-osobnich-udaju) | [Privacy policy](https://www.ceskaposta.cz/ke-stazeni/informace-o-zpracovani-osobnich-udaju)
+* **Česká pošta** — [Terms of service](https://www.ceskaposta.cz/o-spolecnosti/ochrana-osobnich-udaju-gdpr) | [Privacy policy](https://www.ceskaposta.cz/o-spolecnosti/ochrana-osobnich-udaju-gdpr)
 * **DHL.cz** — [Terms of service](https://www.dhl.com/cz-cs/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
 * **DPD.cz** — [Terms of service](https://www.dpd.com/cz/cs/pravni-informace/podminky-pouzivani/) | [Privacy policy](https://www.dpd.com/cz/cs/pravni-informace/ochrana-osobnich-udaju/)
 
 = Ecuador =
-* **Servientrega EC** — [Terms of service](https://www.servientrega.com.ec/TerminosCondiciones/TerminosCondiciones) | [Privacy policy](https://www.servientrega.com.ec/Home/PoliticaProteccionDatos)
+* **Servientrega EC** — [Terms of service](https://www.servientrega.com.ec/Home/TerminosCondiciones) | [Privacy policy](https://www.servientrega.com.ec/Home/PoliticaProteccionDatos)
 * **Laar Courier** — [Privacy policy](https://www.laarcourier.com/politicas/privacidad)
 * **Correos Ecuador** — [Privacy policy](https://www.serviciopostal.gob.ec/)
 * **DHL Ecuador** — [Terms of service](https://www.dhl.com/ec-es/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
@@ -247,7 +248,7 @@ Each carrier operates its own website under its own terms of service and privacy
 * **DPD.de** — [Terms of service](https://www.dpd.com/de/de/nutzungsbedingungen/) | [Privacy policy](https://www.dpd.com/de/de/datenschutz/)
 
 = India =
-* **DTDC** — [Terms of service](https://www.dtdc.in/terms-condition.asp) | [Privacy policy](https://www.dtdc.in/privacy-policy.asp)
+* **DTDC** — [Terms of service](https://www.dtdc.com/terms/) | [Privacy policy](https://www.dtdc.com/privacy/)
 
 = Ireland =
 * **DPD.ie** — [Terms of service](https://www.dpd.ie/trading-terms-conditions-parcel-delivery/) | [Privacy policy](https://www.dpd.ie/Privacy-Policy/)
@@ -269,7 +270,7 @@ Each carrier operates its own website under its own terms of service and privacy
 * **DHL Malaysia** — [Terms of service](https://www.dhl.com/my-en/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
 
 = Mexico =
-* **Correos de Mexico** — [Terms of service](https://www.correosdemexico.gob.mx/SSLServicios/ConsultaCP/Terminos.aspx) | [Privacy policy](https://www.correosdemexico.gob.mx/SSLServicios/ConsultaCP/Aviso.aspx)
+* **Correos de Mexico** — [Privacy policy](https://www.gob.mx/correosdemexico/acciones-y-programas/avisos-de-privacidad-299954)
 * **Estafeta** — [Terms of service](https://www.estafeta.com/en/contrato-de-servicios) | [Privacy policy](https://www.estafeta.com/en/aviso-de-privacidad)
 * **Paquetexpress** — [Privacy policy](https://www.paquetexpress.com.mx/aviso-de-privacidad)
 * **Redpack** — [Privacy policy](https://www.redpack.com.mx/es/aviso-de-privacidad/)
@@ -347,7 +348,7 @@ Each carrier operates its own website under its own terms of service and privacy
 = Sweden =
 * **PostNord** — [Terms of service](https://account.postnord.com/public/about/terms-and-conditions) | [Privacy policy](https://www.postnord.com/privacy-policy/)
 * **DHL.se** — [Terms of service](https://www.dhl.com/se-sv/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
-* **Bring.se** — [Terms of service](https://www.bring.se/om-bring/integritetspolicy) | [Privacy policy](https://www.bring.se/om-bring/integritetspolicy)
+* **Bring.se** — [Terms of service](https://www.bring.se/privacy-policy) | [Privacy policy](https://www.bring.se/privacy-policy)
 * **UPS.se** — [Terms of service](https://www.ups.com/se/sv/support/shipping-support/legal-terms-conditions.page) | [Privacy policy](https://www.ups.com/se/sv/support/shipping-support/legal-terms-conditions/privacy-notice.page)
 * **DB Schenker** (tracking portal: privpakportal.schenker.nu for Privpak service) — [Terms of service](https://www.dbschenker.com/ds-en/legal-notice) | [Privacy policy](https://www.dbschenker.com/global/meta/privacy-policy)
 
