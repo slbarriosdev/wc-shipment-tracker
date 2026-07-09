@@ -9,6 +9,7 @@
 		// ----------------------------------------------------------------
 		init: function () {
 			this.initProviderSelect();
+			this.initHelpTips();
 			this.bindToggleForm();
 			this.bindProviderChange();
 			this.bindSaveTracking();
@@ -39,6 +40,21 @@
 				width:             '100%',
 				templateResult:    WCSTAdmin.providerTemplate,
 				templateSelection: function ( option ) { return option.text; },
+			} );
+		},
+
+		// ----------------------------------------------------------------
+		// Help tip next to the Tracking Link label (WooCommerce's tipTip)
+		// ----------------------------------------------------------------
+		initHelpTips: function () {
+			if ( ! $.fn.tipTip ) {
+				return;
+			}
+			$( '.wcst-help-tip' ).tipTip( {
+				attribute: 'data-tip',
+				fadeIn:    50,
+				fadeOut:   50,
+				delay:     200,
 			} );
 		},
 
@@ -100,7 +116,11 @@
 				$( '#wcst_date_shipped' ).val( date );
 
 				// Set provider — trigger change so SelectWoo updates its displayed value.
-				$( '#wcst_tracking_provider' ).val( provider ).trigger( 'change' );
+				// An item with no provider is a custom one, so land on that option
+				// rather than on the empty placeholder.
+				$( '#wcst_tracking_provider' )
+					.val( provider || wcstAdmin.customProvider )
+					.trigger( 'change' );
 
 				WCSTAdmin.updatePreview();
 				WCSTAdmin.showForm();
@@ -281,6 +301,42 @@
 			} );
 		},
 
+		/**
+		 * Literal placeholder substitution, mirroring build_tracking_link() in PHP.
+		 * Never use String.replace with a plain string here: a "$s" in the pattern
+		 * and "$&"-style sequences in the replacement both have special meaning.
+		 */
+		applyPlaceholders: function ( url, trackingNum ) {
+			if ( ! url ) {
+				return '';
+			}
+			return url
+				.split( '%1$s' ).join( trackingNum )
+				.split( '%2$s' ).join( '' )   // postcode – not known in the meta box
+				.split( '%3$s' ).join( '' )   // country  – idem
+				.split( '%4$s' ).join( String( wcstAdmin.orderId ) );
+		},
+
+		/**
+		 * A custom link that carries neither the %1$s token nor the tracking
+		 * number itself produces a "Track" button that does not track. Say so.
+		 */
+		checkCustomLink: function ( customLink, trackingNum ) {
+			var $link = $( '#wcst_custom_tracking_link' );
+			var url   = ( customLink || '' ).trim();
+
+			var missesNumber = url &&
+				trackingNum &&
+				url.indexOf( '%1$s' ) === -1 &&
+				url.indexOf( trackingNum ) === -1;
+
+			if ( missesNumber ) {
+				WCSTAdmin.showFieldError( $link, wcstAdmin.i18n.customLinkNoNumber );
+			} else {
+				WCSTAdmin.clearFieldError( $link );
+			}
+		},
+
 		updatePreview: function () {
 			var provider     = $( '#wcst_tracking_provider' ).val();
 			var trackingNum  = $( '#wcst_tracking_number' ).val();
@@ -291,20 +347,19 @@
 			if ( provider && providers[ provider ] ) {
 				// Hide custom fields when a known provider is selected.
 				$( '.wcst-custom-fields' ).hide();
+				WCSTAdmin.clearFieldError( $( '#wcst_custom_tracking_link' ) );
 
-				link = decodeURIComponent( providers[ provider ] );
-				link = link.replace( '%1$s', encodeURIComponent( trackingNum ) );
-				link = link.replace( '%2$s', '' ); // postcode – not available in meta box
-				link = link.replace( '%3$s', '' ); // country
-				link = decodeURIComponent( link );
+				link = WCSTAdmin.applyPlaceholders( decodeURIComponent( providers[ provider ] ), trackingNum );
 			} else {
-				// Show custom fields for custom providers.
+				// Show custom fields for custom providers, and preview the real URL
+				// the customer will land on rather than the raw template.
 				$( '.wcst-custom-fields' ).show();
-				link = customLink;
+				link = WCSTAdmin.applyPlaceholders( customLink, trackingNum );
+				WCSTAdmin.checkCustomLink( customLink, trackingNum );
 			}
 
 			if ( link && trackingNum ) {
-				$( '.wcst-preview-link a' ).attr( 'href', link );
+				$( '.wcst-preview-link a' ).attr( 'href', link ).text( link );
 				$( '.wcst-preview-link' ).show();
 			} else {
 				$( '.wcst-preview-link' ).hide();
@@ -404,6 +459,7 @@
 			$( '#wcst_custom_tracking_link' ).val( '' );
 			$( '#wcst_editing_id' ).val( '' );
 			WCSTAdmin.clearFieldError( $( '#wcst_tracking_number' ) );
+			WCSTAdmin.clearFieldError( $( '#wcst_custom_tracking_link' ) );
 		},
 
 		// ----------------------------------------------------------------

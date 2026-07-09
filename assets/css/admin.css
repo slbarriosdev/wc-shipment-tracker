@@ -215,6 +215,14 @@
 	margin-top: 3px;
 }
 
+/* ----- Help tip ----- */
+.wcst-help-tip {
+	float: none;
+	margin: 0 0 0 4px;
+	vertical-align: middle;
+	line-height: 1;
+}
+
 /* ----- Preview link ----- */
 .wcst-preview-link {
 	font-size: 11px;
@@ -227,6 +235,8 @@
 
 .wcst-preview-link a {
 	font-weight: 600;
+	/* The preview now shows the final URL, which is long and lives in a narrow side box. */
+	word-break: break-all;
 }
 
 /* ----- Spinner ----- */

@@ -2,7 +2,7 @@
 # Language: Dutch (Netherlands)
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Project-Id-Version: Trackora 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-01 00:00+0000\n"
 "PO-Revision-Date: 2024-01-01 00:00+0000\n"
@@ -149,3 +149,75 @@ msgstr "Datum"
 
 msgid "TRACKING INFORMATION"
 msgstr "TRACKINGINFORMATIE"
+
+msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
+msgstr "%s slaat bij elke bestelling een trackingnummer, de naam van de vervoerder en de verzenddatum op. Deze gegevens worden aan de klant getoond in de bestel-e-mails, in Mijn account en op elke openbare trackingpagina, en worden geëxporteerd of gewist samen met de bestelling waar ze bij horen. De plugin stuurt geen trackinggegevens naar derden; trackinglinks worden alleen geopend wanneer een klant of winkelbeheerder erop klikt."
+
+msgid "Billing Email"
+msgstr "Factuur-e-mailadres"
+
+msgid "Copy tracking number"
+msgstr "Trackingnummer kopiëren"
+
+msgid "Date Shipped"
+msgstr "Verzenddatum"
+
+msgid "Enter your order number and email address to track your shipment."
+msgstr "Voer je bestelnummer en e-mailadres in om je zending te volgen."
+
+msgid "Insufficient permissions."
+msgstr "Onvoldoende rechten."
+
+msgid "Invalid order or tracking link. Please check your email and try again."
+msgstr "Ongeldige bestelling of trackinglink. Controleer je e-mail en probeer het opnieuw."
+
+msgid "No order found with that order number and email address."
+msgstr "Geen bestelling gevonden met dat bestelnummer en e-mailadres."
+
+msgid "Order Number"
+msgstr "Bestelnummer"
+
+msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
+msgstr "Zet %1$s op de plek van het trackingnummer, bijvoorbeeld %2$s. Je kunt ook de volledige link van deze zending plakken, met het nummer er al in. Laat het leeg als de vervoerder geen trackingpagina heeft."
+
+msgid "Removed shipment tracking data from order %s."
+msgstr "Trackinggegevens verwijderd uit bestelling %s."
+
+msgid "Security check failed. Please try again."
+msgstr "Beveiligingscontrole mislukt. Probeer het opnieuw."
+
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr "Sorry, je hebt geen toestemming om deze bron te bewerken."
+
+msgid "The tracking item cannot be updated."
+msgstr "De zending kan niet worden bijgewerkt."
+
+msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
+msgstr "Deze link bevat noch het trackingnummer noch een %s-token, dus de knop Volgen volgt niets."
+
+msgid "Track Order"
+msgstr "Bestelling volgen"
+
+msgid "Track another order"
+msgstr "Andere bestelling volgen"
+
+msgid "Tracking Provider"
+msgstr "Vervoerder"
+
+msgid "Tracking information for order %s"
+msgstr "Trackinginformatie voor bestelling %s"
+
+msgid "Trackora"
+msgstr "Trackora"
+
+msgid "Trackora Shipment Tracking Data"
+msgstr "Trackora-verzendtrackinggegevens"
+
+msgid "Your order has no tracking information yet. Please check back later."
+msgstr "Je bestelling heeft nog geen trackinginformatie. Kom later terug."
+
+msgid "e.g. 1234"
+msgstr "bijv. 1234"
+
+msgid "you@example.com"
+msgstr "jij@voorbeeld.com"

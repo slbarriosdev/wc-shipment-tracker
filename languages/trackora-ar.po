@@ -2,7 +2,7 @@
 # Language: Arabic
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Project-Id-Version: Trackora 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-01 00:00+0000\n"
 "PO-Revision-Date: 2024-01-01 00:00+0000\n"
@@ -149,3 +149,75 @@ msgstr "التاريخ"
 
 msgid "TRACKING INFORMATION"
 msgstr "معلومات التتبع"
+
+msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
+msgstr "‏%s يحفظ رقم تتبع واسم شركة الشحن وتاريخ الشحن مع كل طلب. تُعرض هذه المعلومات للعميل في رسائل الطلب، وفي منطقة حسابي، وفي أي صفحة تتبع عامة، ويتم تصديرها أو حذفها مع الطلب الذي تنتمي إليه. لا ترسل الإضافة أي بيانات تتبع إلى أطراف ثالثة؛ ولا تُفتح روابط التتبع إلا عندما ينقر عليها العميل أو مدير المتجر."
+
+msgid "Billing Email"
+msgstr "البريد الإلكتروني للفوترة"
+
+msgid "Copy tracking number"
+msgstr "نسخ رقم التتبع"
+
+msgid "Date Shipped"
+msgstr "تاريخ الشحن"
+
+msgid "Enter your order number and email address to track your shipment."
+msgstr "أدخل رقم طلبك وبريدك الإلكتروني لتتبع شحنتك."
+
+msgid "Insufficient permissions."
+msgstr "الصلاحيات غير كافية."
+
+msgid "Invalid order or tracking link. Please check your email and try again."
+msgstr "الطلب أو رابط التتبع غير صالح. يرجى مراجعة بريدك الإلكتروني والمحاولة مرة أخرى."
+
+msgid "No order found with that order number and email address."
+msgstr "لم يتم العثور على أي طلب بهذا الرقم وعنوان البريد الإلكتروني."
+
+msgid "Order Number"
+msgstr "رقم الطلب"
+
+msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
+msgstr "ضع ‎%1$s‎ في موضع رقم التتبع، على سبيل المثال ‎%2$s‎. يمكنك أيضًا لصق الرابط الكامل لهذه الشحنة مع الرقم بداخله. اتركه فارغًا إذا لم يكن لدى شركة الشحن صفحة تتبع."
+
+msgid "Removed shipment tracking data from order %s."
+msgstr "‏تمت إزالة بيانات تتبع الشحنة من الطلب %s."
+
+msgid "Security check failed. Please try again."
+msgstr "فشل التحقق الأمني. يرجى المحاولة مرة أخرى."
+
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr "عذرًا، لا تملك صلاحية تعديل هذا المورد."
+
+msgid "The tracking item cannot be updated."
+msgstr "تعذّر تحديث الشحنة."
+
+msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
+msgstr "‏لا يحتوي هذا الرابط على رقم التتبع ولا على رمز %s، لذا لن يتتبع زر «تتبع» أي شيء."
+
+msgid "Track Order"
+msgstr "تتبع الطلب"
+
+msgid "Track another order"
+msgstr "تتبع طلبًا آخر"
+
+msgid "Tracking Provider"
+msgstr "شركة الشحن"
+
+msgid "Tracking information for order %s"
+msgstr "‏معلومات تتبع الطلب %s"
+
+msgid "Trackora"
+msgstr "Trackora"
+
+msgid "Trackora Shipment Tracking Data"
+msgstr "بيانات تتبع الشحنات من Trackora"
+
+msgid "Your order has no tracking information yet. Please check back later."
+msgstr "لا توجد بعد معلومات تتبع لطلبك. يرجى المراجعة لاحقًا."
+
+msgid "e.g. 1234"
+msgstr "مثال: 1234"
+
+msgid "you@example.com"
+msgstr "you@example.com"

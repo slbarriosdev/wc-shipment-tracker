@@ -3,7 +3,7 @@
  * Plugin Name: Trackora - Shipment Tracker for WooCommerce
  * Plugin URI:  https://wordpress.org/plugins/trackora/
  * Description: Add tracking numbers to WooCommerce orders. Supports multiple shipping providers and custom tracking links. Tracking information appears in emails, the order view page and the customer account section.
- * Version:     1.2.6
+ * Version:     1.3.0
  * Author:      slbarriosdev
  * Text Domain: trackora
  * Domain Path: /languages
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WCST_VERSION', '1.2.6' );
+define( 'WCST_VERSION', '1.3.0' );
 define( 'WCST_FILE',    __FILE__ );
 define( 'WCST_DIR',     __DIR__ );
 define( 'WCST_URL',     untrailingslashit( plugin_dir_url( __FILE__ ) ) );
@@ -36,6 +36,22 @@ function wcst_declare_compat() {
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables',  WCST_FILE, true );
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', WCST_FILE, true );
 	}
+}
+
+// ---------------------------------------------------------------------------
+// Load the bundled translations.
+//
+// WP_Textdomain_Registry only searches WP_LANG_DIR/plugins on its own; a
+// plugin's own /languages directory is used solely when registered here. The
+// "Domain Path" header does not do it. Language packs from translate.wordpress.org
+// still take precedence, so this is a fallback, not an override.
+//
+// Must not run before 'init': loading translations earlier trips the
+// _doing_it_wrong() notice added in WordPress 6.7.
+// ---------------------------------------------------------------------------
+add_action( 'init', 'wcst_load_textdomain' );
+function wcst_load_textdomain() {
+	load_plugin_textdomain( 'trackora', false, dirname( plugin_basename( WCST_FILE ) ) . '/languages' );
 }
 
 // ---------------------------------------------------------------------------

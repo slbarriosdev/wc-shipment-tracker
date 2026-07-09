@@ -2,7 +2,7 @@
 # Language: Russian (Russia)
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Project-Id-Version: Trackora 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-01 00:00+0000\n"
 "PO-Revision-Date: 2024-01-01 00:00+0000\n"
@@ -149,3 +149,75 @@ msgstr "Дата"
 
 msgid "TRACKING INFORMATION"
 msgstr "ИНФОРМАЦИЯ ОБ ОТСЛЕЖИВАНИИ"
+
+msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
+msgstr "%s сохраняет для каждого заказа номер отслеживания, название службы доставки и дату отправки. Эти данные показываются покупателю в письмах о заказе, в разделе «Мой аккаунт» и на любой публичной странице отслеживания, а также экспортируются или удаляются вместе с заказом, к которому относятся. Плагин не передаёт данные отслеживания третьим лицам; ссылки отслеживания открываются только тогда, когда покупатель или администратор магазина нажимает на них."
+
+msgid "Billing Email"
+msgstr "Электронная почта для счёта"
+
+msgid "Copy tracking number"
+msgstr "Скопировать номер отслеживания"
+
+msgid "Date Shipped"
+msgstr "Дата отправки"
+
+msgid "Enter your order number and email address to track your shipment."
+msgstr "Введите номер заказа и адрес электронной почты, чтобы отследить отправление."
+
+msgid "Insufficient permissions."
+msgstr "Недостаточно прав."
+
+msgid "Invalid order or tracking link. Please check your email and try again."
+msgstr "Неверный заказ или ссылка отслеживания. Проверьте почту и попробуйте снова."
+
+msgid "No order found with that order number and email address."
+msgstr "Заказ с таким номером и адресом электронной почты не найден."
+
+msgid "Order Number"
+msgstr "Номер заказа"
+
+msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
+msgstr "Поставьте %1$s там, где должен быть номер отслеживания, например %2$s. Можно также вставить полную ссылку для этой отправки, уже с номером внутри. Оставьте поле пустым, если у службы доставки нет страницы отслеживания."
+
+msgid "Removed shipment tracking data from order %s."
+msgstr "Данные отслеживания удалены из заказа %s."
+
+msgid "Security check failed. Please try again."
+msgstr "Проверка безопасности не пройдена. Попробуйте снова."
+
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr "К сожалению, у вас нет прав на редактирование этого ресурса."
+
+msgid "The tracking item cannot be updated."
+msgstr "Не удалось обновить отправление."
+
+msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
+msgstr "В этой ссылке нет ни номера отслеживания, ни токена %s, поэтому кнопка «Отследить» ничего не отследит."
+
+msgid "Track Order"
+msgstr "Отследить заказ"
+
+msgid "Track another order"
+msgstr "Отследить другой заказ"
+
+msgid "Tracking Provider"
+msgstr "Служба доставки"
+
+msgid "Tracking information for order %s"
+msgstr "Информация об отслеживании заказа %s"
+
+msgid "Trackora"
+msgstr "Trackora"
+
+msgid "Trackora Shipment Tracking Data"
+msgstr "Данные отслеживания отправлений Trackora"
+
+msgid "Your order has no tracking information yet. Please check back later."
+msgstr "У вашего заказа пока нет информации об отслеживании. Загляните позже."
+
+msgid "e.g. 1234"
+msgstr "напр. 1234"
+
+msgid "you@example.com"
+msgstr "vy@primer.com"

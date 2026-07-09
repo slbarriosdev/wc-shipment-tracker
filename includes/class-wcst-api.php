@@ -2,12 +2,16 @@
 /**
  * WCST_API – REST API controller for order tracking items.
  *
- * Routes (default namespace: wc-shipment-tracker/v1):
- *   GET  /orders/{order_id}/trackings
- *   POST /orders/{order_id}/trackings
- *   GET  /orders/{order_id}/trackings/{id}
+ * Native routes (namespace wc-shipment-tracker/v1, resource "trackings"):
+ *   GET    /orders/{order_id}/trackings
+ *   POST   /orders/{order_id}/trackings
+ *   GET    /orders/{order_id}/trackings/{id}
+ *   PUT    /orders/{order_id}/trackings/{id}
  *   DELETE /orders/{order_id}/trackings/{id}
- *   GET  /providers   (public, no auth required)
+ *   GET    /providers   (public, no auth required)
+ *
+ * The same controller also serves the wc/v1 and wc/v2 namespaces, minus the
+ * top-level /providers route. See WCST_Plugin::register_rest_routes().
  *
  * @package WC_Shipment_Tracker
  */
@@ -19,18 +23,31 @@ class WCST_API extends WC_REST_Controller {
 	/** @var string */
 	protected $namespace = 'wc-shipment-tracker/v1';
 
-	/** @var string */
-	protected $rest_base = 'orders/(?P<order_id>[\d]+)/trackings';
+	/** @var string Resource segment appended to orders/{order_id}/. */
+	protected $resource = 'trackings';
+
+	/** @var string Built from $resource in register_routes(). */
+	protected $rest_base = '';
 
 	/** @var string */
 	protected $post_type = 'shop_order';
+
+	/** @var bool Register the top-level /providers route. */
+	protected $providers_route = true;
 
 	public function set_namespace( $namespace ) {
 		$this->namespace = $namespace;
 		return $this;
 	}
 
+	public function set_providers_route( $enabled ) {
+		$this->providers_route = (bool) $enabled;
+		return $this;
+	}
+
 	public function register_routes() {
+		$this->rest_base = 'orders/(?P<order_id>[\d]+)/' . $this->resource;
+
 		// --- Collection: list + create --------------------------------------
 		register_rest_route(
 			$this->namespace,
@@ -57,10 +74,10 @@ class WCST_API extends WC_REST_Controller {
 			)
 		);
 
-		// --- Single item: read + delete -------------------------------------
+		// --- Single item: read + update + delete -----------------------------
 		register_rest_route(
 			$this->namespace,
-			'/' . $this->rest_base . '/(?P<id>[a-fA-F0-9]{0,32})',
+			'/' . $this->rest_base . '/(?P<id>[a-fA-F0-9]{1,32})',
 			array(
 				array(
 					'methods'             => WP_REST_Server::READABLE,
@@ -69,6 +86,12 @@ class WCST_API extends WC_REST_Controller {
 					'args'                => array(
 						'context' => $this->get_context_param( array( 'default' => 'view' ) ),
 					),
+				),
+				array(
+					'methods'             => WP_REST_Server::EDITABLE,
+					'callback'            => array( $this, 'update_item' ),
+					'permission_callback' => array( $this, 'update_item_permissions_check' ),
+					'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
 				),
 				array(
 					'methods'             => WP_REST_Server::DELETABLE,
@@ -80,18 +103,20 @@ class WCST_API extends WC_REST_Controller {
 		);
 
 		// --- Providers list (intentionally public — read-only carrier catalogue) ---
-		register_rest_route(
-			$this->namespace,
-			'/providers',
-			array(
+		if ( $this->providers_route ) {
+			register_rest_route(
+				$this->namespace,
+				'/providers',
 				array(
-					'methods'             => WP_REST_Server::READABLE,
-					'callback'            => array( $this, 'get_providers' ),
-					// Public endpoint: the carrier list contains no sensitive data.
-					'permission_callback' => '__return_true',
-				),
-			)
-		);
+					array(
+						'methods'             => WP_REST_Server::READABLE,
+						'callback'            => array( $this, 'get_providers' ),
+						// Public endpoint: the carrier list contains no sensitive data.
+						'permission_callback' => '__return_true',
+					),
+				)
+			);
+		}
 	}
 
 	// -------------------------------------------------------------------------
@@ -115,6 +140,13 @@ class WCST_API extends WC_REST_Controller {
 	public function get_item_permissions_check( $request ) {
 		if ( ! wc_rest_check_post_permissions( $this->post_type, 'read', (int) $request['order_id'] ) ) {
 			return new WP_Error( 'wcst_rest_cannot_view', __( 'Sorry, you cannot view this resource.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
+		}
+		return true;
+	}
+
+	public function update_item_permissions_check( $request ) {
+		if ( ! wc_rest_check_post_permissions( $this->post_type, 'edit', (int) $request['order_id'] ) ) {
+			return new WP_Error( 'wcst_rest_cannot_edit', __( 'Sorry, you are not allowed to edit this resource.', 'trackora' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 		return true;
 	}
@@ -182,11 +214,13 @@ class WCST_API extends WC_REST_Controller {
 		$item    = $actions->add_tracking_item(
 			$order_id,
 			array(
-				'tracking_provider'        => wc_clean( sanitize_title( $request['tracking_provider'] ) ),
-				'custom_tracking_provider' => wc_clean( $request['custom_tracking_provider'] ),
+				// Optional params are absent (null) rather than empty on PHP 8.1+,
+				// where passing null to sanitize_*() is deprecated. Cast first.
+				'tracking_provider'        => wc_clean( sanitize_title( (string) $request['tracking_provider'] ) ),
+				'custom_tracking_provider' => wc_clean( (string) $request['custom_tracking_provider'] ),
 				'custom_tracking_link'     => esc_url_raw( (string) $request['custom_tracking_link'] ),
-				'tracking_number'          => wc_clean( $request['tracking_number'] ),
-				'date_shipped'             => wc_clean( $request['date_shipped'] ),
+				'tracking_number'          => wc_clean( (string) $request['tracking_number'] ),
+				'date_shipped'             => wc_clean( (string) $request['date_shipped'] ),
 			)
 		);
 
@@ -197,13 +231,63 @@ class WCST_API extends WC_REST_Controller {
 		$response = rest_ensure_response( $this->prepare_item_for_response( $item, $request ) );
 		$response->set_status( 201 );
 		$response->header( 'Location', rest_url( sprintf(
-			'/%s/orders/%d/trackings/%s',
+			'/%s/orders/%d/%s/%s',
 			$this->namespace,
 			$order_id,
+			$this->resource,
 			$item['tracking_id']
 		) ) );
 
 		return $response;
+	}
+
+	/**
+	 * Update a tracking item. Only the fields present in the request body are
+	 * written, so PATCH with a single field leaves the rest untouched.
+	 */
+	public function update_item( $request ) {
+		$order_id    = (int) $request['order_id'];
+		$tracking_id = $request['id'];
+
+		if ( ! wc_get_order( $order_id ) ) {
+			return new WP_Error( 'wcst_rest_invalid_order', __( 'Invalid order ID.', 'trackora' ), array( 'status' => 404 ) );
+		}
+
+		$actions = WCST_Actions::get_instance();
+
+		if ( ! $actions->get_tracking_item( $order_id, $tracking_id ) ) {
+			return new WP_Error( 'wcst_rest_invalid_tracking', __( 'Invalid tracking ID.', 'trackora' ), array( 'status' => 404 ) );
+		}
+
+		$args = array();
+
+		if ( $request->has_param( 'tracking_provider' ) ) {
+			$args['tracking_provider'] = wc_clean( sanitize_title( (string) $request['tracking_provider'] ) );
+		}
+		if ( $request->has_param( 'custom_tracking_provider' ) ) {
+			$args['custom_tracking_provider'] = wc_clean( (string) $request['custom_tracking_provider'] );
+		}
+		if ( $request->has_param( 'custom_tracking_link' ) ) {
+			$args['custom_tracking_link'] = esc_url_raw( (string) $request['custom_tracking_link'] );
+		}
+		if ( $request->has_param( 'tracking_number' ) ) {
+			$args['tracking_number'] = wc_clean( (string) $request['tracking_number'] );
+		}
+		if ( $request->has_param( 'date_shipped' ) ) {
+			$args['date_shipped'] = wc_clean( (string) $request['date_shipped'] );
+		}
+
+		$item = $actions->update_tracking_item( $order_id, $tracking_id, $args );
+
+		if ( ! $item ) {
+			return new WP_Error( 'wcst_rest_cannot_edit', __( 'The tracking item cannot be updated.', 'trackora' ), array( 'status' => 500 ) );
+		}
+
+		$item             = array_merge( $item, $actions->get_formatted_tracking_item( $order_id, $item ) );
+		$item['order_id'] = $order_id;
+
+		$request->set_param( 'context', 'edit' );
+		return rest_ensure_response( $this->prepare_item_for_response( $item, $request ) );
 	}
 
 	public function delete_item( $request ) {
@@ -260,7 +344,7 @@ class WCST_API extends WC_REST_Controller {
 	}
 
 	protected function prepare_links( $order_id, $item ) {
-		$base = 'orders/' . (int) $order_id . '/trackings';
+		$base = 'orders/' . (int) $order_id . '/' . $this->resource;
 		return array(
 			'self'       => array( 'href' => rest_url( "/{$this->namespace}/{$base}/{$item['tracking_id']}" ) ),
 			'collection' => array( 'href' => rest_url( "/{$this->namespace}/{$base}" ) ),

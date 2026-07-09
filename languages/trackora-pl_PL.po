@@ -2,7 +2,7 @@
 # Language: Polish (Poland)
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Project-Id-Version: Trackora 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-01 00:00+0000\n"
 "PO-Revision-Date: 2024-01-01 00:00+0000\n"
@@ -149,3 +149,75 @@ msgstr "Data"
 
 msgid "TRACKING INFORMATION"
 msgstr "INFORMACJE O ŚLEDZENIU"
+
+msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
+msgstr "%s zapisuje przy każdym zamówieniu numer śledzenia, nazwę przewoźnika i datę wysyłki. Informacje te są pokazywane klientowi w e-mailach dotyczących zamówienia, w obszarze Moje konto oraz na każdej publicznej stronie śledzenia, a także są eksportowane lub usuwane razem z zamówieniem, do którego należą. Wtyczka nie wysyła żadnych danych śledzenia do stron trzecich; linki śledzenia otwierają się wyłącznie wtedy, gdy klient lub administrator sklepu w nie kliknie."
+
+msgid "Billing Email"
+msgstr "E-mail do faktury"
+
+msgid "Copy tracking number"
+msgstr "Kopiuj numer śledzenia"
+
+msgid "Date Shipped"
+msgstr "Data wysyłki"
+
+msgid "Enter your order number and email address to track your shipment."
+msgstr "Podaj numer zamówienia i adres e-mail, aby śledzić przesyłkę."
+
+msgid "Insufficient permissions."
+msgstr "Niewystarczające uprawnienia."
+
+msgid "Invalid order or tracking link. Please check your email and try again."
+msgstr "Nieprawidłowe zamówienie lub link śledzenia. Sprawdź swój e-mail i spróbuj ponownie."
+
+msgid "No order found with that order number and email address."
+msgstr "Nie znaleziono zamówienia o takim numerze i adresie e-mail."
+
+msgid "Order Number"
+msgstr "Numer zamówienia"
+
+msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
+msgstr "Wstaw %1$s w miejsce numeru śledzenia, na przykład %2$s. Możesz też wkleić pełny link do tej przesyłki, z numerem już w środku. Zostaw puste, jeśli przewoźnik nie ma strony śledzenia."
+
+msgid "Removed shipment tracking data from order %s."
+msgstr "Usunięto dane śledzenia z zamówienia %s."
+
+msgid "Security check failed. Please try again."
+msgstr "Kontrola bezpieczeństwa nie powiodła się. Spróbuj ponownie."
+
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr "Niestety nie masz uprawnień do edycji tego zasobu."
+
+msgid "The tracking item cannot be updated."
+msgstr "Nie można zaktualizować przesyłki."
+
+msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
+msgstr "Ten link nie zawiera ani numeru śledzenia, ani tokenu %s, więc przycisk Śledź niczego nie wyśledzi."
+
+msgid "Track Order"
+msgstr "Śledź zamówienie"
+
+msgid "Track another order"
+msgstr "Śledź inne zamówienie"
+
+msgid "Tracking Provider"
+msgstr "Przewoźnik"
+
+msgid "Tracking information for order %s"
+msgstr "Informacje o śledzeniu zamówienia %s"
+
+msgid "Trackora"
+msgstr "Trackora"
+
+msgid "Trackora Shipment Tracking Data"
+msgstr "Dane śledzenia przesyłek Trackora"
+
+msgid "Your order has no tracking information yet. Please check back later."
+msgstr "Twoje zamówienie nie ma jeszcze informacji o śledzeniu. Sprawdź ponownie później."
+
+msgid "e.g. 1234"
+msgstr "np. 1234"
+
+msgid "you@example.com"
+msgstr "ty@przyklad.com"

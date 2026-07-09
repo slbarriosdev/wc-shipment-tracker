@@ -2,7 +2,7 @@
 # Language: Spanish (Colombia)
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Project-Id-Version: Trackora 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-01 00:00+0000\n"
 "PO-Revision-Date: 2024-01-01 00:00+0000\n"
@@ -149,3 +149,75 @@ msgstr "Fecha"
 
 msgid "TRACKING INFORMATION"
 msgstr "INFORMACIÓN DE RASTREO"
+
+msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
+msgstr "%s guarda un número de rastreo, el nombre de la transportadora y la fecha de envío en cada pedido. Esta información se muestra al cliente en los correos del pedido, en el área Mi cuenta y en cualquier página pública de rastreo, y se exporta o se borra junto con el pedido al que pertenece. El plugin no envía ningún dato de rastreo a terceros; los enlaces de rastreo solo se abren cuando el cliente o el administrador de la tienda hacen clic en ellos."
+
+msgid "Billing Email"
+msgstr "Correo electrónico de facturación"
+
+msgid "Copy tracking number"
+msgstr "Copiar número de rastreo"
+
+msgid "Date Shipped"
+msgstr "Fecha de envío"
+
+msgid "Enter your order number and email address to track your shipment."
+msgstr "Ingresa tu número de pedido y tu correo electrónico para rastrear tu envío."
+
+msgid "Insufficient permissions."
+msgstr "Permisos insuficientes."
+
+msgid "Invalid order or tracking link. Please check your email and try again."
+msgstr "Pedido o enlace de rastreo no válido. Revisa tu correo e inténtalo de nuevo."
+
+msgid "No order found with that order number and email address."
+msgstr "No se encontró ningún pedido con ese número y esa dirección de correo."
+
+msgid "Order Number"
+msgstr "Número de pedido"
+
+msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
+msgstr "Escribe %1$s donde vaya el número de rastreo, por ejemplo %2$s. También puedes pegar el enlace completo de este envío, con el número ya incluido. Déjalo vacío si la transportadora no tiene página de rastreo."
+
+msgid "Removed shipment tracking data from order %s."
+msgstr "Se eliminaron los datos de rastreo del pedido %s."
+
+msgid "Security check failed. Please try again."
+msgstr "La verificación de seguridad falló. Inténtalo de nuevo."
+
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr "Lo sentimos, no tienes permiso para editar este recurso."
+
+msgid "The tracking item cannot be updated."
+msgstr "No se puede actualizar el envío."
+
+msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
+msgstr "Este enlace no contiene ni el número de rastreo ni un token %s, así que el botón Rastrear no rastreará nada."
+
+msgid "Track Order"
+msgstr "Rastrear pedido"
+
+msgid "Track another order"
+msgstr "Rastrear otro pedido"
+
+msgid "Tracking Provider"
+msgstr "Transportadora"
+
+msgid "Tracking information for order %s"
+msgstr "Información de rastreo del pedido %s"
+
+msgid "Trackora"
+msgstr "Trackora"
+
+msgid "Trackora Shipment Tracking Data"
+msgstr "Datos de rastreo de envíos de Trackora"
+
+msgid "Your order has no tracking information yet. Please check back later."
+msgstr "Tu pedido todavía no tiene información de rastreo. Vuelve a consultarlo más tarde."
+
+msgid "e.g. 1234"
+msgstr "p. ej. 1234"
+
+msgid "you@example.com"
+msgstr "tu@ejemplo.com"

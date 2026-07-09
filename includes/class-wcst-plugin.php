@@ -68,20 +68,36 @@ class WCST_Plugin {
 		// ---- REST API -------------------------------------------------------
 		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
 
+		// ---- Privacy (exporter + eraser) -------------------------------------
+		add_action( 'woocommerce_init', array( $this, 'init_privacy' ) );
+	}
+
+	/**
+	 * WC_Abstract_Privacy only exists once WooCommerce has loaded its includes.
+	 */
+	public function init_privacy() {
+		if ( ! class_exists( 'WC_Abstract_Privacy' ) ) {
+			return;
+		}
+
+		require_once WCST_DIR . '/includes/class-wcst-privacy.php';
+		new WCST_Privacy();
 	}
 
 	public function register_rest_routes() {
 		require_once WCST_DIR . '/includes/class-wcst-api.php';
 
-		// Native namespace.
-		$api = new WCST_API();
-		$api->register_routes();
+		// Native namespace, including the top-level /providers catalogue.
+		( new WCST_API() )->register_routes();
 
 		// Backward-compat namespaces so third-party code using wc/v2 still works.
+		// No top-level /providers here: "wc/v2/providers" is a generic path inside
+		// WooCommerce core's own namespace and is not ours to claim.
 		foreach ( array( 'wc/v1', 'wc/v2' ) as $ns ) {
-			$compat = new WCST_API();
-			$compat->set_namespace( $ns );
-			$compat->register_routes();
+			( new WCST_API() )
+				->set_namespace( $ns )
+				->set_providers_route( false )
+				->register_routes();
 		}
 	}
 

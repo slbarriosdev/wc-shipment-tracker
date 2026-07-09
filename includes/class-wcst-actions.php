@@ -13,6 +13,15 @@ class WCST_Actions {
 
 	use Order_Util;
 
+	/**
+	 * Value of the "Custom Provider" option in the meta box select.
+	 *
+	 * It cannot be the empty string, or SelectWoo would treat that option as the
+	 * placeholder and hide it from the list. It is normalised back to '' before
+	 * anything is stored, so no tracking item ever carries this sentinel.
+	 */
+	const CUSTOM_PROVIDER = '__custom';
+
 	/** @var self */
 	private static $instance;
 
@@ -135,6 +144,8 @@ class WCST_Actions {
 					'DHL'                       => 'https://www.dhl.com/content/g0/en/express/tracking.shtml?brand=DHL&AWB=%1$s',
 					'DPD.co.uk'                 => 'https://www.dpd.co.uk/apps/tracking/?reference=%1$s#results',
 					'DPD Local'                 => 'https://apis.track.dpdlocal.co.uk/v1/track?postcode=%2$s&parcel=%1$s',
+					// Legacy trading name of DPD Local, still printed on some labels.
+					'InterLink'                 => 'https://www.dpdlocal.co.uk/apps/tracking/?reference=%1$s&postcode=%2$s#results',
 					'EVRi'                      => 'https://www.evri.com/track/parcel/%1$s',
 					'EVRi (international)'      => 'https://international.evri.com/tracking/%1$s',
 					'ParcelForce'               => 'https://www.parcelforce.com/track-trace?trackNumber=%1$s',
@@ -329,7 +340,7 @@ class WCST_Actions {
 	 */
 	public function add_tracking_item( $order_id, $args ) {
 		$item = array(
-			'tracking_provider'        => wc_clean( isset( $args['tracking_provider'] )        ? $args['tracking_provider']        : '' ),
+			'tracking_provider'        => $this->normalize_provider( wc_clean( isset( $args['tracking_provider'] ) ? $args['tracking_provider'] : '' ) ),
 			'custom_tracking_provider' => wc_clean( isset( $args['custom_tracking_provider'] ) ? $args['custom_tracking_provider'] : '' ),
 			'custom_tracking_link'     => esc_url_raw( isset( $args['custom_tracking_link'] )     ? $args['custom_tracking_link']     : '' ),
 			'tracking_number'          => wc_clean( isset( $args['tracking_number'] )          ? $args['tracking_number']          : '' ),
@@ -405,33 +416,60 @@ class WCST_Actions {
 	 * @return array|null Updated item or null if not found.
 	 */
 	public function update_tracking_item( $order_id, $tracking_id, $args ) {
-		$items = $this->get_tracking_items( $order_id );
-		$found = false;
+		$items        = $this->get_tracking_items( $order_id );
 		$updated_item = null;
 
 		foreach ( $items as $key => $item ) {
-			if ( $item['tracking_id'] === $tracking_id ) {
-				$items[ $key ]['tracking_provider']        = wc_clean( isset( $args['tracking_provider'] )        ? $args['tracking_provider']        : '' );
-				$items[ $key ]['custom_tracking_provider'] = wc_clean( isset( $args['custom_tracking_provider'] ) ? $args['custom_tracking_provider'] : '' );
-				$items[ $key ]['custom_tracking_link']     = esc_url_raw( isset( $args['custom_tracking_link'] )     ? $args['custom_tracking_link']     : '' );
-				$items[ $key ]['tracking_number']          = wc_clean( isset( $args['tracking_number'] )          ? $args['tracking_number']          : '' );
-
-				if ( ! empty( $args['date_shipped'] ) ) {
-					$ts = (int) strtotime( $args['date_shipped'] );
-					$items[ $key ]['date_shipped'] = $ts > 0 ? $ts : $item['date_shipped'];
-				}
-
-				$updated_item = $items[ $key ];
-				$found = true;
-				break;
+			if ( $item['tracking_id'] !== $tracking_id ) {
+				continue;
 			}
+
+			// Only keys actually present in $args are written. A partial update
+			// (REST PATCH) must not blank out the fields it did not send.
+			if ( array_key_exists( 'tracking_provider', $args ) ) {
+				$items[ $key ]['tracking_provider'] = $this->normalize_provider( wc_clean( $args['tracking_provider'] ) );
+			}
+			if ( array_key_exists( 'custom_tracking_provider', $args ) ) {
+				$items[ $key ]['custom_tracking_provider'] = wc_clean( $args['custom_tracking_provider'] );
+			}
+			if ( array_key_exists( 'custom_tracking_link', $args ) ) {
+				$items[ $key ]['custom_tracking_link'] = esc_url_raw( (string) $args['custom_tracking_link'] );
+			}
+			if ( array_key_exists( 'tracking_number', $args ) ) {
+				$items[ $key ]['tracking_number'] = wc_clean( $args['tracking_number'] );
+			}
+			if ( ! empty( $args['date_shipped'] ) ) {
+				$ts                            = (int) strtotime( $args['date_shipped'] );
+				$items[ $key ]['date_shipped'] = $ts > 0 ? $ts : $item['date_shipped'];
+			}
+
+			$updated_item = $items[ $key ];
+			break;
 		}
 
-		if ( $found ) {
+		if ( null !== $updated_item ) {
+			/**
+			 * Filter tracking items before persisting (update).
+			 *
+			 * @param array $items    Full list after the update.
+			 * @param array $updated  The item that was updated.
+			 * @param int   $order_id
+			 */
+			$items = apply_filters( 'wcst_before_update_tracking_items', $items, $updated_item, $order_id );
 			$this->save_tracking_items( $order_id, $items );
 		}
 
 		return $updated_item;
+	}
+
+	/**
+	 * Turn the meta box "Custom Provider" sentinel back into an empty provider.
+	 *
+	 * @param string $provider
+	 * @return string
+	 */
+	private function normalize_provider( $provider ) {
+		return self::CUSTOM_PROVIDER === $provider ? '' : $provider;
 	}
 
 	/**
@@ -525,6 +563,16 @@ class WCST_Actions {
 	 *
 	 * Placeholders: %1$s = tracking number, %2$s = postcode, %3$s = country code, %4$s = order_id
 	 *
+	 * Substitution is literal, not sprintf(). A tracking URL is full of percent
+	 * signs that are percent-encoding, not format specifiers: esc_url_raw() turns
+	 * a space into %20, and custom links routinely carry %3A, %2F or %7B. sprintf()
+	 * reads those as conversions and silently corrupts the URL — and on PHP 8 a
+	 * trailing "%" throws a ValueError, which would be fatal on the order screen,
+	 * the orders list, the email and the shortcode alike.
+	 *
+	 * A URL with no placeholder is therefore returned untouched, which is also what
+	 * makes it valid to paste a complete, ready-made tracking URL for one shipment.
+	 *
 	 * @param array       $item
 	 * @param string|null $postcode
 	 * @param string|null $country_code
@@ -533,6 +581,12 @@ class WCST_Actions {
 	 * @return string
 	 */
 	public function build_tracking_link( array $item, $postcode, $country_code, $order_id, $link_format ) {
+		$link_format = is_string( $link_format ) ? $link_format : '';
+
+		if ( '' === $link_format ) {
+			return '';
+		}
+
 		$values = apply_filters(
 			'wcst_provider_url_values',
 			array(
@@ -544,10 +598,14 @@ class WCST_Actions {
 			$item
 		);
 
-		$link_format = is_string( $link_format ) ? $link_format : '';
-		array_unshift( $values, $link_format );
+		// Index 0 fills %1$s, index 1 fills %2$s, and so on, matching the
+		// positional syntax the wcst_provider_url_values filter has always used.
+		$replacements = array();
+		foreach ( array_values( (array) $values ) as $i => $value ) {
+			$replacements[ '%' . ( $i + 1 ) . '$s' ] = (string) $value;
+		}
 
-		return call_user_func_array( 'sprintf', $values );
+		return strtr( $link_format, $replacements );
 	}
 
 	// =========================================================================
@@ -636,7 +694,13 @@ class WCST_Actions {
 			<p class="form-field">
 				<label for="wcst_tracking_provider"><?php esc_html_e( 'Provider:', 'trackora' ); ?></label>
 				<select id="wcst_tracking_provider" name="wcst_tracking_provider" class="wcst-provider-select">
-					<option value=""><?php esc_html_e( 'Custom Provider', 'trackora' ); ?></option>
+					<?php
+					// SelectWoo swallows the first empty option to use it as the
+					// placeholder, so "Custom Provider" needs a value of its own or
+					// there is no way back to it once a carrier has been picked.
+					?>
+					<option value=""></option>
+					<option value="<?php echo esc_attr( self::CUSTOM_PROVIDER ); ?>"><?php esc_html_e( 'Custom Provider', 'trackora' ); ?></option>
 					<?php
 					$default = apply_filters( 'wcst_default_provider', '' );
 					foreach ( $providers as $group => $group_providers ) :
@@ -664,9 +728,22 @@ class WCST_Actions {
 			</p>
 
 			<!-- Tracking link (custom) -->
+			<?php
+			$link_tip = sprintf(
+				/* translators: 1: the literal token replaced by the tracking number, 2: an example URL using it. */
+				__( 'Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page.', 'trackora' ),
+				'%1$s',
+				'https://carrier.com/track?id=%1$s'
+			);
+			?>
 			<p class="form-field wcst-custom-fields">
-				<label for="wcst_custom_tracking_link"><?php esc_html_e( 'Tracking Link:', 'trackora' ); ?></label>
-				<input type="url" id="wcst_custom_tracking_link" name="wcst_custom_tracking_link" value="" placeholder="https://" />
+				<label for="wcst_custom_tracking_link">
+					<?php esc_html_e( 'Tracking Link:', 'trackora' ); ?>
+					<span class="woocommerce-help-tip wcst-help-tip" data-tip="<?php echo esc_attr( $link_tip ); ?>"></span>
+				</label>
+				<?php // Type text, not url: the value may carry a %1$s token, which some browsers reject as an invalid URL. ?>
+				<input type="text" id="wcst_custom_tracking_link" name="wcst_custom_tracking_link" value=""
+					placeholder="https://carrier.com/track?id=%1$s" />
 			</p>
 
 			<!-- Date shipped -->
@@ -703,7 +780,8 @@ class WCST_Actions {
 		wp_enqueue_script(
 			'wcst-admin',
 			WCST_URL . '/assets/js/admin.js',
-			array( 'jquery', 'wc-enhanced-select' ),
+			// jquery-tiptip is registered by WooCommerce and powers the help tip.
+			array( 'jquery', 'wc-enhanced-select', 'jquery-tiptip' ),
 			WCST_VERSION,
 			true
 		);
@@ -715,6 +793,7 @@ class WCST_Actions {
 				'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
 				'orderId'        => $order_id,
 				'providers'      => $provider_map,
+				'customProvider' => self::CUSTOM_PROVIDER,
 				'createNonce'    => wp_create_nonce( 'wcst_create_tracking' ),
 				'updateNonce'    => wp_create_nonce( 'wcst_update_tracking' ),
 				'deleteNonce'    => wp_create_nonce( 'wcst_delete_tracking' ),
@@ -724,6 +803,11 @@ class WCST_Actions {
 					'error'                  => __( 'An error occurred. Please try again.', 'trackora' ),
 					'trackingNumberRequired' => __( 'Please enter a tracking number.', 'trackora' ),
 					'searchProvider'         => __( 'Search provider…', 'trackora' ),
+					'customLinkNoNumber'     => sprintf(
+						/* translators: %s: the literal token that gets replaced by the tracking number. */
+						__( 'This link contains neither the tracking number nor a %s token, so the Track button will not track anything.', 'trackora' ),
+						'%1$s'
+					),
 					'editTitle'              => __( 'Edit Tracking', 'trackora' ),
 					'addTitle'               => __( 'Add Tracking Number', 'trackora' ),
 					'cancel'                 => __( 'Cancel', 'trackora' ),
@@ -964,14 +1048,15 @@ class WCST_Actions {
 	}
 
 	/**
-	 * Build HTML for the orders list Shipment Tracking column.
+	 * Build and output the HTML for the orders list Shipment Tracking column.
 	 *
 	 * @param int $order_id
-	 * @return string
 	 */
 	private function get_column_html( $order_id ) {
 		$items = array_reverse( $this->get_tracking_items( $order_id ) );
 		$count = count( $items );
+
+		ob_start();
 
 		echo '<div class="wcst-column-tracking">';
 
@@ -1020,6 +1105,23 @@ class WCST_Actions {
 		}
 
 		echo '</div>';
+
+		$html = ob_get_clean();
+
+		/**
+		 * Filter the HTML of the Shipment Tracking column on the orders list.
+		 *
+		 * Every dynamic value in $html is already escaped. Anything a callback
+		 * appends is the callback's own responsibility to escape.
+		 *
+		 * @param string $html     Column markup.
+		 * @param int    $order_id
+		 * @param array  $items    Tracking items, newest first.
+		 */
+		$html = apply_filters( 'wcst_orders_list_column_html', $html, $order_id, $items );
+
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above; filtered markup is the callback's responsibility.
+		echo $html;
 	}
 
 	/**

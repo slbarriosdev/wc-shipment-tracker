@@ -2,7 +2,7 @@
 # Language: Hindi (India)
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Shipment Tracker 1.1.0\n"
+"Project-Id-Version: Trackora 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-01 00:00+0000\n"
 "PO-Revision-Date: 2024-01-01 00:00+0000\n"
@@ -149,3 +149,75 @@ msgstr "तारीख"
 
 msgid "TRACKING INFORMATION"
 msgstr "ट्रैकिंग जानकारी"
+
+msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
+msgstr "%s हर ऑर्डर के साथ एक ट्रैकिंग नंबर, कूरियर कंपनी का नाम और शिपिंग तिथि सहेजता है। यह जानकारी ग्राहक को ऑर्डर के ईमेल में, मेरा खाता क्षेत्र में और किसी भी सार्वजनिक ट्रैकिंग पेज पर दिखाई जाती है, और जिस ऑर्डर से यह जुड़ी है उसके साथ ही निर्यात या मिटाई जाती है। यह प्लगइन कोई भी ट्रैकिंग डेटा किसी तीसरे पक्ष को नहीं भेजता; ट्रैकिंग लिंक तभी खुलते हैं जब ग्राहक या स्टोर व्यवस्थापक उन पर क्लिक करता है।"
+
+msgid "Billing Email"
+msgstr "बिलिंग ईमेल"
+
+msgid "Copy tracking number"
+msgstr "ट्रैकिंग नंबर कॉपी करें"
+
+msgid "Date Shipped"
+msgstr "शिपिंग तिथि"
+
+msgid "Enter your order number and email address to track your shipment."
+msgstr "अपनी शिपमेंट ट्रैक करने के लिए अपना ऑर्डर नंबर और ईमेल पता दर्ज करें।"
+
+msgid "Insufficient permissions."
+msgstr "अपर्याप्त अनुमतियाँ।"
+
+msgid "Invalid order or tracking link. Please check your email and try again."
+msgstr "अमान्य ऑर्डर या ट्रैकिंग लिंक। कृपया अपना ईमेल जाँचें और फिर से प्रयास करें।"
+
+msgid "No order found with that order number and email address."
+msgstr "उस ऑर्डर नंबर और ईमेल पते के साथ कोई ऑर्डर नहीं मिला।"
+
+msgid "Order Number"
+msgstr "ऑर्डर नंबर"
+
+msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
+msgstr "जहाँ ट्रैकिंग नंबर आना है वहाँ %1$s लिखें, उदाहरण के लिए %2$s। आप इस शिपमेंट का पूरा लिंक भी चिपका सकते हैं, जिसमें नंबर पहले से हो। यदि कूरियर कंपनी का कोई ट्रैकिंग पेज नहीं है तो इसे खाली छोड़ दें।"
+
+msgid "Removed shipment tracking data from order %s."
+msgstr "ऑर्डर %s से शिपमेंट ट्रैकिंग डेटा हटा दिया गया।"
+
+msgid "Security check failed. Please try again."
+msgstr "सुरक्षा जाँच विफल रही। कृपया फिर से प्रयास करें।"
+
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr "क्षमा करें, आपको इस संसाधन को संपादित करने की अनुमति नहीं है।"
+
+msgid "The tracking item cannot be updated."
+msgstr "शिपमेंट अपडेट नहीं किया जा सका।"
+
+msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
+msgstr "इस लिंक में न तो ट्रैकिंग नंबर है और न ही %s टोकन, इसलिए ट्रैक बटन कुछ भी ट्रैक नहीं करेगा।"
+
+msgid "Track Order"
+msgstr "ऑर्डर ट्रैक करें"
+
+msgid "Track another order"
+msgstr "दूसरा ऑर्डर ट्रैक करें"
+
+msgid "Tracking Provider"
+msgstr "कूरियर कंपनी"
+
+msgid "Tracking information for order %s"
+msgstr "ऑर्डर %s की ट्रैकिंग जानकारी"
+
+msgid "Trackora"
+msgstr "Trackora"
+
+msgid "Trackora Shipment Tracking Data"
+msgstr "Trackora शिपमेंट ट्रैकिंग डेटा"
+
+msgid "Your order has no tracking information yet. Please check back later."
+msgstr "आपके ऑर्डर की अभी कोई ट्रैकिंग जानकारी नहीं है। कृपया बाद में देखें।"
+
+msgid "e.g. 1234"
+msgstr "उदा. 1234"
+
+msgid "you@example.com"
+msgstr "aap@udaharan.com"
