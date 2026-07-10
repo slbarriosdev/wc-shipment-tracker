@@ -40,10 +40,6 @@ msgstr ""
 msgid "Cannot create existing tracking item."
 msgstr ""
 
-#: includes/class-wcst-actions.php:761
-msgid "Click here to track your shipment"
-msgstr ""
-
 #: includes/class-wcst-actions.php:843 includes/class-wcst-actions.php:844 includes/class-wcst-actions.php:1140 includes/class-wcst-actions.php:1141 templates/myaccount/tracking-info.php:45 templates/myaccount/tracking-info.php:46 templates/shortcode/tracking.php:76 templates/shortcode/tracking.php:77
 msgid "Copy tracking number"
 msgstr ""
@@ -128,10 +124,6 @@ msgstr ""
 
 #: includes/class-wcst-actions.php:804
 msgid "Please enter a tracking number."
-msgstr ""
-
-#: includes/class-wcst-actions.php:760
-msgid "Preview:"
 msgstr ""
 
 #: templates/email/tracking-info.php:26 templates/myaccount/tracking-info.php:27 templates/myaccount/tracking-info.php:36 templates/shortcode/tracking.php:58 templates/shortcode/tracking.php:67
@@ -255,8 +247,20 @@ msgstr ""
 msgid "Tracking information for order %s"
 msgstr ""
 
+#: includes/class-wcst-actions.php:814
+msgid "Tracking number added."
+msgstr ""
+
+#: includes/class-wcst-actions.php:816
+msgid "Tracking number deleted."
+msgstr ""
+
 #: includes/class-wcst-actions.php:929 includes/class-wcst-actions.php:959
 msgid "Tracking number is required."
+msgstr ""
+
+#: includes/class-wcst-actions.php:815
+msgid "Tracking number updated."
 msgstr ""
 
 #: includes/class-wcst-api.php:388

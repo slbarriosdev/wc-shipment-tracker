@@ -755,12 +755,6 @@ class WCST_Actions {
 					class="date-picker-field" />
 			</p>
 
-			<!-- Preview -->
-			<p class="wcst-preview-link" style="display:none;">
-				<?php esc_html_e( 'Preview:', 'trackora' ); ?>
-				<a href="#" target="_blank"><?php esc_html_e( 'Click here to track your shipment', 'trackora' ); ?></a>
-			</p>
-
 			<input type="hidden" id="wcst_editing_id" value="" />
 
 			<p class="wcst-form-actions">
@@ -811,6 +805,9 @@ class WCST_Actions {
 					'editTitle'              => __( 'Edit Tracking', 'trackora' ),
 					'addTitle'               => __( 'Add Tracking Number', 'trackora' ),
 					'cancel'                 => __( 'Cancel', 'trackora' ),
+					'trackingAdded'          => __( 'Tracking number added.', 'trackora' ),
+					'trackingUpdated'        => __( 'Tracking number updated.', 'trackora' ),
+					'trackingDeleted'        => __( 'Tracking number deleted.', 'trackora' ),
 				),
 			)
 		);

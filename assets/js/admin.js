@@ -22,6 +22,66 @@
 		},
 
 		// ----------------------------------------------------------------
+		// Toast notifications
+		// ----------------------------------------------------------------
+		TOAST_DURATION: 3500,
+		TOAST_FADE: 250,
+
+		toastContainer: function () {
+			var $container = $( '#wcst-toasts' );
+			if ( $container.length ) {
+				return $container;
+			}
+
+			$container = $( '<div id="wcst-toasts" class="wcst-toasts"></div>' );
+
+			// Sit directly above the Shipment Tracking box, where the user is looking.
+			var $metaBox = $( '#wcst-shipment-tracking' );
+			if ( $metaBox.length ) {
+				$container.insertBefore( $metaBox );
+			} else {
+				$container.appendTo( 'body' );
+			}
+
+			return $container;
+		},
+
+		/**
+		 * @param {string} message Text to display.
+		 * @param {string} [type]  'success' (default) or 'error'.
+		 */
+		notify: function ( message, type ) {
+			var isError = 'error' === type;
+
+			var $toast = $( '<div class="wcst-toast"></div>' )
+				.addClass( isError ? 'wcst-toast--error' : 'wcst-toast--success' )
+				// Errors interrupt the screen reader; confirmations wait their turn.
+				.attr( 'role', isError ? 'alert' : 'status' )
+				.text( message );
+
+			WCSTAdmin.toastContainer().append( $toast );
+
+			// Read back the layout so the browser paints the pre-transition state
+			// before the class lands, otherwise the slide-in never runs.
+			void $toast[ 0 ].offsetWidth;
+			$toast.addClass( 'wcst-toast--visible' );
+
+			setTimeout( function () {
+				$toast.removeClass( 'wcst-toast--visible' );
+				setTimeout( function () {
+					$toast.remove();
+				}, WCSTAdmin.TOAST_FADE );
+			}, WCSTAdmin.TOAST_DURATION );
+		},
+
+		notifyError: function ( response ) {
+			var message = ( response && response.data && response.data.message )
+				? response.data.message
+				: wcstAdmin.i18n.error;
+			WCSTAdmin.notify( message, 'error' );
+		},
+
+		// ----------------------------------------------------------------
 		// Searchable provider select via SelectWoo (WC enhanced select)
 		// ----------------------------------------------------------------
 		providerTemplate: function ( option ) {
@@ -122,7 +182,7 @@
 					.val( provider || wcstAdmin.customProvider )
 					.trigger( 'change' );
 
-				WCSTAdmin.updatePreview();
+				WCSTAdmin.updateCustomFields();
 				WCSTAdmin.showForm();
 				$( '#wcst_tracking_number' ).focus();
 			} );
@@ -270,7 +330,7 @@
 				'change keyup',
 				'#wcst_tracking_provider, #wcst_tracking_number, #wcst_custom_tracking_link',
 				function () {
-					WCSTAdmin.updatePreview();
+					WCSTAdmin.updateCustomFields();
 				}
 			);
 
@@ -302,22 +362,6 @@
 		},
 
 		/**
-		 * Literal placeholder substitution, mirroring build_tracking_link() in PHP.
-		 * Never use String.replace with a plain string here: a "$s" in the pattern
-		 * and "$&"-style sequences in the replacement both have special meaning.
-		 */
-		applyPlaceholders: function ( url, trackingNum ) {
-			if ( ! url ) {
-				return '';
-			}
-			return url
-				.split( '%1$s' ).join( trackingNum )
-				.split( '%2$s' ).join( '' )   // postcode – not known in the meta box
-				.split( '%3$s' ).join( '' )   // country  – idem
-				.split( '%4$s' ).join( String( wcstAdmin.orderId ) );
-		},
-
-		/**
 		 * A custom link that carries neither the %1$s token nor the tracking
 		 * number itself produces a "Track" button that does not track. Say so.
 		 */
@@ -337,32 +381,19 @@
 			}
 		},
 
-		updatePreview: function () {
-			var provider     = $( '#wcst_tracking_provider' ).val();
-			var trackingNum  = $( '#wcst_tracking_number' ).val();
-			var customLink   = $( '#wcst_custom_tracking_link' ).val();
-			var providers    = wcstAdmin.providers;
-			var link         = '';
+		updateCustomFields: function () {
+			var provider    = $( '#wcst_tracking_provider' ).val();
+			var trackingNum = $( '#wcst_tracking_number' ).val();
+			var customLink  = $( '#wcst_custom_tracking_link' ).val();
+			var providers   = wcstAdmin.providers;
 
 			if ( provider && providers[ provider ] ) {
 				// Hide custom fields when a known provider is selected.
 				$( '.wcst-custom-fields' ).hide();
 				WCSTAdmin.clearFieldError( $( '#wcst_custom_tracking_link' ) );
-
-				link = WCSTAdmin.applyPlaceholders( decodeURIComponent( providers[ provider ] ), trackingNum );
 			} else {
-				// Show custom fields for custom providers, and preview the real URL
-				// the customer will land on rather than the raw template.
 				$( '.wcst-custom-fields' ).show();
-				link = WCSTAdmin.applyPlaceholders( customLink, trackingNum );
 				WCSTAdmin.checkCustomLink( customLink, trackingNum );
-			}
-
-			if ( link && trackingNum ) {
-				$( '.wcst-preview-link a' ).attr( 'href', link ).text( link );
-				$( '.wcst-preview-link' ).show();
-			} else {
-				$( '.wcst-preview-link' ).hide();
 			}
 		},
 
@@ -437,12 +468,15 @@
 							}
 							WCSTAdmin.resetForm();
 							WCSTAdmin.hideForm();
+							WCSTAdmin.notify(
+								isEdit ? wcstAdmin.i18n.trackingUpdated : wcstAdmin.i18n.trackingAdded
+							);
 						} else {
-							alert( ( response.data && response.data.message ) ? response.data.message : wcstAdmin.i18n.error );
+							WCSTAdmin.notifyError( response );
 						}
 					},
 					error: function () {
-						alert( wcstAdmin.i18n.error );
+						WCSTAdmin.notifyError();
 					},
 					complete: function () {
 						$btn.prop( 'disabled', false );
@@ -530,14 +564,15 @@
 							$item.fadeOut( 200, function () {
 								$( this ).remove();
 							} );
+							WCSTAdmin.notify( wcstAdmin.i18n.trackingDeleted );
 						} else {
 							$item.css( 'opacity', '1' );
-							alert( ( response.data && response.data.message ) ? response.data.message : wcstAdmin.i18n.error );
+							WCSTAdmin.notifyError( response );
 						}
 					},
 					error: function () {
 						$item.css( 'opacity', '1' );
-						alert( wcstAdmin.i18n.error );
+						WCSTAdmin.notifyError();
 					},
 				} );
 			} );

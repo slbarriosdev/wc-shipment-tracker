@@ -223,22 +223,6 @@
 	line-height: 1;
 }
 
-/* ----- Preview link ----- */
-.wcst-preview-link {
-	font-size: 11px;
-	margin: 6px 0 0;
-	padding: 5px 8px;
-	background: #e8f5e9;
-	border-left: 3px solid #4caf50;
-	border-radius: 2px;
-}
-
-.wcst-preview-link a {
-	font-weight: 600;
-	/* The preview now shows the final URL, which is long and lives in a narrow side box. */
-	word-break: break-all;
-}
-
 /* ----- Spinner ----- */
 .wcst-spinner.spinner {
 	display: inline-block;
@@ -287,4 +271,76 @@
 
 .wcst-column-tracking details ul li {
 	font-size: 11px;
+}
+
+/* ----- Toast notifications ----- */
+.wcst-toasts {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-bottom: 8px;
+}
+
+/* The container outlives its toasts; don't leave a gap above the box. */
+.wcst-toasts:empty {
+	margin-bottom: 0;
+}
+
+.wcst-toast {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 12px;
+	border-radius: 4px;
+	border-left: 4px solid transparent;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.13 );
+	color: #2c3338;
+	font-size: 12px;
+	line-height: 1.4;
+	opacity: 0;
+	transform: translateY( -4px );
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.wcst-toast--visible {
+	opacity: 1;
+	transform: translateY( 0 );
+}
+
+.wcst-toast::before {
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 18px;
+	text-align: center;
+}
+
+.wcst-toast--success {
+	border-left-color: #00a32a;
+}
+
+.wcst-toast--success::before {
+	content: "\2713"; /* check mark */
+	background: #00a32a;
+}
+
+.wcst-toast--error {
+	border-left-color: #d63638;
+}
+
+.wcst-toast--error::before {
+	content: "\0021"; /* exclamation mark */
+	background: #d63638;
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+	.wcst-toast {
+		transition: none;
+		transform: none;
+	}
 }
