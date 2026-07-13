@@ -11,3 +11,6 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+// Review request state is plugin bookkeeping, not customer data: drop it.
+delete_option( 'wcst_review_state' );

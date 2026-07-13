@@ -65,6 +65,18 @@ class WCST_Plugin {
 			add_filter( 'woocommerce_subscriptions_renewal_order_meta_query', array( $actions, 'exclude_tracking_from_renewal_query' ) );
 		}
 
+		// ---- Review request --------------------------------------------------
+		// The counter listens everywhere, including REST: a store that creates
+		// trackings over the API still earns the right to be asked. Only the
+		// notice and its dismiss handler are admin-only.
+		require_once WCST_DIR . '/includes/class-wcst-review-request.php';
+
+		WCST_Review_Request::register_counter();
+
+		if ( is_admin() ) {
+			new WCST_Review_Request();
+		}
+
 		// ---- REST API -------------------------------------------------------
 		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
 

@@ -3,7 +3,7 @@
  * Plugin Name: Trackora - Shipment Tracker for WooCommerce
  * Plugin URI:  https://wordpress.org/plugins/trackora/
  * Description: Add tracking numbers to WooCommerce orders. Supports multiple shipping providers and custom tracking links. Tracking information appears in emails, the order view page and the customer account section.
- * Version:     1.3.0
+ * Version:     1.3.2
  * Author:      slbarriosdev
  * Text Domain: trackora
  * Domain Path: /languages
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WCST_VERSION', '1.3.0' );
+define( 'WCST_VERSION', '1.3.2' );
 define( 'WCST_FILE',    __FILE__ );
 define( 'WCST_DIR',     __DIR__ );
 define( 'WCST_URL',     untrailingslashit( plugin_dir_url( __FILE__ ) ) );
@@ -52,6 +52,67 @@ function wcst_declare_compat() {
 add_action( 'init', 'wcst_load_textdomain' );
 function wcst_load_textdomain() {
 	load_plugin_textdomain( 'trackora', false, dirname( plugin_basename( WCST_FILE ) ) . '/languages' );
+}
+
+// ---------------------------------------------------------------------------
+// Activation: start the clock for the review request.
+//
+// Registered here rather than in WCST_Review_Request because activation runs
+// before WooCommerce is necessarily loaded, and the timestamp must be written
+// exactly once. Re-activating an existing install must not reset it.
+// ---------------------------------------------------------------------------
+register_activation_hook( WCST_FILE, 'wcst_activate' );
+function wcst_activate() {
+	$state = get_option( 'wcst_review_state', array() );
+
+	if ( ! is_array( $state ) ) {
+		$state = array();
+	}
+
+	if ( empty( $state['install_time'] ) ) {
+		$state['install_time'] = time();
+		update_option( 'wcst_review_state', $state, false );
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Plugins screen: extra row meta links.
+//
+// Registered here rather than in WCST_Plugin because that class is only
+// instantiated when WooCommerce is active. The support link has to remain
+// reachable precisely when WooCommerce is not.
+// ---------------------------------------------------------------------------
+if ( is_admin() ) {
+	add_filter( 'plugin_row_meta', 'wcst_plugin_row_meta', 10, 2 );
+}
+
+/**
+ * Append Documentation and Support links to the plugin's row.
+ *
+ * @param string[] $plugin_meta Row meta links for the plugin being rendered.
+ * @param string   $plugin_file Basename of the plugin the current row belongs to.
+ * @return string[]
+ */
+function wcst_plugin_row_meta( $plugin_meta, $plugin_file ) {
+	if ( plugin_basename( WCST_FILE ) !== $plugin_file ) {
+		return $plugin_meta;
+	}
+
+	$plugin_meta[] = sprintf(
+		'<a href="%1$s" target="_blank" rel="noopener noreferrer" aria-label="%2$s">%3$s</a>',
+		esc_url( 'https://wordpress.org/plugins/trackora/#description' ),
+		esc_attr__( 'View Trackora documentation (opens in a new tab)', 'trackora' ),
+		esc_html__( 'Documentation', 'trackora' )
+	);
+
+	$plugin_meta[] = sprintf(
+		'<a href="%1$s" target="_blank" rel="noopener noreferrer" aria-label="%2$s">%3$s</a>',
+		esc_url( 'https://wordpress.org/support/plugin/trackora/#new-post' ),
+		esc_attr__( 'Open a new Trackora support topic (opens in a new tab)', 'trackora' ),
+		esc_html__( 'Support', 'trackora' )
+	);
+
+	return $plugin_meta;
 }
 
 // ---------------------------------------------------------------------------

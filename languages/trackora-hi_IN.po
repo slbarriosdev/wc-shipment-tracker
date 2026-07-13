@@ -1,223 +1,384 @@
-# Translation for WC Shipment Tracker
-# Language: Hindi (India)
 msgid ""
 msgstr ""
 "Project-Id-Version: Trackora 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-01 00:00+0000\n"
-"PO-Revision-Date: 2024-01-01 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: Hindi (India)\n"
-"Language: hi_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Language: hi_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Manual\n"
 
+#: trackora.php:137
 msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
 msgstr "WC Shipment Tracker के लिए WooCommerce का इंस्टॉल और सक्रिय होना आवश्यक है।"
 
+#: includes/class-wcst-actions.php:655
+#: includes/class-wcst-actions.php:1037
+#: includes/class-wcst-privacy.php:111
 msgid "Shipment Tracking"
 msgstr "शिपमेंट ट्रैकिंग"
 
+#: includes/class-wcst-actions.php:692
+#: includes/class-wcst-actions.php:816
 msgid "Add Tracking Number"
 msgstr "ट्रैकिंग नंबर जोड़ें"
 
+#: includes/class-wcst-actions.php:705
 msgid "Provider:"
 msgstr "कूरियर:"
 
+#: includes/class-wcst-actions.php:713
 msgid "Custom Provider"
 msgstr "कस्टम कूरियर"
 
+#: includes/class-wcst-actions.php:730
 msgid "Provider Name:"
 msgstr "कूरियर का नाम:"
 
+#: includes/class-wcst-actions.php:736
 msgid "Tracking Number:"
 msgstr "ट्रैकिंग नंबर:"
 
+#: includes/class-wcst-actions.php:751
 msgid "Tracking Link:"
 msgstr "ट्रैकिंग लिंक:"
 
+#: includes/class-wcst-actions.php:761
 msgid "Date Shipped:"
 msgstr "शिपिंग की तारीख:"
 
-msgid "Preview:"
-msgstr "पूर्वावलोकन:"
-
-msgid "Click here to track your shipment"
-msgstr "अपना शिपमेंट ट्रैक करने के लिए यहाँ क्लिक करें"
-
+#: includes/class-wcst-actions.php:772
 msgid "Save Tracking"
 msgstr "ट्रैकिंग सहेजें"
 
+#: includes/class-wcst-actions.php:775
+#: includes/class-wcst-actions.php:817
 msgid "Cancel"
 msgstr "रद्द करें"
 
+#: includes/class-wcst-actions.php:806
 msgid "Are you sure you want to delete this tracking number?"
 msgstr "क्या आप वाकई इस ट्रैकिंग नंबर को हटाना चाहते हैं?"
 
+#: includes/class-wcst-actions.php:807
 msgid "An error occurred. Please try again."
 msgstr "एक त्रुटि हुई। कृपया पुनः प्रयास करें।"
 
+#: includes/class-wcst-actions.php:808
 msgid "Please enter a tracking number."
 msgstr "कृपया एक ट्रैकिंग नंबर दर्ज करें।"
 
+#: includes/class-wcst-actions.php:809
 msgid "Search provider…"
 msgstr "कूरियर खोजें…"
 
+#: includes/class-wcst-actions.php:815
 msgid "Edit Tracking"
 msgstr "ट्रैकिंग संपादित करें"
 
+#. translators: %s = formatted date
+#: includes/class-wcst-actions.php:837
+#, php-format
 msgid "Shipped on %s"
 msgstr "%s को भेजा गया"
 
+#: includes/class-wcst-actions.php:838
 msgid "No shipping date"
 msgstr "कोई शिपिंग तारीख नहीं"
 
+#: includes/class-wcst-actions.php:859
+#: templates/email/tracking-info.php:54
+#: templates/myaccount/tracking-info.php:67
+#: templates/shortcode/tracking.php:99
 msgid "Track"
 msgstr "ट्रैक करें"
 
+#: includes/class-wcst-actions.php:875
 msgid "Edit"
 msgstr "संपादित करें"
 
+#: includes/class-wcst-actions.php:881
 msgid "Delete"
 msgstr "हटाएं"
 
+#: includes/class-wcst-actions.php:936
+#: includes/class-wcst-actions.php:966
 msgid "Tracking number is required."
 msgstr "ट्रैकिंग नंबर आवश्यक है।"
 
+#: includes/class-wcst-actions.php:985
 msgid "Could not update tracking item."
 msgstr "ट्रैकिंग अपडेट नहीं हो सकी।"
 
+#: includes/class-wcst-actions.php:1010
 msgid "Could not delete tracking item."
 msgstr "ट्रैकिंग हटाई नहीं जा सकी।"
 
+#: includes/class-wcst-api.php:128
 msgid "Sorry, you cannot list resources."
 msgstr "क्षमा करें, आपके पास संसाधन सूचीबद्ध करने की अनुमति नहीं है।"
 
+#: includes/class-wcst-api.php:135
 msgid "Sorry, you are not allowed to create resources."
 msgstr "क्षमा करें, आपके पास संसाधन बनाने की अनुमति नहीं है।"
 
+#: includes/class-wcst-api.php:142
 msgid "Sorry, you cannot view this resource."
 msgstr "क्षमा करें, आपके पास यह संसाधन देखने की अनुमति नहीं है।"
 
+#: includes/class-wcst-api.php:156
 msgid "Sorry, you are not allowed to delete this resource."
 msgstr "क्षमा करें, आपके पास यह संसाधन हटाने की अनुमति नहीं है।"
 
+#: includes/class-wcst-api.php:168
+#: includes/class-wcst-api.php:189
+#: includes/class-wcst-api.php:210
+#: includes/class-wcst-api.php:253
+#: includes/class-wcst-api.php:298
 msgid "Invalid order ID."
 msgstr "अमान्य ऑर्डर आईडी।"
 
+#: includes/class-wcst-api.php:196
+#: includes/class-wcst-api.php:259
+#: includes/class-wcst-api.php:305
 msgid "Invalid tracking ID."
 msgstr "अमान्य ट्रैकिंग आईडी।"
 
+#: includes/class-wcst-api.php:205
 msgid "Cannot create existing tracking item."
 msgstr "पहले से मौजूद ट्रैकिंग नहीं बनाई जा सकती।"
 
+#: includes/class-wcst-api.php:312
 msgid "The tracking item cannot be deleted."
 msgstr "ट्रैकिंग हटाई नहीं जा सकती।"
 
+#: includes/class-wcst-api.php:366
 msgid "Unique identifier for the tracking item."
 msgstr "ट्रैकिंग का अद्वितीय पहचानकर्ता।"
 
+#: includes/class-wcst-api.php:372
 msgid "Tracking provider name."
 msgstr "कूरियर का नाम।"
 
+#: includes/class-wcst-api.php:377
 msgid "Custom provider name."
 msgstr "कस्टम कूरियर का नाम।"
 
+#: includes/class-wcst-api.php:382
 msgid "Custom tracking URL."
 msgstr "कस्टम ट्रैकिंग URL।"
 
+#: includes/class-wcst-api.php:388
 msgid "Tracking number."
 msgstr "ट्रैकिंग नंबर।"
 
+#: includes/class-wcst-api.php:393
 msgid "Shipped date (Y-m-d)."
 msgstr "शिपिंग की तारीख (Y-m-d)।"
 
+#: templates/email/tracking-info.php:21
+#: templates/myaccount/tracking-info.php:21
 msgid "Tracking Information"
 msgstr "ट्रैकिंग जानकारी"
 
+#: templates/email/tracking-info.php:26
+#: templates/myaccount/tracking-info.php:27
+#: templates/myaccount/tracking-info.php:36
+#: templates/shortcode/tracking.php:58
+#: templates/shortcode/tracking.php:67
 msgid "Provider"
 msgstr "कूरियर"
 
+#: includes/class-wcst-privacy.php:123
+#: templates/email/tracking-info.php:27
+#: templates/myaccount/tracking-info.php:28
+#: templates/myaccount/tracking-info.php:39
+#: templates/shortcode/tracking.php:59
+#: templates/shortcode/tracking.php:70
 msgid "Tracking Number"
 msgstr "ट्रैकिंग नंबर"
 
+#: templates/email/tracking-info.php:28
+#: templates/myaccount/tracking-info.php:29
+#: templates/myaccount/tracking-info.php:52
+#: templates/shortcode/tracking.php:60
+#: templates/shortcode/tracking.php:83
 msgid "Date"
 msgstr "तारीख"
 
+#: templates/email/plain/tracking-info.php:18
 msgid "TRACKING INFORMATION"
 msgstr "ट्रैकिंग जानकारी"
 
+#. translators: %s = plugin name
+#: includes/class-wcst-privacy.php:46
+#, php-format
 msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
 msgstr "%s हर ऑर्डर के साथ एक ट्रैकिंग नंबर, कूरियर कंपनी का नाम और शिपिंग तिथि सहेजता है। यह जानकारी ग्राहक को ऑर्डर के ईमेल में, मेरा खाता क्षेत्र में और किसी भी सार्वजनिक ट्रैकिंग पेज पर दिखाई जाती है, और जिस ऑर्डर से यह जुड़ी है उसके साथ ही निर्यात या मिटाई जाती है। यह प्लगइन कोई भी ट्रैकिंग डेटा किसी तीसरे पक्ष को नहीं भेजता; ट्रैकिंग लिंक तभी खुलते हैं जब ग्राहक या स्टोर व्यवस्थापक उन पर क्लिक करता है।"
 
+#: templates/shortcode/tracking.php:142
 msgid "Billing Email"
 msgstr "बिलिंग ईमेल"
 
+#: includes/class-wcst-actions.php:850
+#: includes/class-wcst-actions.php:851
+#: includes/class-wcst-actions.php:1147
+#: includes/class-wcst-actions.php:1148
+#: templates/myaccount/tracking-info.php:45
+#: templates/myaccount/tracking-info.php:46
+#: templates/shortcode/tracking.php:76
+#: templates/shortcode/tracking.php:77
 msgid "Copy tracking number"
 msgstr "ट्रैकिंग नंबर कॉपी करें"
 
+#: includes/class-wcst-privacy.php:127
 msgid "Date Shipped"
 msgstr "शिपिंग तिथि"
 
+#: templates/shortcode/tracking.php:123
 msgid "Enter your order number and email address to track your shipment."
 msgstr "अपनी शिपमेंट ट्रैक करने के लिए अपना ऑर्डर नंबर और ईमेल पता दर्ज करें।"
 
+#: includes/class-wcst-actions.php:932
+#: includes/class-wcst-actions.php:962
+#: includes/class-wcst-actions.php:999
+#: includes/class-wcst-actions.php:1018
 msgid "Insufficient permissions."
 msgstr "अपर्याप्त अनुमतियाँ।"
 
+#: includes/class-wcst-actions.php:1217
 msgid "Invalid order or tracking link. Please check your email and try again."
 msgstr "अमान्य ऑर्डर या ट्रैकिंग लिंक। कृपया अपना ईमेल जाँचें और फिर से प्रयास करें।"
 
+#: includes/class-wcst-actions.php:1246
 msgid "No order found with that order number and email address."
 msgstr "उस ऑर्डर नंबर और ईमेल पते के साथ कोई ऑर्डर नहीं मिला।"
 
+#: includes/class-wcst-privacy.php:115
+#: templates/shortcode/tracking.php:130
 msgid "Order Number"
 msgstr "ऑर्डर नंबर"
 
+#. translators: 1: the literal token replaced by the tracking number, 2: an example URL using it.
+#: includes/class-wcst-actions.php:744
+#, php-format
 msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
 msgstr "जहाँ ट्रैकिंग नंबर आना है वहाँ %1$s लिखें, उदाहरण के लिए %2$s। आप इस शिपमेंट का पूरा लिंक भी चिपका सकते हैं, जिसमें नंबर पहले से हो। यदि कूरियर कंपनी का कोई ट्रैकिंग पेज नहीं है तो इसे खाली छोड़ दें।"
 
+#. translators: %s = order number
+#: includes/class-wcst-privacy.php:167
+#, php-format
 msgid "Removed shipment tracking data from order %s."
 msgstr "ऑर्डर %s से शिपमेंट ट्रैकिंग डेटा हटा दिया गया।"
 
+#: includes/class-wcst-actions.php:1228
 msgid "Security check failed. Please try again."
 msgstr "सुरक्षा जाँच विफल रही। कृपया फिर से प्रयास करें।"
 
+#: includes/class-wcst-api.php:149
 msgid "Sorry, you are not allowed to edit this resource."
 msgstr "क्षमा करें, आपको इस संसाधन को संपादित करने की अनुमति नहीं है।"
 
+#: includes/class-wcst-api.php:283
 msgid "The tracking item cannot be updated."
 msgstr "शिपमेंट अपडेट नहीं किया जा सका।"
 
+#. translators: %s: the literal token that gets replaced by the tracking number.
+#: includes/class-wcst-actions.php:812
+#, php-format
 msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
 msgstr "इस लिंक में न तो ट्रैकिंग नंबर है और न ही %s टोकन, इसलिए ट्रैक बटन कुछ भी ट्रैक नहीं करेगा।"
 
+#: templates/shortcode/tracking.php:154
 msgid "Track Order"
 msgstr "ऑर्डर ट्रैक करें"
 
+#: templates/shortcode/tracking.php:35
+#: templates/shortcode/tracking.php:112
 msgid "Track another order"
 msgstr "दूसरा ऑर्डर ट्रैक करें"
 
+#: includes/class-wcst-privacy.php:119
 msgid "Tracking Provider"
 msgstr "कूरियर कंपनी"
 
+#. translators: %s = order number
+#: templates/shortcode/tracking.php:49
+#, php-format
 msgid "Tracking information for order %s"
 msgstr "ऑर्डर %s की ट्रैकिंग जानकारी"
 
+#: includes/class-wcst-privacy.php:22
+#: includes/class-wcst-privacy.php:47
 msgid "Trackora"
 msgstr "Trackora"
 
+#: includes/class-wcst-privacy.php:26
+#: includes/class-wcst-privacy.php:32
 msgid "Trackora Shipment Tracking Data"
 msgstr "Trackora शिपमेंट ट्रैकिंग डेटा"
 
+#: templates/shortcode/tracking.php:30
 msgid "Your order has no tracking information yet. Please check back later."
 msgstr "आपके ऑर्डर की अभी कोई ट्रैकिंग जानकारी नहीं है। कृपया बाद में देखें।"
 
+#: templates/shortcode/tracking.php:137
 msgid "e.g. 1234"
 msgstr "उदा. 1234"
 
+#: templates/shortcode/tracking.php:148
 msgid "you@example.com"
 msgstr "aap@udaharan.com"
+
+#: includes/class-wcst-actions.php:818
+msgid "Tracking number added."
+msgstr ""
+
+#: includes/class-wcst-actions.php:819
+msgid "Tracking number updated."
+msgstr ""
+
+#: includes/class-wcst-actions.php:820
+msgid "Tracking number deleted."
+msgstr ""
+
+#: trackora.php:104
+msgid "View Trackora documentation (opens in a new tab)"
+msgstr ""
+
+#: trackora.php:105
+msgid "Documentation"
+msgstr ""
+
+#: trackora.php:111
+msgid "Open a new Trackora support topic (opens in a new tab)"
+msgstr ""
+
+#: trackora.php:112
+msgid "Support"
+msgstr ""
+
+#: includes/class-wcst-review-request.php:238
+msgid "Leave a review ★★★★★"
+msgstr ""
+
+#: includes/class-wcst-review-request.php:241
+msgid "Maybe later"
+msgstr ""
+
+#: includes/class-wcst-review-request.php:244
+msgid "No thanks"
+msgstr ""
+
+#. translators: %d: number of tracking numbers the store has added with the plugin.
+#: includes/class-wcst-review-request.php:222
+#, php-format
+msgid "You have added %d tracking number with Trackora. If it is saving you time, a quick review would help other shop owners find it."
+msgid_plural "You have added %d tracking numbers with Trackora. If it is saving you time, a quick review would help other shop owners find it."
+msgstr[0] ""
+msgstr[1] ""

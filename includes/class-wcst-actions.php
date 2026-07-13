@@ -368,6 +368,16 @@ class WCST_Actions {
 
 		$this->save_tracking_items( $order_id, $items );
 
+		/**
+		 * Fires once a new tracking item has been persisted.
+		 *
+		 * Only creation goes through here: edits and deletions do not fire it.
+		 *
+		 * @param array $item     The tracking item that was just stored.
+		 * @param int   $order_id
+		 */
+		do_action( 'wcst_tracking_saved', $item, $order_id );
+
 		return $item;
 	}
 

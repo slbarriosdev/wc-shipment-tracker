@@ -1,59 +1,227 @@
 # Copyright (C) 2026 slbarriosdev
-# This file is distributed under the same license as the Trackora plugin.
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Trackora 1.3.0\n"
+"Project-Id-Version: Trackora - Shipment Tracker for WooCommerce 1.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/trackora\n"
-"POT-Creation-Date: 2026-07-09 20:05+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2026-07-13T18:00:37+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: trackora\n"
 
-#. translators: %s = plugin name
-#: includes/class-wcst-privacy.php:46
-msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
+#: includes/class-wcst-actions.php:655
+#: includes/class-wcst-actions.php:1037
+#: includes/class-wcst-privacy.php:111
+msgid "Shipment Tracking"
 msgstr ""
 
-#: includes/class-wcst-actions.php:682 includes/class-wcst-actions.php:812
+#: includes/class-wcst-actions.php:692
+#: includes/class-wcst-actions.php:816
 msgid "Add Tracking Number"
 msgstr ""
 
-#: includes/class-wcst-actions.php:803
-msgid "An error occurred. Please try again."
+#: includes/class-wcst-actions.php:705
+msgid "Provider:"
 msgstr ""
 
-#: includes/class-wcst-actions.php:802
+#: includes/class-wcst-actions.php:713
+msgid "Custom Provider"
+msgstr ""
+
+#: includes/class-wcst-actions.php:730
+msgid "Provider Name:"
+msgstr ""
+
+#: includes/class-wcst-actions.php:736
+msgid "Tracking Number:"
+msgstr ""
+
+#. translators: 1: the literal token replaced by the tracking number, 2: an example URL using it.
+#: includes/class-wcst-actions.php:744
+#, php-format
+msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
+msgstr ""
+
+#: includes/class-wcst-actions.php:751
+msgid "Tracking Link:"
+msgstr ""
+
+#: includes/class-wcst-actions.php:761
+msgid "Date Shipped:"
+msgstr ""
+
+#: includes/class-wcst-actions.php:772
+msgid "Save Tracking"
+msgstr ""
+
+#: includes/class-wcst-actions.php:775
+#: includes/class-wcst-actions.php:817
+msgid "Cancel"
+msgstr ""
+
+#: includes/class-wcst-actions.php:806
 msgid "Are you sure you want to delete this tracking number?"
 msgstr ""
 
-#: templates/shortcode/tracking.php:142
-msgid "Billing Email"
+#: includes/class-wcst-actions.php:807
+msgid "An error occurred. Please try again."
 msgstr ""
 
-#: includes/class-wcst-actions.php:771 includes/class-wcst-actions.php:813
-msgid "Cancel"
+#: includes/class-wcst-actions.php:808
+msgid "Please enter a tracking number."
+msgstr ""
+
+#: includes/class-wcst-actions.php:809
+msgid "Search provider…"
+msgstr ""
+
+#. translators: %s: the literal token that gets replaced by the tracking number.
+#: includes/class-wcst-actions.php:812
+#, php-format
+msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
+msgstr ""
+
+#: includes/class-wcst-actions.php:815
+msgid "Edit Tracking"
+msgstr ""
+
+#: includes/class-wcst-actions.php:818
+msgid "Tracking number added."
+msgstr ""
+
+#: includes/class-wcst-actions.php:819
+msgid "Tracking number updated."
+msgstr ""
+
+#: includes/class-wcst-actions.php:820
+msgid "Tracking number deleted."
+msgstr ""
+
+#. translators: %s = formatted date
+#: includes/class-wcst-actions.php:837
+#, php-format
+msgid "Shipped on %s"
+msgstr ""
+
+#: includes/class-wcst-actions.php:838
+msgid "No shipping date"
+msgstr ""
+
+#: includes/class-wcst-actions.php:850
+#: includes/class-wcst-actions.php:851
+#: includes/class-wcst-actions.php:1147
+#: includes/class-wcst-actions.php:1148
+#: templates/myaccount/tracking-info.php:45
+#: templates/myaccount/tracking-info.php:46
+#: templates/shortcode/tracking.php:76
+#: templates/shortcode/tracking.php:77
+msgid "Copy tracking number"
+msgstr ""
+
+#: includes/class-wcst-actions.php:859
+#: templates/email/tracking-info.php:54
+#: templates/myaccount/tracking-info.php:67
+#: templates/shortcode/tracking.php:99
+msgid "Track"
+msgstr ""
+
+#: includes/class-wcst-actions.php:875
+msgid "Edit"
+msgstr ""
+
+#: includes/class-wcst-actions.php:881
+msgid "Delete"
+msgstr ""
+
+#: includes/class-wcst-actions.php:932
+#: includes/class-wcst-actions.php:962
+#: includes/class-wcst-actions.php:999
+#: includes/class-wcst-actions.php:1018
+msgid "Insufficient permissions."
+msgstr ""
+
+#: includes/class-wcst-actions.php:936
+#: includes/class-wcst-actions.php:966
+msgid "Tracking number is required."
+msgstr ""
+
+#: includes/class-wcst-actions.php:985
+msgid "Could not update tracking item."
+msgstr ""
+
+#: includes/class-wcst-actions.php:1010
+msgid "Could not delete tracking item."
+msgstr ""
+
+#: includes/class-wcst-actions.php:1217
+msgid "Invalid order or tracking link. Please check your email and try again."
+msgstr ""
+
+#: includes/class-wcst-actions.php:1228
+msgid "Security check failed. Please try again."
+msgstr ""
+
+#: includes/class-wcst-actions.php:1246
+msgid "No order found with that order number and email address."
+msgstr ""
+
+#: includes/class-wcst-api.php:128
+msgid "Sorry, you cannot list resources."
+msgstr ""
+
+#: includes/class-wcst-api.php:135
+msgid "Sorry, you are not allowed to create resources."
+msgstr ""
+
+#: includes/class-wcst-api.php:142
+msgid "Sorry, you cannot view this resource."
+msgstr ""
+
+#: includes/class-wcst-api.php:149
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr ""
+
+#: includes/class-wcst-api.php:156
+msgid "Sorry, you are not allowed to delete this resource."
+msgstr ""
+
+#: includes/class-wcst-api.php:168
+#: includes/class-wcst-api.php:189
+#: includes/class-wcst-api.php:210
+#: includes/class-wcst-api.php:253
+#: includes/class-wcst-api.php:298
+msgid "Invalid order ID."
+msgstr ""
+
+#: includes/class-wcst-api.php:196
+#: includes/class-wcst-api.php:259
+#: includes/class-wcst-api.php:305
+msgid "Invalid tracking ID."
 msgstr ""
 
 #: includes/class-wcst-api.php:205
 msgid "Cannot create existing tracking item."
 msgstr ""
 
-#: includes/class-wcst-actions.php:843 includes/class-wcst-actions.php:844 includes/class-wcst-actions.php:1140 includes/class-wcst-actions.php:1141 templates/myaccount/tracking-info.php:45 templates/myaccount/tracking-info.php:46 templates/shortcode/tracking.php:76 templates/shortcode/tracking.php:77
-msgid "Copy tracking number"
+#: includes/class-wcst-api.php:283
+msgid "The tracking item cannot be updated."
 msgstr ""
 
-#: includes/class-wcst-actions.php:1003
-msgid "Could not delete tracking item."
+#: includes/class-wcst-api.php:312
+msgid "The tracking item cannot be deleted."
 msgstr ""
 
-#: includes/class-wcst-actions.php:978
-msgid "Could not update tracking item."
+#: includes/class-wcst-api.php:366
+msgid "Unique identifier for the tracking item."
 msgstr ""
 
-#: includes/class-wcst-actions.php:703
-msgid "Custom Provider"
+#: includes/class-wcst-api.php:372
+msgid "Tracking provider name."
 msgstr ""
 
 #: includes/class-wcst-api.php:377
@@ -64,238 +232,154 @@ msgstr ""
 msgid "Custom tracking URL."
 msgstr ""
 
-#: templates/email/tracking-info.php:28 templates/myaccount/tracking-info.php:29 templates/myaccount/tracking-info.php:52 templates/shortcode/tracking.php:60 templates/shortcode/tracking.php:83
-msgid "Date"
-msgstr ""
-
-#: includes/class-wcst-privacy.php:127
-msgid "Date Shipped"
-msgstr ""
-
-#: includes/class-wcst-actions.php:751
-msgid "Date Shipped:"
-msgstr ""
-
-#: includes/class-wcst-actions.php:874
-msgid "Delete"
-msgstr ""
-
-#: includes/class-wcst-actions.php:868
-msgid "Edit"
-msgstr ""
-
-#. translators: %s: the literal token that gets replaced by the tracking number.
-#: includes/class-wcst-actions.php:811
-msgid "Edit Tracking"
-msgstr ""
-
-#: templates/shortcode/tracking.php:123
-msgid "Enter your order number and email address to track your shipment."
-msgstr ""
-
-#: includes/class-wcst-actions.php:925 includes/class-wcst-actions.php:955 includes/class-wcst-actions.php:992 includes/class-wcst-actions.php:1011
-msgid "Insufficient permissions."
-msgstr ""
-
-#: includes/class-wcst-api.php:168 includes/class-wcst-api.php:189 includes/class-wcst-api.php:210 includes/class-wcst-api.php:253 includes/class-wcst-api.php:298
-msgid "Invalid order ID."
-msgstr ""
-
-#: includes/class-wcst-actions.php:1210
-msgid "Invalid order or tracking link. Please check your email and try again."
-msgstr ""
-
-#: includes/class-wcst-api.php:196 includes/class-wcst-api.php:259 includes/class-wcst-api.php:305
-msgid "Invalid tracking ID."
-msgstr ""
-
-#: includes/class-wcst-actions.php:1239
-msgid "No order found with that order number and email address."
-msgstr ""
-
-#. translators: %s = formatted date
-#: includes/class-wcst-actions.php:831
-msgid "No shipping date"
-msgstr ""
-
-#: includes/class-wcst-privacy.php:115 templates/shortcode/tracking.php:130
-msgid "Order Number"
-msgstr ""
-
-#: includes/class-wcst-actions.php:804
-msgid "Please enter a tracking number."
-msgstr ""
-
-#: templates/email/tracking-info.php:26 templates/myaccount/tracking-info.php:27 templates/myaccount/tracking-info.php:36 templates/shortcode/tracking.php:58 templates/shortcode/tracking.php:67
-msgid "Provider"
-msgstr ""
-
-#: includes/class-wcst-actions.php:720
-msgid "Provider Name:"
-msgstr ""
-
-#: includes/class-wcst-actions.php:695
-msgid "Provider:"
-msgstr ""
-
-#. translators: 1: the literal token replaced by the tracking number, 2: an example URL using it.
-#: includes/class-wcst-actions.php:734
-msgid "Put %1$s where the tracking number goes, for example %2$s. You can also paste the complete link for this one shipment, with the number already in it. Leave it empty if the carrier has no tracking page."
-msgstr ""
-
-#. translators: %s = order number
-#: includes/class-wcst-privacy.php:167
-msgid "Removed shipment tracking data from order %s."
-msgstr ""
-
-#: includes/class-wcst-actions.php:768
-msgid "Save Tracking"
-msgstr ""
-
-#: includes/class-wcst-actions.php:805
-msgid "Search provider…"
-msgstr ""
-
-#: includes/class-wcst-actions.php:1221
-msgid "Security check failed. Please try again."
-msgstr ""
-
-#: includes/class-wcst-actions.php:645 includes/class-wcst-actions.php:1030 includes/class-wcst-privacy.php:111
-msgid "Shipment Tracking"
+#: includes/class-wcst-api.php:388
+msgid "Tracking number."
 msgstr ""
 
 #: includes/class-wcst-api.php:393
 msgid "Shipped date (Y-m-d)."
 msgstr ""
 
-#. translators: %s = formatted date
-#: includes/class-wcst-actions.php:830
-msgid "Shipped on %s"
+#: includes/class-wcst-privacy.php:22
+#: includes/class-wcst-privacy.php:47
+msgid "Trackora"
 msgstr ""
 
-#: includes/class-wcst-api.php:135
-msgid "Sorry, you are not allowed to create resources."
+#: includes/class-wcst-privacy.php:26
+#: includes/class-wcst-privacy.php:32
+msgid "Trackora Shipment Tracking Data"
 msgstr ""
 
-#: includes/class-wcst-api.php:156
-msgid "Sorry, you are not allowed to delete this resource."
+#. translators: %s = plugin name
+#: includes/class-wcst-privacy.php:46
+#, php-format
+msgid "%s stores a shipment tracking number, the carrier name and the shipping date against each order. This information is shown to the customer in order emails, in the My Account area and on any public tracking page, and is exported or erased together with the order it belongs to. No tracking data is sent to any third party by the plugin; tracking links are only opened when a customer or a store administrator clicks them."
 msgstr ""
 
-#: includes/class-wcst-api.php:149
-msgid "Sorry, you are not allowed to edit this resource."
-msgstr ""
-
-#: includes/class-wcst-api.php:128
-msgid "Sorry, you cannot list resources."
-msgstr ""
-
-#: includes/class-wcst-api.php:142
-msgid "Sorry, you cannot view this resource."
-msgstr ""
-
-#: templates/email/plain/tracking-info.php:18
-msgid "TRACKING INFORMATION"
-msgstr ""
-
-#: includes/class-wcst-api.php:312
-msgid "The tracking item cannot be deleted."
-msgstr ""
-
-#: includes/class-wcst-api.php:283
-msgid "The tracking item cannot be updated."
-msgstr ""
-
-#. translators: %s: the literal token that gets replaced by the tracking number.
-#: includes/class-wcst-actions.php:808
-msgid "This link contains neither the tracking number nor a %s token, so the Track button will not track anything."
-msgstr ""
-
-#: includes/class-wcst-actions.php:852 templates/email/tracking-info.php:54 templates/myaccount/tracking-info.php:67 templates/shortcode/tracking.php:99
-msgid "Track"
-msgstr ""
-
-#: templates/shortcode/tracking.php:154
-msgid "Track Order"
-msgstr ""
-
-#: templates/shortcode/tracking.php:35 templates/shortcode/tracking.php:112
-msgid "Track another order"
-msgstr ""
-
-#: templates/email/tracking-info.php:21 templates/myaccount/tracking-info.php:21
-msgid "Tracking Information"
-msgstr ""
-
-#: includes/class-wcst-actions.php:741
-msgid "Tracking Link:"
-msgstr ""
-
-#: includes/class-wcst-privacy.php:123 templates/email/tracking-info.php:27 templates/myaccount/tracking-info.php:28 templates/myaccount/tracking-info.php:39 templates/shortcode/tracking.php:59 templates/shortcode/tracking.php:70
-msgid "Tracking Number"
-msgstr ""
-
-#: includes/class-wcst-actions.php:726
-msgid "Tracking Number:"
+#: includes/class-wcst-privacy.php:115
+#: templates/shortcode/tracking.php:130
+msgid "Order Number"
 msgstr ""
 
 #: includes/class-wcst-privacy.php:119
 msgid "Tracking Provider"
 msgstr ""
 
+#: includes/class-wcst-privacy.php:123
+#: templates/email/tracking-info.php:27
+#: templates/myaccount/tracking-info.php:28
+#: templates/myaccount/tracking-info.php:39
+#: templates/shortcode/tracking.php:59
+#: templates/shortcode/tracking.php:70
+msgid "Tracking Number"
+msgstr ""
+
+#: includes/class-wcst-privacy.php:127
+msgid "Date Shipped"
+msgstr ""
+
 #. translators: %s = order number
-#: templates/shortcode/tracking.php:49
-msgid "Tracking information for order %s"
+#: includes/class-wcst-privacy.php:167
+#, php-format
+msgid "Removed shipment tracking data from order %s."
 msgstr ""
 
-#: includes/class-wcst-actions.php:814
-msgid "Tracking number added."
+#. translators: %d: number of tracking numbers the store has added with the plugin.
+#: includes/class-wcst-review-request.php:222
+#, php-format
+msgid "You have added %d tracking number with Trackora. If it is saving you time, a quick review would help other shop owners find it."
+msgid_plural "You have added %d tracking numbers with Trackora. If it is saving you time, a quick review would help other shop owners find it."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-wcst-review-request.php:238
+msgid "Leave a review ★★★★★"
 msgstr ""
 
-#: includes/class-wcst-actions.php:816
-msgid "Tracking number deleted."
+#: includes/class-wcst-review-request.php:241
+msgid "Maybe later"
 msgstr ""
 
-#: includes/class-wcst-actions.php:929 includes/class-wcst-actions.php:959
-msgid "Tracking number is required."
+#: includes/class-wcst-review-request.php:244
+msgid "No thanks"
 msgstr ""
 
-#: includes/class-wcst-actions.php:815
-msgid "Tracking number updated."
+#: templates/email/plain/tracking-info.php:18
+msgid "TRACKING INFORMATION"
 msgstr ""
 
-#: includes/class-wcst-api.php:388
-msgid "Tracking number."
+#: templates/email/tracking-info.php:21
+#: templates/myaccount/tracking-info.php:21
+msgid "Tracking Information"
 msgstr ""
 
-#: includes/class-wcst-api.php:372
-msgid "Tracking provider name."
+#: templates/email/tracking-info.php:26
+#: templates/myaccount/tracking-info.php:27
+#: templates/myaccount/tracking-info.php:36
+#: templates/shortcode/tracking.php:58
+#: templates/shortcode/tracking.php:67
+msgid "Provider"
 msgstr ""
 
-#. translators: %s = plugin name
-#: includes/class-wcst-privacy.php:22 includes/class-wcst-privacy.php:47
-msgid "Trackora"
-msgstr ""
-
-#: includes/class-wcst-privacy.php:26 includes/class-wcst-privacy.php:32
-msgid "Trackora Shipment Tracking Data"
-msgstr ""
-
-#: includes/class-wcst-api.php:366
-msgid "Unique identifier for the tracking item."
-msgstr ""
-
-#: trackora.php:60
-msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
+#: templates/email/tracking-info.php:28
+#: templates/myaccount/tracking-info.php:29
+#: templates/myaccount/tracking-info.php:52
+#: templates/shortcode/tracking.php:60
+#: templates/shortcode/tracking.php:83
+msgid "Date"
 msgstr ""
 
 #: templates/shortcode/tracking.php:30
 msgid "Your order has no tracking information yet. Please check back later."
 msgstr ""
 
+#: templates/shortcode/tracking.php:35
+#: templates/shortcode/tracking.php:112
+msgid "Track another order"
+msgstr ""
+
+#. translators: %s = order number
+#: templates/shortcode/tracking.php:49
+#, php-format
+msgid "Tracking information for order %s"
+msgstr ""
+
+#: templates/shortcode/tracking.php:123
+msgid "Enter your order number and email address to track your shipment."
+msgstr ""
+
 #: templates/shortcode/tracking.php:137
 msgid "e.g. 1234"
 msgstr ""
 
+#: templates/shortcode/tracking.php:142
+msgid "Billing Email"
+msgstr ""
+
 #: templates/shortcode/tracking.php:148
 msgid "you@example.com"
+msgstr ""
+
+#: templates/shortcode/tracking.php:154
+msgid "Track Order"
+msgstr ""
+
+#: trackora.php:104
+msgid "View Trackora documentation (opens in a new tab)"
+msgstr ""
+
+#: trackora.php:105
+msgid "Documentation"
+msgstr ""
+
+#: trackora.php:111
+msgid "Open a new Trackora support topic (opens in a new tab)"
+msgstr ""
+
+#: trackora.php:112
+msgid "Support"
+msgstr ""
+
+#: trackora.php:137
+msgid "WC Shipment Tracker requires WooCommerce to be installed and active."
 msgstr ""

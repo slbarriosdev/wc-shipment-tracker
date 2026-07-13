@@ -4,7 +4,7 @@ Tags: shipment tracking, order tracking, woocommerce, tracking number, shipping
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -395,6 +395,15 @@ Each carrier operates its own website under its own terms of service and privacy
 
 == Changelog ==
 
+= 1.3.2 =
+* New: Documentation and Support links on the Plugins screen, so the support forum is one click away — and still reachable when WooCommerce is deactivated
+* New: An occasional, dismissible review request in the admin. It only appears after the plugin has been installed for two weeks and has saved at least five tracking numbers, it never blocks anything, and "No thanks" is final
+* New: `wcst_tracking_saved` action, fired when a new tracking item is stored
+
+= 1.3.1 =
+* Improvement: Adding, editing or deleting a tracking number on the order screen now confirms with a brief toast notification above the Shipment Tracking box, instead of a blocking browser alert() dialog. The messages are announced to screen readers — confirmations politely as a status, errors assertively as an alert
+* Improvement: Reworked the Shipment Tracking meta box — refreshed the styling of the add/edit form and the tracking items, and removed the tracking-link preview row, which duplicated the live URL warning already shown for custom links
+
 = 1.3.0 =
 * New: Personal data exporter and eraser, so shipment tracking data is included in WordPress **Tools → Export Personal Data** and **Tools → Erase Personal Data** requests, plus a section in the privacy policy guide. Note that erasure requests now permanently delete the tracking numbers on that customer's orders. Uses the order CRUD API, so it works on HPOS and legacy order storage alike
 * New: REST API now supports PUT and PATCH on a tracking item — the API is complete CRUD, as the documentation already claimed. A partial update only writes the fields you send
@@ -468,6 +477,9 @@ Each carrier operates its own website under its own terms of service and privacy
 * Developer helper functions: wcst_add_tracking(), wcst_delete_tracking()
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Adding, editing and deleting tracking numbers now confirm with an in-page notification instead of a browser alert, plus a refresh of the Shipment Tracking meta box.
 
 = 1.3.0 =
 Fixes custom tracking links being corrupted by percent-encoded characters, which could be fatal on PHP 8. Adds GDPR export/erase and REST API update (PUT/PATCH). Erasing a customer's personal data now deletes their tracking numbers too.
