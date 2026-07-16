@@ -1,108 +1,55 @@
-=== Trackora - Shipment Tracker for WooCommerce ===
+=== Shipment Tracking for WooCommerce - Trackora ===
 Contributors: slbarriosdev
 Tags: shipment tracking, order tracking, woocommerce, tracking number, shipping
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce shipment tracking. Add tracking numbers & carrier links to orders, emails, My Account and a Track Your Order page. 150+ carriers.
+Free WooCommerce order tracking. Add tracking numbers and carrier links to orders, emails, My Account and a Track Your Order page. 152 carriers.
 
 == Description ==
 
-**Trackora** is a free, lightweight **shipment tracking plugin for WooCommerce**. Add a tracking number to an order and the tracking link follows it everywhere your customer looks: the confirmation email, the My Account order page, and a public **Track Your Order** page.
+**Trackora** is a free shipment tracking plugin for WooCommerce. Save a tracking number on an order and the link appears everywhere your customer looks: the confirmation email, the My Account order page, and a public **Track Your Order** page.
 
-No settings to configure, no account, no API keys. Save a tracking number and you are done.
-
-= Add a tracking number in seconds =
-
-Pick the carrier, paste the number and the ship date, all from one meta box on the order screen. Add as many as you need for split shipments, and edit or delete them with a click.
+No settings, no account, no API keys. 100% free — no PRO version, no upsells.
 
 ![Add a tracking number to a WooCommerce order: carrier, tracking number, link and ship date](https://i0.wp.com/ps.w.org/trackora/assets/screenshot-1.jpg?rev=3593019&w=900)
 
+= Why Trackora =
+
+* **152 pre-built carriers in 37 countries**, each with the correct tracking URL
+* **Multiple tracking numbers per order**, for split shipments
+* **Custom carriers** with your own tracking URL — no coding
+* **Public tracking page** via the `[wcst_tracking]` shortcode — customers look up shipments with their order number and billing email, no login required
+* **Tracking column** in the orders list, with copy-to-clipboard
+* **REST API** for automation, fully documented on GitHub
+* **HPOS, Blocks and Subscriptions compatible**
+* **Privacy-first and GDPR ready** — the plugin never calls a carrier's server
+
 ![A saved shipment with one-click Track, Edit and Delete actions](https://i0.wp.com/ps.w.org/trackora/assets/screenshot-3.jpg?rev=3593019&w=900)
 
-= It reaches your customer on its own =
+= How It Works =
 
-The carrier, the number and a **Track** button are added to the WooCommerce order email and to the My Account order page the moment you save them.
+1. Install and activate Trackora.
+2. Pick the carrier and paste the tracking number on the order screen.
+3. Done — the tracking link reaches your customer automatically.
 
 ![Shipment tracking added to the WooCommerce order confirmation email](https://i0.wp.com/ps.w.org/trackora/assets/screenshot-4.jpg?rev=3593019&w=900)
 
-= A self-service Track Your Order page =
-
-Drop the `[wcst_tracking]` shortcode on any page. Customers look up their shipment with their **order number and billing email**, no login required. Works with sequential and custom order-number formats, and cuts down the "where is my order?" emails.
-
-= A tracking column in the orders list =
-
-See at a glance which orders have shipped, with a copy-to-clipboard button next to every tracking number.
-
-= Key features =
-
-* **152 pre-built carriers in 37 countries**, with the correct tracking URL for each
-* **Multiple tracking numbers per order**, for split shipments and partial fulfillment
-* **Custom carriers** — use any carrier with your own tracking URL, no coding
-* **Public tracking page** via the `[wcst_tracking]` shortcode
-* **Tracking column** in the orders list, with copy-to-clipboard
-* **REST API** — create, read, update and delete tracking items
-* **HPOS, Blocks and Subscriptions compatible** (renewal orders never inherit a tracking number)
-* **GDPR ready** — tracking data is included in personal data exports and erasure requests
-* **Privacy-first** — the plugin never calls a carrier's server; links only open when someone clicks them
-* **100% free** — no premium tier, no locked settings, no upsells
-
 = Supported carriers =
 
-152 carriers across 37 countries, including UPS, FedEx, USPS, DHL, Royal Mail, EVRi, ParcelForce, DPD, Australia Post, Canada Post, PostNL, PostNord, Correos, SEUR, MRW, Estafeta, Servientrega, Correios, Japan Post, SF Express and Thailand Post.
+152 carriers across 37 countries, including UPS, FedEx, USPS, DHL, Royal Mail, EVRi, DPD, Australia Post, Canada Post, PostNL, PostNord, Correos, SEUR, MRW, Estafeta, Servientrega, Coordinadora, Chilexpress, Andreani, OCA, Interrapidisimo, Olva Courier, Correios, Japan Post, SF Express, Thailand Post and 120+ more across the Americas, Europe, Asia-Pacific, the Middle East and Africa.
 
-* **Americas** — United States, Canada, Mexico, Brazil, Argentina, Chile, Colombia, Peru, Ecuador, Venezuela
-* **Europe** — United Kingdom, Ireland, Spain, Portugal, France, Belgium, Netherlands, Germany, Austria, Italy, Poland, Czech Republic, Romania, Sweden, Finland
-* **Asia-Pacific** — China, Japan, South Korea, Singapore, Malaysia, Thailand, India, Australia, New Zealand
-* **Middle East & Africa** — Turkey, South Africa, Nigeria
-
-Every carrier is named, with its terms of service and privacy policy, in the **External services** section below. Don't see yours? Add it as a custom provider with your own tracking URL — no coding needed.
+Don't see yours? Add it as a custom provider with your own tracking URL — no coding needed. Every carrier is named, with its terms of service and privacy policy, in the **External services** section below.
 
 = For developers =
 
-Trackora exposes a REST API for shipment tracking automation:
+Trackora exposes a REST API with full create, read, update and delete over tracking items, the PHP helpers `wcst_add_tracking()` and `wcst_delete_tracking()`, and filters to extend the carrier list, the orders list column and the email output.
 
-* `GET /wc-shipment-tracker/v1/orders/{order_id}/trackings` — list tracking items
-* `POST /wc-shipment-tracker/v1/orders/{order_id}/trackings` — add a tracking item
-* `GET /wc-shipment-tracker/v1/orders/{order_id}/trackings/{id}` — read a tracking item
-* `PUT` or `PATCH /wc-shipment-tracker/v1/orders/{order_id}/trackings/{id}` — update a tracking item (fields you omit keep their value)
-* `DELETE /wc-shipment-tracker/v1/orders/{order_id}/trackings/{id}` — delete a tracking item
-* `GET /wc-shipment-tracker/v1/providers` — list all available carriers
-
-The `orders/{order_id}/trackings` routes are also served under the `wc/v1` and `wc/v2` namespaces.
-
-Or add tracking programmatically and extend the carrier list with a filter:
-
-`wcst_add_tracking( $order_id, '1Z9999999', 'UPS' );`
-
-`add_filter( 'wcst_get_providers', function( $providers ) {
-    $providers['My Region']['My Carrier'] = 'https://mycarrier.com/track?id=%1$s';
-    return $providers;
-} );`
-
-Filter the Shipment Tracking column on the orders list:
-
-`add_filter( 'wcst_orders_list_column_html', function( $html, $order_id, $items ) {
-    return $html;
-}, 10, 3 );`
-
-All available filters:
-
-* `wcst_get_providers` — add, remove or rewrite the carrier list
-* `wcst_default_provider` — preselect a carrier in the meta box
-* `wcst_provider_url_values` — change the values substituted into a tracking URL (`%1$s` number, `%2$s` postcode, `%3$s` country, `%4$s` order ID)
-* `wcst_formatted_item` — change the resolved provider name, link and dates of a tracking item
-* `wcst_before_add_tracking_items`, `wcst_before_update_tracking_items`, `wcst_before_delete_tracking_items` — inspect or alter the items right before they are saved
-* `wcst_orders_list_column_html` — filter the orders list column markup
-* `wcst_rest_prepare_tracking` — filter a REST API tracking response
-* `wcst_excluded_email_classes` — choose which WooCommerce emails skip the tracking block
-* `wcst_order_number_meta_keys` — teach the public lookup form about custom order-number meta keys
-
-Source code on GitHub: [https://github.com/slbarriosdev/wc-shipment-tracker](https://github.com/slbarriosdev/wc-shipment-tracker) — bug reports and contributions welcome.
+Endpoints, filters and code examples are documented on GitHub: [https://github.com/slbarriosdev/wc-shipment-tracker](https://github.com/slbarriosdev/wc-shipment-tracker) — bug reports and contributions welcome.
 
 == Installation ==
 
@@ -394,6 +341,11 @@ Each carrier operates its own website under its own terms of service and privacy
 * **DHL Venezuela** — [Terms of service](https://www.dhl.com/ve-es/home/footer/terms-of-use.html) | [Privacy policy](https://group.dhl.com/en/data-protection.html)
 
 == Changelog ==
+
+= 1.3.3 =
+* New: A Review link on the Plugins screen, next to Documentation and Support
+* Improvement: The plugin is now listed as "Shipment Tracking for WooCommerce - Trackora", so it is easier to find in the plugin directory
+* Improvement: Rewrote the plugin description — shorter and clearer, with the carrier list up front. The REST API and filter reference now lives on GitHub, where it is easier to keep current
 
 = 1.3.2 =
 * New: Documentation and Support links on the Plugins screen, so the support forum is one click away — and still reachable when WooCommerce is deactivated

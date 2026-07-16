@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Trackora - Shipment Tracker for WooCommerce
+ * Plugin Name: Shipment Tracking for WooCommerce - Trackora
  * Plugin URI:  https://wordpress.org/plugins/trackora/
  * Description: Add tracking numbers to WooCommerce orders. Supports multiple shipping providers and custom tracking links. Tracking information appears in emails, the order view page and the customer account section.
- * Version:     1.3.2
+ * Version:     1.3.3
  * Author:      slbarriosdev
  * Text Domain: trackora
  * Domain Path: /languages
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WCST_VERSION', '1.3.2' );
+define( 'WCST_VERSION', '1.3.3' );
 define( 'WCST_FILE',    __FILE__ );
 define( 'WCST_DIR',     __DIR__ );
 define( 'WCST_URL',     untrailingslashit( plugin_dir_url( __FILE__ ) ) );
@@ -87,7 +87,7 @@ if ( is_admin() ) {
 }
 
 /**
- * Append Documentation and Support links to the plugin's row.
+ * Append Documentation, Support and Review links to the plugin's row.
  *
  * @param string[] $plugin_meta Row meta links for the plugin being rendered.
  * @param string   $plugin_file Basename of the plugin the current row belongs to.
@@ -110,6 +110,13 @@ function wcst_plugin_row_meta( $plugin_meta, $plugin_file ) {
 		esc_url( 'https://wordpress.org/support/plugin/trackora/#new-post' ),
 		esc_attr__( 'Open a new Trackora support topic (opens in a new tab)', 'trackora' ),
 		esc_html__( 'Support', 'trackora' )
+	);
+
+	$plugin_meta[] = sprintf(
+		'<a href="%1$s" target="_blank" rel="noopener noreferrer" aria-label="%2$s">%3$s</a>',
+		esc_url( 'https://wordpress.org/support/plugin/trackora/reviews/#new-post' ),
+		esc_attr__( 'Leave a Trackora review on WordPress.org (opens in a new tab)', 'trackora' ),
+		esc_html__( 'Review', 'trackora' )
 	);
 
 	return $plugin_meta;
